@@ -1,0 +1,145 @@
+
+.nav {
+    /* text-align: center; */
+    height: 5rem;
+    /* float: inline-end; */
+    width: 95vw;
+  /* font-size: large; */
+    /* padding: 1rem 0; */
+    writing-mode: vertical-rl; 
+    /* background-color:rgb(43, 8, 8) ; */
+    /* justify-content: last baseline; */
+}
+
+.link {
+    color:rgb(92, 175, 168);
+    font-size: 1.7rem;
+    /* background-color:rgb(43, 8, 8) ; */
+    margin: 3rem;
+    text-decoration: none;
+}
+.link1{
+  float: left;
+}
+.link:hover {
+    color: rgb(245, 180, 82);
+}
+.p{
+    float: right;
+    margin-right:50%;
+ }
+/* class יצירת 
+הפעיל link שריאקט תזהה אותו ותפעיל אותו עבור ה  */
+.active {
+    color:  rgb(244, 209, 157);
+}
+.form{
+    background-color:    rgb(132, 198, 193);
+
+}
+
+.ToRegister{
+    width: 100px;height: 50px;
+border-color:  rgb(64, 245, 227);
+border-radius: 30%;
+}
+.recipe{float: left;
+    padding: 3rem;
+    padding-top: 1rem;
+  background-color:rgb(92, 175, 168);
+width: 25%;}
+
+.body{
+    background-color:rgb(67, 43, 43);
+}
+/* register */
+form{box-sizing: border-box;
+ margin-top: 180px;
+padding-bottom: 400px;
+padding-left: 400px;}
+
+/* Style the input container */
+.input-container {
+   
+  display: flex;
+  width: 80%;
+  margin-bottom: 15px;
+}
+
+/* Style the form icons */
+.icon {
+  padding: 10px;
+  background: grey;
+  color: white;
+  min-width: 50px;
+  text-align: center;
+}
+
+/* Style the input fields */
+.input-field {
+  width: 700px;
+  padding: 10px;
+  outline: none;
+}
+
+.input-field:focus {
+  border: 2px solid rgb(218, 92, 46);
+}
+
+/* Set a style for the submit button */
+.btn {
+  background-color: black;
+ border-radius: 50%;
+  color: white;
+  padding: 15px 20px;
+  border: none;
+  cursor: pointer;
+  width: 790px;
+  margin-right: 500px;
+  opacity: 0.9;
+}
+
+.btn:hover {
+  opacity: 1;
+}
+/* .name{
+  writing-mode: vertical-rl; 
+
+  /* float: left; */
+
+/* font-size: 1.5rem;
+} */ 
+.name{
+    writing-mode: vertical-rl; 
+    float: left;
+  font-size: 1.5rem;
+  }
+/* .picturerecipe{float: ;} */
+.other{border: 5px solid rgb(244, 91, 91);}
+/* קטגוריות */
+.cookies{
+    border: 5px solid rgb(140, 165, 42);
+    float: left;
+
+
+}
+#lastmeal{
+  border: 5px solid burlywood;
+}
+#mainmeal{ border: 5px solid coral}
+#firstmeal{ border: 5px solid darkgoldenrod}
+#mainmeal{ border: 5px solid coral}
+#addition{border: 5px solid turquoise}
+
+.ingrediens{float: right; margin-right: 50%;}
+.detiles{padding: 70px;}
+#select{float: left;}
+#comment{width: 700px; margin-left: 50px;
+background-color: rgb(108, 69, 69);}
+.note{ padding: 3rem;
+  padding-top: 1rem;
+background-color:rgb(67, 43, 43) ;}
+select{background-color: rgb(244, 209, 157)}
+input{background-color: rgb(255, 250, 233);}
+#add{margin-left: 20%; }
+#t{margin: 0px;}

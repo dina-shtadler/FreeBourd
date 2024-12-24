@@ -1,0 +1,272 @@
+/* הכללת סגנונות כלליים */
+/* body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+} */
+
+/* עיצוב כפתור הוספה */
+/* .add-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.add-button:hover {
+    background-color: #45a049;
+}
+
+/* עיצוב מחלקת פילטר */
+/* .filter-container {
+    margin: 20px;
+}
+
+h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+select, input {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 100%;
+    max-width: 300px;
+}
+
+/* עיצוב כרטיס דירה */
+/* .apartments-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.apartment-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.apartment-card:hover {
+    transform: scale(1.05);
+}
+
+.apartment-address {
+    color: #555;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.apartment-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}  */ 
+
+/* עיצוב כפתורים בתוך כרטיס הדירה */
+/* .apartment-actions {
+    margin-top: 10px;
+}
+
+.delete-button, .update-button {
+    background-color: #e74c3c;
+    color: white;
+    padding: 8px 16px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.delete-button:hover {
+    background-color: #c0392b;
+}
+
+.update-button:hover {
+    background-color: #2980b9;
+} */
+ /* עיצוב כפתור הוספה */
+.add-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.add-button:hover {
+    background-color: #45a049;
+}
+
+/* עיצוב הטבלה */
+.apartments-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background-color: #fff;
+}
+
+.apartments-table th, .apartments-table td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+.apartments-table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+.apartments-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.apartment-image {
+    width: 100px;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* עיצוב כפתורים בתוך הטבלה */
+.delete-button, .update-button {
+    background-color: #e74c3c;
+    color: white;
+    padding: 8px 16px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.delete-button:hover {
+    background-color: #c0392b;
+}
+
+.update-button:hover {
+    background-color: #2980b9;
+}
+/* עיצוב כפתור הוספה */
+.add-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.add-button:hover {
+    background-color: #45a049;
+}
+
+/* עיצוב הטבלה */
+.apartments-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background-color: #fff;
+    overflow-x: auto; /* איפשר הצגת גלילה אופקית */
+    display: block; /* חשוב לאפשר גלילה */
+}
+
+.apartments-table th, .apartments-table td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ddd;
+    word-wrap: break-word; /* וידא שיכולות המילים יישברו לשורה חדשה */
+}
+
+.apartments-table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+.apartments-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.apartment-image {
+    width: 100px;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* עיצוב כפתורים בתוך הטבלה */
+.delete-button, .update-button {
+    background-color: #e74c3c;
+    color: white;
+    padding: 8px 16px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.delete-button:hover {
+    background-color: #c0392b;
+}
+
+.update-button:hover {
+    background-color: #2980b9;
+}
+
+/* שינוי עיצוב עבור מסכים קטנים (רספונסיביות) */
+@media screen and (max-width: 768px) {
+    .apartments-table th, .apartments-table td {
+        padding: 8px; /* פחות ריווח */
+    }
+
+    .apartments-table {
+        font-size: 14px; /* הקטנת גודל הגופן */
+    }
+
+    .apartment-image {
+        width: 80px; /* תמונה קטנה יותר במובייל */
+    }
+
+    /* גלילה אופקית אם הטבלה גדולה מדי */
+    .apartments-table {
+        display: block;
+        overflow-x: scroll;
+    }
+}
+
+/* שינוי עיצוב עבור מסכים קטנים מאוד (טלפונים ניידים) */
+@media screen and (max-width: 480px) {
+    .apartments-table th, .apartments-table td {
+        padding: 6px; /* עוד יותר פחות ריווח */
+        font-size: 12px; /* הקטנת גודל הגופן */
+    }
+
+    .apartment-image {
+        width: 60px; /* תמונה קטנה יותר במובייל */
+    }
+
+    /* הסתרת עמודות לא חשובות במובייל */
+    .apartments-table td:nth-child(n+6), .apartments-table th:nth-child(n+6) {
+        display: none;
+    }
+}

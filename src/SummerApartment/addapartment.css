@@ -1,0 +1,90 @@
+/* בסיסי - עיצוב טופס
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f9;
+  } */
+  
+  /* טופס */
+  form {
+    width: 100%;
+    max-width: 600px; /* קובע את רוחב הטופס על 600px במקרה של מסכים רחבים יותר */
+    margin: 20px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* כותרת */
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+  }
+  
+  /* שדות קלט */
+  .input-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+  }
+  
+  .input-field {
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    font-size: 1em;
+  }
+  
+  .input-field:focus {
+    outline: none;
+    border-color: #007bff;
+  }
+  
+  /* כפתור שליחה */
+  .btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.2em;
+    cursor: pointer;
+  }
+  
+  .btn:hover {
+    background-color: #0056b3;
+  }
+  
+  /* רספונסיביות: עיצוב מסכים קטנים יותר */
+  @media (max-width: 600px) {
+    body {
+      flex-direction: column;
+      justify-content: flex-start;
+      padding: 10px;
+    }
+  
+    form {
+      width: 100%;
+      margin: 10px;
+    }
+  
+    .input-field {
+      font-size: 0.9em;
+      padding: 8px;
+    }
+  
+    .btn {
+      font-size: 1em;
+      padding: 12px;
+    }
+  }
+  

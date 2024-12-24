@@ -1,0 +1,45 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.home{
+    background-image: url('../SummerApartment/SummerHome/HriWFHgRNhaDFxlWYkmLGRbLHZXnMMNBffnWcRrwDJJtwjmPjWPwOqHbYIQelSuG.jpg') ;
+background-size: 100%; 
+width: 20rem;
+height: 55rem;
+float: inline-start;
+margin-top: -12rem;
+}
+.logo{  
+    
+    height: 55rem;
+    margin-left: 25rem;
+    margin-top: -12rem;
+    background-repeat: no-repeat;
+    background-image: url('../SummerApartment/SummerHome/gyIlaADvpMUQfEmXKajbgeuyHGmybGvXfbIHQwkQjVfcsizzNVFGcafrhgCzKxDR.jpeg')  ;
+    
+}
