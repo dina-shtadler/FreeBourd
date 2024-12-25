@@ -1,23 +1,21 @@
 {
   "files": {
-    "main.css": "/dina-shtadler/FreeBourd.git/static/css/main.6b028550.css",
-    "main.js": "/dina-shtadler/FreeBourd.git/static/js/main.5706b024.js",
-    "static/js/498.20efc46e.chunk.js": "/dina-shtadler/FreeBourd.git/static/js/498.20efc46e.chunk.js",
-    "static/js/703.3de3b10f.chunk.js": "/dina-shtadler/FreeBourd.git/static/js/703.3de3b10f.chunk.js",
-    "static/js/198.9d7a6080.chunk.js": "/dina-shtadler/FreeBourd.git/static/js/198.9d7a6080.chunk.js",
-    "static/js/787.d4aba7ab.chunk.js": "/dina-shtadler/FreeBourd.git/static/js/787.d4aba7ab.chunk.js",
-    "static/media/HriWFHgRNhaDFxlWYkmLGRbLHZXnMMNBffnWcRrwDJJtwjmPjWPwOqHbYIQelSuG.jpg": "/dina-shtadler/FreeBourd.git/static/media/HriWFHgRNhaDFxlWYkmLGRbLHZXnMMNBffnWcRrwDJJtwjmPjWPwOqHbYIQelSuG.565449e67bda6c1b4366.jpg",
-    "static/media/gyIlaADvpMUQfEmXKajbgeuyHGmybGvXfbIHQwkQjVfcsizzNVFGcafrhgCzKxDR.jpeg": "/dina-shtadler/FreeBourd.git/static/media/gyIlaADvpMUQfEmXKajbgeuyHGmybGvXfbIHQwkQjVfcsizzNVFGcafrhgCzKxDR.f5b510797f8a665a08dd.jpeg",
-    "index.html": "/dina-shtadler/FreeBourd.git/index.html",
-    "main.6b028550.css.map": "/dina-shtadler/FreeBourd.git/static/css/main.6b028550.css.map",
-    "main.5706b024.js.map": "/dina-shtadler/FreeBourd.git/static/js/main.5706b024.js.map",
-    "498.20efc46e.chunk.js.map": "/dina-shtadler/FreeBourd.git/static/js/498.20efc46e.chunk.js.map",
-    "703.3de3b10f.chunk.js.map": "/dina-shtadler/FreeBourd.git/static/js/703.3de3b10f.chunk.js.map",
-    "198.9d7a6080.chunk.js.map": "/dina-shtadler/FreeBourd.git/static/js/198.9d7a6080.chunk.js.map",
-    "787.d4aba7ab.chunk.js.map": "/dina-shtadler/FreeBourd.git/static/js/787.d4aba7ab.chunk.js.map"
+    "main.css": "/FreeBourd/static/css/main.6881a29e.css",
+    "main.js": "/FreeBourd/static/js/main.903d5d48.js",
+    "static/js/498.20efc46e.chunk.js": "/FreeBourd/static/js/498.20efc46e.chunk.js",
+    "static/js/703.3de3b10f.chunk.js": "/FreeBourd/static/js/703.3de3b10f.chunk.js",
+    "static/js/198.9d7a6080.chunk.js": "/FreeBourd/static/js/198.9d7a6080.chunk.js",
+    "static/media/HriWFHgRNhaDFxlWYkmLGRbLHZXnMMNBffnWcRrwDJJtwjmPjWPwOqHbYIQelSuG.jpg": "/FreeBourd/static/media/HriWFHgRNhaDFxlWYkmLGRbLHZXnMMNBffnWcRrwDJJtwjmPjWPwOqHbYIQelSuG.565449e67bda6c1b4366.jpg",
+    "static/media/gyIlaADvpMUQfEmXKajbgeuyHGmybGvXfbIHQwkQjVfcsizzNVFGcafrhgCzKxDR.jpeg": "/FreeBourd/static/media/gyIlaADvpMUQfEmXKajbgeuyHGmybGvXfbIHQwkQjVfcsizzNVFGcafrhgCzKxDR.f5b510797f8a665a08dd.jpeg",
+    "index.html": "/FreeBourd/index.html",
+    "main.6881a29e.css.map": "/FreeBourd/static/css/main.6881a29e.css.map",
+    "main.903d5d48.js.map": "/FreeBourd/static/js/main.903d5d48.js.map",
+    "498.20efc46e.chunk.js.map": "/FreeBourd/static/js/498.20efc46e.chunk.js.map",
+    "703.3de3b10f.chunk.js.map": "/FreeBourd/static/js/703.3de3b10f.chunk.js.map",
+    "198.9d7a6080.chunk.js.map": "/FreeBourd/static/js/198.9d7a6080.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.6b028550.css",
-    "static/js/main.5706b024.js"
+    "static/css/main.6881a29e.css",
+    "static/js/main.903d5d48.js"
   ]
 }
