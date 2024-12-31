@@ -1,21 +1,20 @@
 {
   "files": {
-    "main.css": "/FreeBourd/static/css/main.6881a29e.css",
-    "main.js": "/FreeBourd/static/js/main.903d5d48.js",
+    "main.css": "/FreeBourd/static/css/main.79f38ca9.css",
+    "main.js": "/FreeBourd/static/js/main.b984e629.js",
     "static/js/498.20efc46e.chunk.js": "/FreeBourd/static/js/498.20efc46e.chunk.js",
     "static/js/703.3de3b10f.chunk.js": "/FreeBourd/static/js/703.3de3b10f.chunk.js",
     "static/js/198.9d7a6080.chunk.js": "/FreeBourd/static/js/198.9d7a6080.chunk.js",
-    "static/media/HriWFHgRNhaDFxlWYkmLGRbLHZXnMMNBffnWcRrwDJJtwjmPjWPwOqHbYIQelSuG.jpg": "/FreeBourd/static/media/HriWFHgRNhaDFxlWYkmLGRbLHZXnMMNBffnWcRrwDJJtwjmPjWPwOqHbYIQelSuG.565449e67bda6c1b4366.jpg",
-    "static/media/gyIlaADvpMUQfEmXKajbgeuyHGmybGvXfbIHQwkQjVfcsizzNVFGcafrhgCzKxDR.jpeg": "/FreeBourd/static/media/gyIlaADvpMUQfEmXKajbgeuyHGmybGvXfbIHQwkQjVfcsizzNVFGcafrhgCzKxDR.f5b510797f8a665a08dd.jpeg",
+    "static/media/בניין.jpg": "/FreeBourd/static/media/בניין.b2905fe0319128b4d636.jpg",
     "index.html": "/FreeBourd/index.html",
-    "main.6881a29e.css.map": "/FreeBourd/static/css/main.6881a29e.css.map",
-    "main.903d5d48.js.map": "/FreeBourd/static/js/main.903d5d48.js.map",
+    "main.79f38ca9.css.map": "/FreeBourd/static/css/main.79f38ca9.css.map",
+    "main.b984e629.js.map": "/FreeBourd/static/js/main.b984e629.js.map",
     "498.20efc46e.chunk.js.map": "/FreeBourd/static/js/498.20efc46e.chunk.js.map",
     "703.3de3b10f.chunk.js.map": "/FreeBourd/static/js/703.3de3b10f.chunk.js.map",
     "198.9d7a6080.chunk.js.map": "/FreeBourd/static/js/198.9d7a6080.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.6881a29e.css",
-    "static/js/main.903d5d48.js"
+    "static/css/main.79f38ca9.css",
+    "static/js/main.b984e629.js"
   ]
 }
