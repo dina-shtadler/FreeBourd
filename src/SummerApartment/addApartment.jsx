@@ -560,6 +560,7 @@ export const AddApartments = () => {
 
       const selectedCategory = listKategories.find((x) => x.nameKategory === Kategory);
       if (selectedCategory) {
+        console.log(Kategory);
           setKategory1(selectedCategory._id);
       }
 
@@ -630,7 +631,7 @@ export const AddApartments = () => {
                       type="file"
                       id="apartment-image"
                       onChange={handleImageChange}
-                      required
+                    //   required
                   />
               </div>
 

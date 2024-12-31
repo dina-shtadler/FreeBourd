@@ -1,45 +1,76 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.home{
-    background-image: url('../SummerApartment/SummerHome/HriWFHgRNhaDFxlWYkmLGRbLHZXnMMNBffnWcRrwDJJtwjmPjWPwOqHbYIQelSuG.jpg') ;
-background-size: 100%; 
-width: 20rem;
-height: 55rem;
-float: inline-start;
-margin-top: -12rem;
-}
-.logo{  
-    
-    height: 55rem;
+body {
+    background-color: #f5f5f550; /* אפור בהיר */
+    font-family: 'Arial', sans-serif; /* גופן מקצועי */
+    margin: 0;
+    padding: 0;
+  }
+  
+.home-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+  }
+  .building-image {
+    height: 150%;
+    width: 100%;
     margin-left: 25rem;
     margin-top: -12rem;
     background-repeat: no-repeat;
-    background-image: url('../SummerApartment/SummerHome/gyIlaADvpMUQfEmXKajbgeuyHGmybGvXfbIHQwkQjVfcsizzNVFGcafrhgCzKxDR.jpeg')  ;
-    
+    background-image: url('../../public/picture/בניין.jpg')  ;
+ 
 }
+  .left-side {
+    flex: 1; /* תופס את כל הרוחב */
+   margin-left: -500px; /* display: flex; */
+    justify-content: flex-start; /* ממקם את התמונה בצד שמאל */
+    align-items: flex-start; /* ממקם את התמונה למעלה */
+    height: 100vh; /* גובה מלא של העמוד */
+  }
+  
+  /* .building-image {
+    max-width: 80%;
+    height: auto;
+    object-fit: cover;
+  }
+   */
+  .right-side {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .search-button, .add-button {
+    background-color: #4CAF50; /* ירוק בהיר */
+
+    transition: background-color 0.3s ease, transform 0.2s ease; /* אפקט שינוי צבע ותנועה */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100%;
+    transition: background-color 0.3s ease;
+  }
+  
+  .search-button:hover, .add-button:hover {
+    background-color: #45a049; /* ירוק כהה */
+  transform: translateY(-3px); /* הרמה קלה של הכפתור */
+  }
+  
+  .add-button {
+    background-color: #007bff; /* כחול בהיר */
+}
+  
+  .add-button:hover {
+    background-color: #0056b3; /* כחול כהה */
+    transform: translateY(-3px); /* הרמה קלה של הכפתור */  }
+  
+  
