@@ -8,9 +8,9 @@ export const Nav = () => {
     
         <div className={'nav'}>
             <NavLink to='Home' className={'link'} >Home</NavLink>
-            <NavLink to='Client' className={'link'}>Client</NavLink>
-            <NavLink to='Publisher' className={'link'}>Publisher</NavLink>
-            <NavLink to='Apartments' className={'link'}>Apartments</NavLink>
+            <NavLink to='apartmentForSale' className={'link'}>למכירה</NavLink>
+            <NavLink to='apartmentForRent' className={'link'}>להשכרה</NavLink>
+            {/* <NavLink to='Apartments' className={'link'}>כל הדירות במאגר</NavLink> */}
       </div>
 </>
 }

@@ -8,6 +8,7 @@ import { NavLink } from 'react-router-dom'
 // import { addUser1 } from "./api"
 import './Style.css'
 import swal from "sweetalert"
+import { Nav } from "./Nav"
 export const Register = () => {
   debugger
   // התחברות
@@ -34,6 +35,7 @@ export const Register = () => {
      if (x.data.message=='Welcome to our application!'){
       setlogin(Publisher)
      swal( `🤭🤭🤭 success`);
+     Nav('/home')
 //  
 }
     else if(x.response.data.message==`Email already exists!`)

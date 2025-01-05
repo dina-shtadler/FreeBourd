@@ -31,6 +31,7 @@ export const Publisher = () => {
                         localStorage.setItem(`token`,x.data.token)
 
          swal( `🤭🤭🤭 success`);
+         Nav('/home')
     //  
     }
    
@@ -40,6 +41,10 @@ export const Publisher = () => {
       })
       .catch(err => {
           console.log(err);
+          swal(err.response.data.message)
+          if(err.response.data.message=='Email not found!')
+            Nav('/Register')
+
       })
     
 //   const dispatch = useDispatch()

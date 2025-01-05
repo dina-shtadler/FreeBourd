@@ -1,4 +1,9 @@
-
+body {
+  background-color: #141515ce; /* אפור בהיר */
+  font-family: 'Arial', sans-serif; /* גופן מקצועי */
+  margin: 0;
+  padding: 0;
+}
 .nav {
     /* text-align: center; */
     height: 5rem;

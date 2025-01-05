@@ -6,7 +6,7 @@ export const Home = () => {
 
     const addApartment = () => {
         // localStorage.setItem('thisApartment', JSON.stringify(a));
-        Nav('/addApartments');
+        Nav('/Publisher');
     };
     const apartmentForsale = () => {
         // localStorage.setItem('thisApartment', JSON.stringify(a));
@@ -26,7 +26,7 @@ export const Home = () => {
       <div className="right-side">
         <button className="search-button" onClick={apartmentForsale}>לחיפוש דירה למכירה</button>
         <button className="search-button" onClick={apartmentForRent}>לחיפוש דירה להשכרה</button>
-        <button className="add-button" onClick={addApartment}>הוספת דירה למאגר</button>
+        <button className="add-button" onClick={addApartment}>התחברות והוספת דירה למאגר </button>
       </div>
     </div>
     
