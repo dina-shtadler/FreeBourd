@@ -31,7 +31,7 @@ export const Publisher = () => {
                         localStorage.setItem(`token`,x.data.token)
 
          swal( `🤭🤭🤭 success`);
-         Nav('/home')
+         Nav('/addApartments')
     //  
     }
    

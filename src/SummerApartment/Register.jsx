@@ -35,7 +35,7 @@ export const Register = () => {
      if (x.data.message=='Welcome to our application!'){
       setlogin(Publisher)
      swal( `🤭🤭🤭 success`);
-     Nav('/home')
+     Nav('/addApartments')
 //  
 }
     else if(x.response.data.message==`Email already exists!`)
