@@ -8,47 +8,47 @@ Noto Sans Hebrew is a variable font with these axes:
   wght
 
 This means all the styles are contained in a single file:
-  Noto_Sans_Hebrew/NotoSansHebrew-VariableFont_wdth,wght.ttf
+  NotoSansHebrew-VariableFont_wdth,wght.ttf
 
 If your app fully supports variable fonts, you can now pick intermediate styles
 that aren’t available as static fonts. Not all apps support variable fonts, and
 in those cases you can use the static font files for Noto Sans Hebrew:
-  Noto_Sans_Hebrew/static/NotoSansHebrew_ExtraCondensed-Thin.ttf
-  Noto_Sans_Hebrew/static/NotoSansHebrew_ExtraCondensed-ExtraLight.ttf
-  Noto_Sans_Hebrew/static/NotoSansHebrew_ExtraCondensed-Light.ttf
-  Noto_Sans_Hebrew/static/NotoSansHebrew_ExtraCondensed-Regular.ttf
-  Noto_Sans_Hebrew/static/NotoSansHebrew_ExtraCondensed-Medium.ttf
-  Noto_Sans_Hebrew/static/NotoSansHebrew_ExtraCondensed-SemiBold.ttf
-  Noto_Sans_Hebrew/static/NotoSansHebrew_ExtraCondensed-Bold.ttf
-  Noto_Sans_Hebrew/static/NotoSansHebrew_ExtraCondensed-ExtraBold.ttf
-  Noto_Sans_Hebrew/static/NotoSansHebrew_ExtraCondensed-Black.ttf
-  Noto_Sans_Hebrew/static/NotoSansHebrew_Condensed-Thin.ttf
-  Noto_Sans_Hebrew/static/NotoSansHebrew_Condensed-ExtraLight.ttf
-  Noto_Sans_Hebrew/static/NotoSansHebrew_Condensed-Light.ttf
-  Noto_Sans_Hebrew/static/NotoSansHebrew_Condensed-Regular.ttf
-  Noto_Sans_Hebrew/static/NotoSansHebrew_Condensed-Medium.ttf
-  Noto_Sans_Hebrew/static/NotoSansHebrew_Condensed-SemiBold.ttf
-  Noto_Sans_Hebrew/static/NotoSansHebrew_Condensed-Bold.ttf
-  Noto_Sans_Hebrew/static/NotoSansHebrew_Condensed-ExtraBold.ttf
-  Noto_Sans_Hebrew/static/NotoSansHebrew_Condensed-Black.ttf
-  Noto_Sans_Hebrew/static/NotoSansHebrew_SemiCondensed-Thin.ttf
-  Noto_Sans_Hebrew/static/NotoSansHebrew_SemiCondensed-ExtraLight.ttf
-  Noto_Sans_Hebrew/static/NotoSansHebrew_SemiCondensed-Light.ttf
-  Noto_Sans_Hebrew/static/NotoSansHebrew_SemiCondensed-Regular.ttf
-  Noto_Sans_Hebrew/static/NotoSansHebrew_SemiCondensed-Medium.ttf
-  Noto_Sans_Hebrew/static/NotoSansHebrew_SemiCondensed-SemiBold.ttf
-  Noto_Sans_Hebrew/static/NotoSansHebrew_SemiCondensed-Bold.ttf
-  Noto_Sans_Hebrew/static/NotoSansHebrew_SemiCondensed-ExtraBold.ttf
-  Noto_Sans_Hebrew/static/NotoSansHebrew_SemiCondensed-Black.ttf
-  Noto_Sans_Hebrew/static/NotoSansHebrew-Thin.ttf
-  Noto_Sans_Hebrew/static/NotoSansHebrew-ExtraLight.ttf
-  Noto_Sans_Hebrew/static/NotoSansHebrew-Light.ttf
-  Noto_Sans_Hebrew/static/NotoSansHebrew-Regular.ttf
-  Noto_Sans_Hebrew/static/NotoSansHebrew-Medium.ttf
-  Noto_Sans_Hebrew/static/NotoSansHebrew-SemiBold.ttf
-  Noto_Sans_Hebrew/static/NotoSansHebrew-Bold.ttf
-  Noto_Sans_Hebrew/static/NotoSansHebrew-ExtraBold.ttf
-  Noto_Sans_Hebrew/static/NotoSansHebrew-Black.ttf
+  static/NotoSansHebrew_ExtraCondensed-Thin.ttf
+  static/NotoSansHebrew_ExtraCondensed-ExtraLight.ttf
+  static/NotoSansHebrew_ExtraCondensed-Light.ttf
+  static/NotoSansHebrew_ExtraCondensed-Regular.ttf
+  static/NotoSansHebrew_ExtraCondensed-Medium.ttf
+  static/NotoSansHebrew_ExtraCondensed-SemiBold.ttf
+  static/NotoSansHebrew_ExtraCondensed-Bold.ttf
+  static/NotoSansHebrew_ExtraCondensed-ExtraBold.ttf
+  static/NotoSansHebrew_ExtraCondensed-Black.ttf
+  static/NotoSansHebrew_Condensed-Thin.ttf
+  static/NotoSansHebrew_Condensed-ExtraLight.ttf
+  static/NotoSansHebrew_Condensed-Light.ttf
+  static/NotoSansHebrew_Condensed-Regular.ttf
+  static/NotoSansHebrew_Condensed-Medium.ttf
+  static/NotoSansHebrew_Condensed-SemiBold.ttf
+  static/NotoSansHebrew_Condensed-Bold.ttf
+  static/NotoSansHebrew_Condensed-ExtraBold.ttf
+  static/NotoSansHebrew_Condensed-Black.ttf
+  static/NotoSansHebrew_SemiCondensed-Thin.ttf
+  static/NotoSansHebrew_SemiCondensed-ExtraLight.ttf
+  static/NotoSansHebrew_SemiCondensed-Light.ttf
+  static/NotoSansHebrew_SemiCondensed-Regular.ttf
+  static/NotoSansHebrew_SemiCondensed-Medium.ttf
+  static/NotoSansHebrew_SemiCondensed-SemiBold.ttf
+  static/NotoSansHebrew_SemiCondensed-Bold.ttf
+  static/NotoSansHebrew_SemiCondensed-ExtraBold.ttf
+  static/NotoSansHebrew_SemiCondensed-Black.ttf
+  static/NotoSansHebrew-Thin.ttf
+  static/NotoSansHebrew-ExtraLight.ttf
+  static/NotoSansHebrew-Light.ttf
+  static/NotoSansHebrew-Regular.ttf
+  static/NotoSansHebrew-Medium.ttf
+  static/NotoSansHebrew-SemiBold.ttf
+  static/NotoSansHebrew-Bold.ttf
+  static/NotoSansHebrew-ExtraBold.ttf
+  static/NotoSansHebrew-Black.ttf
 
 Get started
 -----------
