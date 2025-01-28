@@ -12,7 +12,8 @@ import pdfFonts from 'pdfmake/build/vfs_fonts'; // פונט מובנה של pdfm
 import { PDFDocument } from 'pdf-lib';
 import * as fontkit from 'fontkit';  // שינוי כאן, יבוא כל הפונקציות מ-fontkit
 import swal from 'sweetalert'
-
+import { FaPrint, FaShareSquare } from 'react-icons/fa';
+import { FaTrashAlt, FaPen } from 'react-icons/fa';
 
 export const ApartmentForRent = () => {
     // pdfMake.vfs = pdfFonts.pdfMake.vfs; // שייך את הפונט המובנה
@@ -68,13 +69,17 @@ export const ApartmentForRent = () => {
   
     const [login, setlogin] = useState()
 
+   
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+
     const loginS = (event) => {
         event.preventDefault()
 
         const Publisher =  {
           
-            email: event.target[0].value,
-             password: event.target[1].value
+            email:email,
+             password: password
         }
         console.log(    Publisher)
         loginp(Publisher.email,Publisher.password) 
@@ -90,13 +95,45 @@ export const ApartmentForRent = () => {
     //  
     }
    
-})
-.catch(err => {
-    console.log(err);
-    swal(err.response.data.message)
- 
+   
+      })
+      .catch(err => {
+          console.log(err);
+          swal(err.response.data.message)
+       
 
-})} 
+      })}
+      const handlePrint = (apartment) => {
+        const printWindow = window.open('', '', 'height=600,width=800');
+        printWindow.document.write('<html><head><title>הדפסה</title></head><body>');
+        printWindow.document.write(`<h3>פרטי דירה</h3>`);
+        printWindow.document.write(`<p>עיר: ${apartment.kodCity[0]?.namecity}, שכונה: ${apartment.neighbourhood}, רחוב: ${apartment.street}</p>`);
+        printWindow.document.write(`<p>מספר חדרים: ${apartment.numRooms}</p>`);
+        printWindow.document.write(`<p>שטח דירה: ${apartment.squareMeter} מ"ר</p>`);
+        printWindow.document.write(`<p>מחיר: ${apartment.price}</p>`);
+        printWindow.document.write('</body></html>');
+        printWindow.document.close();
+        printWindow.print();
+    };
+
+    // פונקציה להדפסת כל הדירות
+    const handlePrintAll = () => {
+        const printWindow = window.open('', '', 'height=600,width=800');
+        printWindow.document.write('<html><head><title>הדפסה</title></head><body>');
+        printWindow.document.write('<h3>פרטי הדירות למכירה</h3>');
+        
+        listApartment.forEach((apartment) => {
+            printWindow.document.write(`<p><b>עיר:</b> ${apartment.kodCity[0]?.namecity}, <b>שכונה:</b> ${apartment.neighbourhood}, <b>רחוב:</b> ${apartment.street}</p>`);
+            printWindow.document.write(`<p><b>מספר חדרים:</b> ${apartment.numRooms}</p>`);
+            printWindow.document.write(`<p><b>שטח דירה:</b> ${apartment.squareMeter} מ"ר</p>`);
+            printWindow.document.write(`<p><b>מחיר:</b> ${apartment.price}</p><hr/>`);
+        });
+
+        printWindow.document.write('</body></html>');
+        printWindow.document.close();
+        printWindow.print();
+    };
+ 
 
     // Delete apartment
     const Delete = (a) => {
@@ -144,7 +181,7 @@ export const ApartmentForRent = () => {
             <div className="button-container">
                 <button onClick={addApartment} className="add-button">הוספת דירה למאגר</button>
             </div>
-            <div className="add-button"> <button onClick={loginS} className="button-container" >התחברות</button> <input type="text" placeholder='סיסמה'/><input placeholder='מייל'></input>
+            <div className="add-button"> <button onClick={loginS} className="button-container" >התחברות</button> <input type="text" placeholder='סיסמה' onBlur={(e)=>setPassword(e.target.value)}/><input placeholder='מייל'  onBlur={ (e)=>setEmail(e.target.value)}></input>
                :ע"מ לערוך או למחוק דירה שפירסמת עליך להתחבר
             </div>
             {/* Filter components */}
@@ -168,7 +205,6 @@ export const ApartmentForRent = () => {
                 <thead>
                     <tr>
                         {/* <th>שם הדירה</th> */}
-                        <th>תמונה</th>
                         <th>כתובת</th>
                         {/* <th>תיאור</th> */}
                         <th>מספר חדרים</th>
@@ -186,7 +222,6 @@ export const ApartmentForRent = () => {
                     {listApartment && listApartment.map((x) => (
                         <tr key={x._id}>
                             {/* <td>{x.nameApartment}</td> */}
-                            <td><img className="apartment-image" src={`http://localhost:3001/${x.picture}`} alt={x.nameApartment} /></td>
                             <td>{`עיר:${x.kodCity[0]?.namecity},שכונה: ${x.neighbourhood}, רחוב:${x.street}, מס בניין:${x.numBuild}`}</td>
                             {/* <td>{x.describe}</td> */}
                             <td>{x.numRooms}</td>
@@ -198,14 +233,27 @@ export const ApartmentForRent = () => {
                             <td>{x.kodPublisher[0]?.email}</td>
                             <td>{x.kodPublisher[0]?.phone}</td>
                             <td><input type='checkbox' checked={x.realEstateAgency}></input></td>
-                            <td>
-                                {x.kodPublisher[0]?.email === localStorage.getItem('userEmail') && (
-                                    <div>
-                                        <button onClick={() => Delete(x)} className="delete-button">מחק</button>
-                                        <button onClick={() => update(x)} className="update-button">עדכן</button>
-                                    </div>
-                                )}
-                            </td>
+                             <td>
+                                                            {x.kodPublisher[0]?.email === localStorage.getItem('userEmail') && (
+                                                                <div>
+                                                                    <button onClick={() => Delete(x)} 
+                                                                    // className="delete-button"
+                                                                    >                        <FaTrashAlt /> {/* אייקון מחיקה */}
+                                                                   
+                                                                    </button>
+                                                                    <button onClick={() => update(x)} 
+                                                                    // className="update-button"
+                                                                    >                         <FaPen /> {/* אייקון עדכון */}
+                                                                   
+                                                                    </button>
+                                                                </div>
+                                                            )}
+                                                        </td>
+                                                        <td>
+                                                            <button onClick={() => handlePrint(x)}>           <FaShareSquare /> {/* אייקון ייצוא */}
+                                                            <FaPrint /> {/* אייקון הדפסה */}
+                                                            </button>
+                                                        </td>
                         </tr>
                     ))}
                 </tbody>

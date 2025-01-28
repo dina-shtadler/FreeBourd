@@ -293,7 +293,7 @@ export const Apartments = () => {
         page: {
           padding: 10,
           fontSize: 12,
-          fontFamily: 'Helvetica',
+          fontFamily: 'Noto Sans Hebrew',
         },
         section: {
           marginBottom: 10,

@@ -4,12 +4,16 @@ import { useEffect, useState ,useRef} from "react";
 import { getAllApartment, getAllKategorys, removeApartment, getAllByKodKategory, loginp } from "./api";
 import { useNavigate } from 'react-router-dom';
 import { jsPDF } from "jspdf";
-import { PDFDownloadLink, Document, Page, Text, StyleSheet, View, Font } from '@react-pdf/renderer';
 import pdfMake from 'pdfmake/build/pdfmake';
 import pdfFonts from 'pdfmake/build/vfs_fonts'; // פונט מובנה של pdfmake
 import { PDFDocument } from 'pdf-lib';
 import * as fontkit from 'fontkit';  // שינוי כאן, יבוא כל הפונקציות מ-fontkit
 import swal from 'sweetalert'
+import { MdDelete, MdEdit } from 'react-icons/md';
+import { FaPrint, FaShareSquare } from 'react-icons/fa';
+import { FaTrashAlt, FaPen } from 'react-icons/fa';
+
+import { Document, Page, Text, View, StyleSheet, Font, PDFDownloadLink } from '@react-pdf/renderer';
 
 
 export const ApartmentForsale = () => {
@@ -35,18 +39,113 @@ export const ApartmentForsale = () => {
             });
     }, []);
 
-    useEffect(() => {
-        getAllKategorys()
-            .then(x => {
-                setListK(x.data.kategorys);
-            })
-            .catch(err => {
-                console.log(err);
-            });
-    }, []);
+ 
     const [selectedApartment, setSelectedApartment] = useState(null); // דירה נבחרת להדפסה
     const printRef = useRef();
+   // נרשם את הפונט המותאם אישית
+    // Font.register({
+    //   family: 'NotoSansHebrew1',
+    //   src: '/NotoSansHebrew-Regular.ttf', // נתיב הפונט שלך
+    // });
+    
+  
+  // נתיב הפונט מ-Google Fonts
+const notoSansHebrewSrc = 'https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew:wght@100..900&display=swap" rel="stylesheet';
 
+// רישום הפונט המשתנה
+Font.register({
+  family: 'Noto Sans Hebrew',
+  fonts: [
+    {
+      fontStyle: 'normal',
+      fontWeight: 400,
+      src: `${notoSansHebrewSrc}/nq6v_y6B5yo8OeHjP1K3vTk8X63f0OsYJhFqfEqyM2RfBLSXZcKg.ttf`, // גרסה רגילה 400
+    },
+    {
+      fontStyle: 'italic',
+      fontWeight: 400,
+      src: `${notoSansHebrewSrc}/nq6v_y6B5yo8OeHjP1K3vTk8X63f0OsYJhFqfEqyM2RfBLSXZcKg.ttf`, // גרסה נטויה 400 (לבדוק אם קיימת גרסה כזו)
+    },
+    {
+      fontStyle: 'normal',
+      fontWeight: 700,
+      src: `${notoSansHebrewSrc}/nq6v_y6B5yo8OeHjP1K3vTk8X63f0OsYJhFqfEqyM2RfBLSXZcKg.ttf`, // גרסה רגילה 700
+    },
+    {
+      fontStyle: 'italic',
+      fontWeight: 700,
+      src: `${notoSansHebrewSrc}/nq6v_y6B5yo8OeHjP1K3vTk8X63f0OsYJhFqfEqyM2RfBLSXZcKg.ttf`, // גרסה נטויה 700 (אם קיימת)
+    },
+  ],
+});
+
+// יצירת סטיילים ב-PDF
+const styles = StyleSheet.create({
+  page: {
+    backgroundColor: '#f0f0f0',
+    padding: 30,
+  },
+  section: {
+    marginBottom: 10,
+  },
+  text: {
+    fontFamily: 'Noto Sans Hebrew',
+    fontSize: 12,
+    color: '#333',
+    fontVariationSettings: '"wdth" 100',  // שימוש בהגדרה של font-variation-settings
+  },
+  header: {
+    fontFamily: 'Noto Sans Hebrew',
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#333',
+    marginBottom: 20,
+    fontVariationSettings: '"wdth" 100',  // גם כאן
+  },
+});
+
+  // // סטיילים לקובץ ה-PDF
+    // const styles = StyleSheet.create({
+    //   page: {
+    //     backgroundColor: '#f0f0f0',
+    //     padding: 30,
+    //   },
+    //   section: {
+    //     marginBottom: 10,
+    //   },
+    //   text: {
+    //     fontFamily: 'NotoSansHebrew1',
+    //     fontSize: 12,
+    //     color: '#333',
+    //   },
+    //   header: {
+    //     fontFamily: 'NotoSansHebrew1',
+    //     fontSize: 18,
+    //     fontWeight: 'bold',
+    //     color: '#333',
+    //     marginBottom: 20,
+    //   },
+    // });
+    // // הרכיב שמייצר את ה-PDF
+    const MyDocument = () => (
+      <Document>        
+
+        <Page style={styles.page}>
+          <View style={styles.section}>
+            <Text style={styles.header}>ברוכים הבאים לדירה למכירה</Text>
+            <Text style={styles.text}>תיאור הדירה: דירה מדהימה עם נוף יפה ושפע של אור טבעי. ממוקמת באזור מרכזי בעיר.</Text>
+            <Text style={styles.text}>כתובת: רחוב הדירה, תל אביב</Text>
+            <Text style={styles.text}>מחיר: 2,500,000 ש"ח</Text>
+          </View>
+        </Page>
+      </Document>
+    );
+
+    const downloadPDF = () => {
+      debugger
+        // הפעלת ההורדה באמצעות לחיצה על הקישור האוטומטי
+        downloadLinkRef.current?.click();
+      };
     // פונקציה להדפסת דירה נבחרת
     const handlePrint = (apartment) => {
         const printWindow = window.open('', '', 'height=600,width=800');
@@ -78,33 +177,20 @@ export const ApartmentForsale = () => {
         printWindow.document.close();
         printWindow.print();
     };
- // Filter apartments by category
-    const send = () => {
-        listKategories.forEach((x) => {
-            if (x.nameKategory === Kategory) {
-                setKategory1(x._id);
-                getAllByKodKategory(x._id)
-                    .then(x => {
-                        setList(x.data.a.Apartment);
-                    })
-                    .catch(err => {
-                        console.log(err);
-                    });
-            }
-        });
-    };
-    const [selectedCategory, setSelectedCategory] = useState('');
+ 
     const [minRooms, setMinRooms] = useState('');
-    
-    const [login, setlogin] = useState()
+    const [login, setlogin] = useState('')
+
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
 
     const loginS = (event) => {
         event.preventDefault()
 
         const Publisher =  {
           
-            email: event.target[0].value,
-             password: event.target[1].value
+            email:email,
+             password: password
         }
         console.log(    Publisher)
         loginp(Publisher.email,Publisher.password) 
@@ -153,29 +239,33 @@ export const ApartmentForsale = () => {
     const addApartment = () => {
         Nav('/addApartments');
     };
-
+// רכיב שמייצר את כפתור ההורדה
+    const downloadLinkRef = useRef();
+  
+    // פונקציה להורדת ה-PDF
+    
     return (
         <>
 <div className="filters">
-    <select onChange={(e) => setSelectedCategory(e.target.value)}>
-        <option value="">בחר קטגוריה</option>
-        {listKategories && listKategories.map((category) => (
-            <option key={category._id} value={category.nameKategory}>{category.nameKategory}</option>
-        ))}
-    </select>
-    
+  
     <input 
         type="text" 
         placeholder="עיר "
         onChange={(e) => setMinRooms(e.target.value)} 
     />
 
-</div>
+</div> 
+          <button>
+<PDFDownloadLink document={<MyDocument />} fileName="apartments-list.pdf">
+                {({ loading }) => (loading ? 'יוצרים PDF...' : 'הורד PDF')}
+            </PDFDownloadLink>
+
+      </button>
 <button onClick={handlePrintAll}>הדפס את הכל</button>
             <div className="button-container">
                 <button onClick={addApartment} className="add-button">הוספת דירה למאגר</button>
             </div>
-            <div className="add-button"> <button onClick={loginS} className="button-container" >התחברות</button> <input type="text" placeholder='סיסמה'/><input placeholder='מייל'></input>
+            <div className="add-button"> <button onClick={loginS} className="button-container" >התחברות</button> <input type="text" placeholder='סיסמה' onBlur={(e)=>setPassword(e.target.value)}/><input placeholder='מייל'  onBlur={ (e)=>setEmail(e.target.value)}></input>
                :ע"מ לערוך או למחוק דירה שפירסמת עליך להתחבר
             </div>
             {/* Filter components */}
@@ -199,7 +289,6 @@ export const ApartmentForsale = () => {
                 <thead>
                     <tr>
                         {/* <th>שם הדירה</th> */}
-                        <th>תמונה</th>
                         <th>כתובת</th>
                         {/* <th>תיאור</th> */}
                         <th>מספר חדרים</th>
@@ -217,7 +306,6 @@ export const ApartmentForsale = () => {
                     {listApartment && listApartment.map((x) => (
                         <tr key={x._id}>
                             {/* <td>{x.nameApartment}</td> */}
-                            <td><img className="apartment-image" src={`http://localhost:3001/${x.picture}`} alt={x.nameApartment} /></td>
                             <td>{`עיר:${x.kodCity[0]?.namecity},שכונה: ${x.neighbourhood}, רחוב:${x.street}, מס בניין:${x.numBuild}`}</td>
                             {/* <td>{x.describe}</td> */}
                             <td>{x.numRooms}</td>
@@ -232,13 +320,23 @@ export const ApartmentForsale = () => {
                             <td>
                                 {x.kodPublisher[0]?.email === localStorage.getItem('userEmail') && (
                                     <div>
-                                        <button onClick={() => Delete(x)} className="delete-button">מחק</button>
-                                        <button onClick={() => update(x)} className="update-button">עדכן</button>
+                                        <button onClick={() => Delete(x)} 
+                                        // className="delete-button"
+                                        >                        <FaTrashAlt /> {/* אייקון מחיקה */}
+                                       
+                                        </button>
+                                        <button onClick={() => update(x)} 
+                                        // className="update-button"
+                                        >                         <FaPen /> {/* אייקון עדכון */}
+                                       
+                                        </button>
                                     </div>
                                 )}
                             </td>
                             <td>
-                                <button onClick={() => handlePrint(x)}>הדפס</button>
+                                <button onClick={() => handlePrint(x)}>           <FaShareSquare /> {/* אייקון ייצוא */}
+                                <FaPrint /> {/* אייקון הדפסה */}
+                                </button>
                             </td>
                         </tr>
                     ))}

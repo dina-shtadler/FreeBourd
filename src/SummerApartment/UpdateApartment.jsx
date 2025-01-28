@@ -123,45 +123,198 @@
 
 //     </>}
 
-import { Box, ButtonBase, DialogActions, DialogContent, DialogTitle, FormControl, InputLabel, MenuItem, Select, SelectChangeEvent, TextField, Typography } from "@mui/material"
-import { getAllCities, getAllKategorys, updateApartment } from "./api"
-import { useEffect, useState } from "react"
-import swal from "sweetalert"
+// import { Box, ButtonBase, DialogActions, DialogContent, DialogTitle, FormControl, InputLabel, MenuItem, Select, SelectChangeEvent, TextField, Typography } from "@mui/material"
+// import { getAllCities, getAllKategorys, updateApartment } from "./api"
+// import { useEffect, useState } from "react"
+// import swal from "sweetalert"
+
+// export const UpdateApartment = () => {
+//     const [Kategory, setKategory] = useState()
+//     const [Kategory1, setKategory1] = useState()
+//     const [listKategories, setListK] = useState()
+//     const [image, setImage] = useState(null)
+
+//     const handleImageChange = (event) => {
+//         setImage(event.target.files[0])
+//     }
+
+//     const thisApartment = localStorage.getItem(`thisApartment`)
+//     const thisApartment1 = JSON.parse(thisApartment)
+//     console.log(thisApartment1.numBeds)
+
+//     useEffect(() => {
+//         getAllKategorys()
+//             .then(x => {
+//                 console.log(x)
+//                 setListK(x.data.kategorys)
+//             })
+//             .catch(err => {
+//                 console.log(err)
+//             })
+//     }, [])
+
+//     const send = (event) => {
+//         event.preventDefault()
+        
+//         // קביעת קטגוריה
+//         listKategories.map((x) => {
+//             if (x.nameKategory === Kategory) {
+//                 setKategory1(x._id)
+//             }
+//         })
+
+//         const Apartment = {
+//             _id: thisApartment1._id,
+//             adress: event.target.adress.value,
+//             price: event.target.price.value,
+//             extras: event.target.extras.value,
+//             kodKategory: Kategory1,
+//             kodPublisher: localStorage.getItem(`user`),
+//             city: event.target.city.value,
+//             neighbourhood: event.target.neighbourhood.value,
+//             street: event.target.street.value,
+//             numBuild: event.target.numBuild.value,
+//             numRooms: event.target.numRooms.value,
+//             squareMeter: event.target.squareMeter.value,
+//             porch: event.target.porch.value,
+//             porchSquareMeter: event.target.porchSquareMeter.value,
+//             realEstateAgency: event.target.realEstateAgency.value
+//         }
+
+//         console.log(Apartment)
+
+//         updateApartment(localStorage.getItem(`user`), Apartment)
+//             .then(x => {
+//                 console.log(x.data)
+//                 swal(`🤭🤭🤭 success`)
+//             })
+//             .catch(err => {
+//                 console.log(err)
+//             })
+//     }
+
+//     return (
+//         <>
+//             <h1>עדכון פרטי הדירה</h1>
+
+//             <h3> <select required onChange={(e) => setKategory(e.target.value)}>
+//                 {listKategories && listKategories.map((x) => (
+//                     <>
+//                         <option key={x._id} value={x.nameKategory}>{x.nameKategory}</option>
+//                     </>
+//                 ))}
+//             </select>בחר קטגוריה </h3>
+
+//             <form id='t' action="./addApartment" onSubmit={(e) => send(e)}>
+//                 {/* <div className="TextField-container">
+//                     <i className="fa fa-user icon"></i>
+//                     <TextField className="TextField-field" type="text" name="nameApartment" defaultValue={thisApartment1.nameApartment} required />
+//                 </div> */}
+
+               
+
+//                 {/* <div className="TextField-container">
+//                     <i className="fa fa-envelope icon"></i>
+//                     <TextField className="TextField-field" name="describe" type="text" defaultValue={thisApartment1.describe} required />
+//                 </div> */}
+
+//                 <div className="TextField-container">
+//                     <i className="fa fa-envelope icon"></i>
+//                     <TextField className="TextField-field" name="adress" type="text" defaultValue={thisApartment1.adress} />
+//                 </div>
+
+//                 <div className="TextField-container">
+//                     <i className="fa fa-envelope icon"></i>
+//                     <TextField className="TextField-field" name="price" type="number" defaultValue={thisApartment1.price} />
+//                 </div>
+
+//                 <div className="TextField-container">
+//                     <i className="fa fa-envelope icon"></i>
+//                     <TextField className="TextField-field" name="extras" type="text" defaultValue={thisApartment1.extras} />
+//                 </div>
+
+               
+//                 {/* הוספת שדות נוספים */}
+//                 <div className="TextField-container">
+//                     <TextField className="TextField-field" name="city" type="text" defaultValue={thisApartment1.city} />
+//                 </div>
+
+//                 <div className="TextField-container">
+//                     <TextField className="TextField-field" name="neighbourhood" type="text" defaultValue={thisApartment1.neighbourhood} />
+//                 </div>
+
+//                 <div className="TextField-container">
+//                     <TextField className="TextField-field" name="street" type="text" defaultValue={thisApartment1.street} />
+//                 </div>
+
+//                 <div className="TextField-container">
+//                     <TextField className="TextField-field" name="numBuild" type="number" defaultValue={thisApartment1.numBuild} />
+//                 </div>
+
+//                 <div className="TextField-container">
+//                     <TextField className="TextField-field" name="numRooms" type="number" defaultValue={thisApartment1.numRooms} />
+//                 </div>
+
+//                 <div className="TextField-container">
+//                     <TextField className="TextField-field" name="squareMeter" type="number" defaultValue={thisApartment1.squareMeter} />
+//                 </div>
+
+//                 <div className="TextField-container">
+//                     <TextField className="TextField-field" name="porch" type="text" defaultValue={thisApartment1.porch} />
+//                 </div>
+
+//                 <div className="TextField-container">
+//                     <TextField className="TextField-field" name="porchSquareMeter" type="number" defaultValue={thisApartment1.porchSquareMeter} />
+//                 </div>
+
+//                 <div className="TextField-container">
+//                     <TextField className="TextField-field" name="realEstateAgency" type="text" defaultValue={thisApartment1.realEstateAgency} />
+//                 </div>
+
+//                 <button type="submit" className="btn">שלח</button>
+//             </form>
+//         </>
+//     )
+// }
+import { Box, ButtonBase, DialogActions, DialogContent, DialogTitle, FormControl, InputLabel, MenuItem, Select, SelectChangeEvent, TextField, Typography, FormControlLabel, Checkbox } from "@mui/material";
+import { getAllCities, getAllKategorys, updateApartment } from "./api";
+import { useEffect, useState } from "react";
+import swal from "sweetalert";
 
 export const UpdateApartment = () => {
-    const [Kategory, setKategory] = useState()
-    const [Kategory1, setKategory1] = useState()
-    const [listKategories, setListK] = useState()
-    const [image, setImage] = useState(null)
+    const [Kategory, setKategory] = useState();
+    const [Kategory1, setKategory1] = useState();
+    const [listKategories, setListK] = useState();
+    const [image, setImage] = useState(null);
 
     const handleImageChange = (event) => {
-        setImage(event.target.files[0])
-    }
+        setImage(event.target.files[0]);
+    };
 
-    const thisApartment = localStorage.getItem(`thisApartment`)
-    const thisApartment1 = JSON.parse(thisApartment)
-    console.log(thisApartment1.numBeds)
+    const thisApartment = localStorage.getItem(`thisApartment`);
+    const thisApartment1 = JSON.parse(thisApartment);
+    console.log(thisApartment1.numBeds);
 
     useEffect(() => {
         getAllKategorys()
             .then(x => {
-                console.log(x)
-                setListK(x.data.kategorys)
+                console.log(x);
+                setListK(x.data.kategorys);
             })
             .catch(err => {
-                console.log(err)
-            })
-    }, [])
+                console.log(err);
+            });
+    }, []);
 
     const send = (event) => {
-        event.preventDefault()
-        
+        event.preventDefault();
+
         // קביעת קטגוריה
         listKategories.map((x) => {
             if (x.nameKategory === Kategory) {
-                setKategory1(x._id)
+                setKategory1(x._id);
             }
-        })
+        });
 
         const Apartment = {
             _id: thisApartment1._id,
@@ -178,101 +331,180 @@ export const UpdateApartment = () => {
             squareMeter: event.target.squareMeter.value,
             porch: event.target.porch.value,
             porchSquareMeter: event.target.porchSquareMeter.value,
-            realEstateAgency: event.target.realEstateAgency.value
-        }
+            realEstateAgency: event.target.realEstateAgency.value,
+        };
 
-        console.log(Apartment)
+        console.log(Apartment);
 
         updateApartment(localStorage.getItem(`user`), Apartment)
             .then(x => {
-                console.log(x.data)
-                swal(`🤭🤭🤭 success`)
+                console.log(x.data);
+                swal(`🤭🤭🤭 success`);
             })
             .catch(err => {
-                console.log(err)
-            })
-    }
+                console.log(err);
+            });
+    };
 
     return (
         <>
-            <h1>עדכון פרטי הדירה</h1>
+            <Typography variant="h4" gutterBottom>
+                עדכון פרטי הדירה
+            </Typography>
 
-            <h3> <select required onChange={(e) => setKategory(e.target.value)}>
-                {listKategories && listKategories.map((x) => (
-                    <>
-                        <option key={x._id} value={x.nameKategory}>{x.nameKategory}</option>
-                    </>
-                ))}
-            </select>בחר קטגוריה </h3>
+            <FormControl fullWidth margin="normal">
+                <InputLabel>בחר קטגוריה</InputLabel>
+                <Select
+                    required
+                    value={Kategory || ""}
+                    onChange={(e) => setKategory(e.target.value)}
+                    label="בחר קטגוריה"
+                >
+                    {listKategories && listKategories.map((x) => (
+                        <MenuItem key={x._id} value={x.nameKategory}>{x.nameKategory}</MenuItem>
+                    ))}
+                </Select>
+            </FormControl>
 
-            <form id='t' action="./addApartment" onSubmit={(e) => send(e)}>
-                {/* <div className="TextField-container">
-                    <i className="fa fa-user icon"></i>
-                    <TextField className="TextField-field" type="text" name="nameApartment" defaultValue={thisApartment1.nameApartment} required />
-                </div> */}
+            <form id="t" action="./addApartment" onSubmit={send}>
+                <TextField
+                    fullWidth
+                    margin="normal"
+                    label="כתובת"
+                    name="adress"
+                    type="text"
+                    defaultValue={thisApartment1.adress}
+                    variant="outlined"
+                />
 
-               
+                <TextField
+                    fullWidth
+                    margin="normal"
+                    label="מחיר"
+                    name="price"
+                    type="number"
+                    defaultValue={thisApartment1.price}
+                    variant="outlined"
+                />
 
-                {/* <div className="TextField-container">
-                    <i className="fa fa-envelope icon"></i>
-                    <TextField className="TextField-field" name="describe" type="text" defaultValue={thisApartment1.describe} required />
-                </div> */}
+                <TextField
+                    fullWidth
+                    margin="normal"
+                    label="תוספות"
+                    name="extras"
+                    type="text"
+                    defaultValue={thisApartment1.extras}
+                    variant="outlined"
+                />
 
-                <div className="TextField-container">
-                    <i className="fa fa-envelope icon"></i>
-                    <TextField className="TextField-field" name="adress" type="text" defaultValue={thisApartment1.adress} />
-                </div>
+                <TextField
+                    fullWidth
+                    margin="normal"
+                    label="עיר"
+                    name="city"
+                    type="text"
+                    defaultValue={thisApartment1.city}
+                    variant="outlined"
+                />
 
-                <div className="TextField-container">
-                    <i className="fa fa-envelope icon"></i>
-                    <TextField className="TextField-field" name="price" type="number" defaultValue={thisApartment1.price} />
-                </div>
+                <TextField
+                    fullWidth
+                    margin="normal"
+                    label="שכונה"
+                    name="neighbourhood"
+                    type="text"
+                    defaultValue={thisApartment1.neighbourhood}
+                    variant="outlined"
+                />
 
-                <div className="TextField-container">
-                    <i className="fa fa-envelope icon"></i>
-                    <TextField className="TextField-field" name="extras" type="text" defaultValue={thisApartment1.extras} />
-                </div>
+                <TextField
+                    fullWidth
+                    margin="normal"
+                    label="רחוב"
+                    name="street"
+                    type="text"
+                    defaultValue={thisApartment1.street}
+                    variant="outlined"
+                />
 
-               
-                {/* הוספת שדות נוספים */}
-                <div className="TextField-container">
-                    <TextField className="TextField-field" name="city" type="text" defaultValue={thisApartment1.city} />
-                </div>
+                <TextField
+                    fullWidth
+                    margin="normal"
+                    label="מספר בניין"
+                    name="numBuild"
+                    type="number"
+                    defaultValue={thisApartment1.numBuild}
+                    variant="outlined"
+                />
 
-                <div className="TextField-container">
-                    <TextField className="TextField-field" name="neighbourhood" type="text" defaultValue={thisApartment1.neighbourhood} />
-                </div>
+                <TextField
+                    fullWidth
+                    margin="normal"
+                    label="מספר חדרים"
+                    name="numRooms"
+                    type="number"
+                    defaultValue={thisApartment1.numRooms}
+                    variant="outlined"
+                />
 
-                <div className="TextField-container">
-                    <TextField className="TextField-field" name="street" type="text" defaultValue={thisApartment1.street} />
-                </div>
+                <TextField
+                    fullWidth
+                    margin="normal"
+                    label="מר"
+                    name="squareMeter"
+                    type="number"
+                    defaultValue={thisApartment1.squareMeter}
+                    variant="outlined"
+                />
 
-                <div className="TextField-container">
-                    <TextField className="TextField-field" name="numBuild" type="number" defaultValue={thisApartment1.numBuild} />
-                </div>
+                <TextField
+                    fullWidth
+                    margin="normal"
+                    label="מרפסת"
+                    name="porch"
+                    type="text"
+                    defaultValue={thisApartment1.porch}
+                    variant="outlined"
+                />
 
-                <div className="TextField-container">
-                    <TextField className="TextField-field" name="numRooms" type="number" defaultValue={thisApartment1.numRooms} />
-                </div>
+                <TextField
+                    fullWidth
+                    margin="normal"
+                    label="מר למרפסת"
+                    name="porchSquareMeter"
+                    type="number"
+                    defaultValue={thisApartment1.porchSquareMeter}
+                    variant="outlined"
+                />
 
-                <div className="TextField-container">
-                    <TextField className="TextField-field" name="squareMeter" type="number" defaultValue={thisApartment1.squareMeter} />
-                </div>
+                <TextField
+                    fullWidth
+                    margin="normal"
+                    label="סוכנות נדל"
+                    name="realEstateAgency"
+                    type="text"
+                    defaultValue={thisApartment1.realEstateAgency}
+                    variant="outlined"
+                />
 
-                <div className="TextField-container">
-                    <TextField className="TextField-field" name="porch" type="text" defaultValue={thisApartment1.porch} />
-                </div>
-
-                <div className="TextField-container">
-                    <TextField className="TextField-field" name="porchSquareMeter" type="number" defaultValue={thisApartment1.porchSquareMeter} />
-                </div>
-
-                <div className="TextField-container">
-                    <TextField className="TextField-field" name="realEstateAgency" type="text" defaultValue={thisApartment1.realEstateAgency} />
-                </div>
-
-                <button type="submit" className="btn">שלח</button>
+                <ButtonBase
+                    type="submit"
+                    sx={{
+                        backgroundColor: "#1976d2",
+                        color: "white",
+                        padding: "10px 20px",
+                        borderRadius: "5px",
+                        cursor: "pointer",
+                        width: "100%",
+                        marginTop: "20px",
+                        "&:hover": {
+                            backgroundColor: "#1565c0",
+                        },
+                    }}
+                >
+                    שלח
+                </ButtonBase>
             </form>
         </>
-    )
-}
+    );
+};
