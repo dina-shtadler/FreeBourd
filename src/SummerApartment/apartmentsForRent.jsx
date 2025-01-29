@@ -163,18 +163,19 @@ export const ApartmentForRent = () => {
     return (
         <>
 <div className="filters">
-    <select onChange={(e) => setSelectedCategory(e.target.value)}>
+    {/* <select onChange={(e) => setSelectedCategory(e.target.value)}>
         <option value="">בחר קטגוריה</option>
         {listKategories && listKategories.map((category) => (
             <option key={category._id} value={category.nameKategory}>{category.nameKategory}</option>
         ))}
-    </select>
+    </select> */}
     
     <input 
         type="text" 
         placeholder="עיר "
         onChange={(e) => setMinRooms(e.target.value)} 
     />
+<button onClick={handlePrintAll}>הדפס את הכל</button>
 
 </div>
 

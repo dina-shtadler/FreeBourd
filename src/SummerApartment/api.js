@@ -20,25 +20,25 @@ export const getAllByNumBeds = (NumBeds,) => {
   return axios.get(`http://localhost:3001/getAllByNumBeds/${NumBeds}`);
 };
 export const getAllApartment = () => {
-  return axios.get(`http://localhost:3001/getAll`);
+  return axios.get(`https://advertismentfree.onrender.com/getAll`);
 };
 
 export const getById = (id) => {
-  return axios.get(`http://localhost:3001/getById/${id}`);
+  return axios.get(`https://advertismentfree.onrender.com/getById/${id}`);
 };
 export const createApartment = (kodPublisher, newApartment) => {
   const token = localStorage.getItem(`token`)
-  return axios.post(`http://localhost:3001/createApartment/${kodPublisher}`, newApartment, { headers: { authorization: `${token}` } })
+  return axios.post(`https://advertismentfree.onrender.com/createApartment/${kodPublisher}`, newApartment, { headers: { authorization: `${token}` } })
 };
 export const updateApartment = (kodPublisher, Apartment) => {
   const token = localStorage.getItem(`token`)
 
-  return axios.put(`http://localhost:3001/updateApartment/${kodPublisher}`, Apartment, { headers: { authorization: `${token}` }})
+  return axios.put(`https://advertismentfree.onrender.com/updateApartment/${kodPublisher}`, Apartment, { headers: { authorization: `${token}` }})
 };
 export const removeApartment = (id, kodPublisher, Apartment) => {
   const token = localStorage.getItem(`token`)
   console.log(token)
-  return axios.delete(`http://localhost:3001/removeApartment/${id}/${kodPublisher}`, { headers: { authorization: `${token}` } });
+  return axios.delete(`https://advertismentfree.onrender.com/removeApartment/${id}/${kodPublisher}`, { headers: { authorization: `${token}` } });
 };
 export const registerP = (publisher) => {
   debugger
@@ -74,7 +74,7 @@ export const Addkategory = (kodPublisher, newKategory) => {
   return axios.post(`http://localhost:3001/Addkategory/${kodPublisher}`, newKategory, { headers: { 'Authorization': token } });
 };
 export const getAllKategorys = () => {
-  return axios.get(`http://localhost:3001/getAllKategorys`);
+  return axios.get(`https://advertismentfree.onrender.com/getAllKategorys`);
 };
 /*
 router.get('/getByIdAndnumDays/:id/:numDays',apartmentController.getById) 

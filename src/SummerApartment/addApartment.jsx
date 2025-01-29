@@ -562,6 +562,7 @@ export const AddApartments = () => {
       if (selectedCategory) {
         console.log(Kategory);
           setKategory1(selectedCategory._id);
+          console.log(Kategory1)
       }
 
       const formData = new FormData();
@@ -575,6 +576,7 @@ export const AddApartments = () => {
       formData.append("porch", event.target[7].value);
       formData.append("porchSquareMeter", event.target[8].value);
       formData.append("realEstateAgency", event.target[9].value);
+      formData.append("city", event.target[10].value);
 
       if (Kategory1) formData.append("kodKategory", Kategory1);
       if (city) formData.append("kodCity", city);
@@ -662,7 +664,7 @@ export const AddApartments = () => {
 
               {/* מרפסת */}
               <div className="input-container">
-                  <input className="input-field" type="checkbox" name="porch" required />
+                 מרפסת? <input className="input-field" type="checkbox" name="porch" required />
               </div>
 
               {/* מטר רבוע למרפסות */}
@@ -672,9 +674,11 @@ export const AddApartments = () => {
 
               {/* תיווך */}
               <div className="input-container">
-                  <input className="input-field" type="checkbox" name="realEstateAgency"  />
+                 תיווך <input className="input-field" type="checkbox" name="realEstateAgency"  />
               </div>
-
+              <div className="input-container">
+                  <input className="input-field" type="text" placeholder="עיר" name="city" required />
+              </div>
               <button type="submit" className="btn">
                   שלח
               </button>

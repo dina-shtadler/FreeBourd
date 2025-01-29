@@ -255,12 +255,12 @@ const styles = StyleSheet.create({
     />
 
 </div> 
-          <button>
+          {/* <button>
 <PDFDownloadLink document={<MyDocument />} fileName="apartments-list.pdf">
                 {({ loading }) => (loading ? 'יוצרים PDF...' : 'הורד PDF')}
             </PDFDownloadLink>
 
-      </button>
+      </button> */}
 <button onClick={handlePrintAll}>הדפס את הכל</button>
             <div className="button-container">
                 <button onClick={addApartment} className="add-button">הוספת דירה למאגר</button>
@@ -306,7 +306,7 @@ const styles = StyleSheet.create({
                     {listApartment && listApartment.map((x) => (
                         <tr key={x._id}>
                             {/* <td>{x.nameApartment}</td> */}
-                            <td>{`עיר:${x.kodCity[0]?.namecity},שכונה: ${x.neighbourhood}, רחוב:${x.street}, מס בניין:${x.numBuild}`}</td>
+                            <td>{`עיר:${x.city},שכונה: ${x.neighbourhood}, רחוב:${x.street}, מס בניין:${x.numBuild}`}</td>
                             {/* <td>{x.describe}</td> */}
                             <td>{x.numRooms}</td>
                             <td>{x.squareMeter}</td>
