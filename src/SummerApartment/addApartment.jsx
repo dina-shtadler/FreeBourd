@@ -562,7 +562,7 @@ export const AddApartments = () => {
       if (selectedCategory) {
         console.log(Kategory);
           setKategory1(selectedCategory._id);
-          console.log(Kategory1)
+          console.log(selectedCategory)
       }
 
       const formData = new FormData();
