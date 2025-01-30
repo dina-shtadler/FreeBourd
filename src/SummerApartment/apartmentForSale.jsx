@@ -151,7 +151,7 @@ const styles = StyleSheet.create({
         const printWindow = window.open('', '', 'height=600,width=800');
         printWindow.document.write('<html><head><title>הדפסה</title></head><body>');
         printWindow.document.write(`<h3>פרטי דירה</h3>`);
-        printWindow.document.write(`<p>עיר: ${apartment.kodCity[0]?.namecity}, שכונה: ${apartment.neighbourhood}, רחוב: ${apartment.street}</p>`);
+        printWindow.document.write(`<p>עיר: ${apartment.city}, שכונה: ${apartment.neighbourhood}, רחוב: ${apartment.street}</p>`);
         printWindow.document.write(`<p>מספר חדרים: ${apartment.numRooms}</p>`);
         printWindow.document.write(`<p>שטח דירה: ${apartment.squareMeter} מ"ר</p>`);
         printWindow.document.write(`<p>מחיר: ${apartment.price}</p>`);
@@ -167,7 +167,7 @@ const styles = StyleSheet.create({
         printWindow.document.write('<h3>פרטי הדירות למכירה</h3>');
         
         listApartment.forEach((apartment) => {
-            printWindow.document.write(`<p><b>עיר:</b> ${apartment.kodCity[0]?.namecity}, <b>שכונה:</b> ${apartment.neighbourhood}, <b>רחוב:</b> ${apartment.street}</p>`);
+            printWindow.document.write(`<p><b>עיר:</b> ${apartment.city}, <b>שכונה:</b> ${apartment.neighbourhood}, <b>רחוב:</b> ${apartment.street}</p>`);
             printWindow.document.write(`<p><b>מספר חדרים:</b> ${apartment.numRooms}</p>`);
             printWindow.document.write(`<p><b>שטח דירה:</b> ${apartment.squareMeter} מ"ר</p>`);
             printWindow.document.write(`<p><b>מחיר:</b> ${apartment.price}</p><hr/>`);
