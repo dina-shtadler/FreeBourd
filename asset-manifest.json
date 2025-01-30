@@ -1,20 +1,20 @@
 {
   "files": {
     "main.css": "/FreeBourd/static/css/main.e5d5ef14.css",
-    "main.js": "/FreeBourd/static/js/main.9b2a62db.js",
+    "main.js": "/FreeBourd/static/js/main.ee4f6430.js",
     "static/js/498.20efc46e.chunk.js": "/FreeBourd/static/js/498.20efc46e.chunk.js",
     "static/js/703.3de3b10f.chunk.js": "/FreeBourd/static/js/703.3de3b10f.chunk.js",
     "static/js/198.9d7a6080.chunk.js": "/FreeBourd/static/js/198.9d7a6080.chunk.js",
     "static/media/בניין.jpg": "/FreeBourd/static/media/בניין.b2905fe0319128b4d636.jpg",
     "index.html": "/FreeBourd/index.html",
     "main.e5d5ef14.css.map": "/FreeBourd/static/css/main.e5d5ef14.css.map",
-    "main.9b2a62db.js.map": "/FreeBourd/static/js/main.9b2a62db.js.map",
+    "main.ee4f6430.js.map": "/FreeBourd/static/js/main.ee4f6430.js.map",
     "498.20efc46e.chunk.js.map": "/FreeBourd/static/js/498.20efc46e.chunk.js.map",
     "703.3de3b10f.chunk.js.map": "/FreeBourd/static/js/703.3de3b10f.chunk.js.map",
     "198.9d7a6080.chunk.js.map": "/FreeBourd/static/js/198.9d7a6080.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e5d5ef14.css",
-    "static/js/main.9b2a62db.js"
+    "static/js/main.ee4f6430.js"
   ]
 }
