@@ -310,7 +310,7 @@ const styles = StyleSheet.create({
                             {/* <td>{x.describe}</td> */}
                             <td>{x.numRooms}</td>
                             <td>{x.squareMeter}</td>
-                            <td>{x.porch ? x.porch : 'אין'}</td>
+                            <td><input type='checkbox' checked={x.porch}></input></td>
                             <td>{x.porchSquareMeter}</td>
                             <td>{x.price}</td>
                             <td>{x.kodKategory[0]?.nameKategory}</td>

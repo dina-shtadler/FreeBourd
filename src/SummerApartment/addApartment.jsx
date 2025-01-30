@@ -664,7 +664,7 @@ export const AddApartments = () => {
 
               {/* מרפסת */}
               <div className="input-container">
-                 מרפסת? <input className="input-field" type="checkbox" name="porch" required />
+                 מרפסת? <input className="input-field" type="checkbox" name="porch"  />
               </div>
 
               {/* מטר רבוע למרפסות */}
