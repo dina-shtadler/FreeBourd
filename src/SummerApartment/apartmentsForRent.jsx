@@ -119,21 +119,56 @@ export const ApartmentForRent = () => {
     // פונקציה להדפסת כל הדירות
     const handlePrintAll = () => {
         const printWindow = window.open('', '', 'height=600,width=800');
-        printWindow.document.write('<html><head><title>הדפסה</title></head><body>');
-        printWindow.document.write('<h3>פרטי הדירות למכירה</h3>');
+        printWindow.document.write('<html><head><title>ייצוא</title><style>');
+        printWindow.document.write(`
+            table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+            th, td {
+                border: 1px solid black;
+                padding: 8px;
+                text-align: center;
+            }
+            th {
+                background-color: #f2f2f2;
+            }
+        `);
+        printWindow.document.write('</style></head><body>');
+        printWindow.document.write('<h3>פרטי הדירות להשכרה</h3>');
+        
+        // יצירת הטבלה
+        printWindow.document.write('<table>');
+        printWindow.document.write('<thead><tr><th>עיר</th><th>שכונה</th><th>רחוב</th><th>מס\' בניין</th><th>מספר חדרים</th><th>שטח דירה (מ"ר)</th><th>מרפסת</th><th>שטח מרפסת (מ"ר)</th><th>מחיר</th><th>קטגוריה</th><th>מייל</th><th>טלפון</th><th>תיווך</th><th>ייצוא</th></tr></thead>');
+        printWindow.document.write('<tbody>');
         
         listApartment.forEach((apartment) => {
-            printWindow.document.write(`<p><b>עיר:</b> ${apartment.city}, <b>שכונה:</b> ${apartment.neighbourhood}, <b>רחוב:</b> ${apartment.street}</p>`);
-            printWindow.document.write(`<p><b>מספר חדרים:</b> ${apartment.numRooms}</p>`);
-            printWindow.document.write(`<p><b>שטח דירה:</b> ${apartment.squareMeter} מ"ר</p>`);
-            printWindow.document.write(`<p><b>מחיר:</b> ${apartment.price}</p><hr/>`);
+            printWindow.document.write(`
+                <tr>
+                    <td>${apartment.city}</td>
+                    <td>${apartment.neighbourhood}</td>
+                    <td>${apartment.street}</td>
+                    <td>${apartment.numBuild}</td>
+                    <td>${apartment.numRooms}</td>
+                    <td>${apartment.squareMeter}</td>
+                    <td><input type='checkbox' checked=${apartment.porch} readOnly /></td>
+                    <td>${apartment.porchSquareMeter}</td>
+                    <td>${apartment.price}</td>
+                    <td>${apartment.kodKategory[0]?.nameKategory}</td>
+                    <td>${apartment.kodPublisher[0]?.email}</td>
+                    <td>${apartment.kodPublisher[0]?.phone}</td>
+                    <td><input type='checkbox' checked=${apartment.realEstateAgency} readOnly /></td>
+                    <td><button>ייצוא</button></td>
+                </tr>
+            `);
         });
-
+    
+        printWindow.document.write('</tbody></table>');
         printWindow.document.write('</body></html>');
         printWindow.document.close();
         printWindow.print();
     };
- 
+    
 
     // Delete apartment
     const Delete = (a) => {
@@ -179,12 +214,12 @@ export const ApartmentForRent = () => {
 
 </div>
 
-            <div className="button-container">
+            {/* <div className="button-container">
                 <button onClick={addApartment} className="add-button">הוספת דירה למאגר</button>
             </div>
             <div className="add-button"> <button onClick={loginS} className="button-container" >התחברות</button> <input type="text" placeholder='סיסמה' onBlur={(e)=>setPassword(e.target.value)}/><input placeholder='מייל'  onBlur={ (e)=>setEmail(e.target.value)}></input>
                :ע"מ לערוך או למחוק דירה שפירסמת עליך להתחבר
-            </div>
+            </div> */}
             {/* Filter components */}
             {/* <div className="filter-container">
                 <h3>בחר קטגוריה</h3>
@@ -203,62 +238,59 @@ export const ApartmentForRent = () => {
 
             {/* Table displaying apartments */}
             <table className="apartments-table">
-                <thead>
-                    <tr>
-                        {/* <th>שם הדירה</th> */}
-                        <th>כתובת</th>
-                        {/* <th>תיאור</th> */}
-                        <th>מספר חדרים</th>
-                        <th>שטח דירה (מ"ר)</th>
-                        <th>מרפסת</th>
-                        <th>שטח מרפסת (מ"ר)</th>
-                        <th>מחיר</th>
-                        <th>קטגוריה</th>
-                        <th>מייל</th>
-                        <th>טלפון</th>
-                        <th>סוכן נדל"ן</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {listApartment && listApartment.map((x) => (
-                        <tr key={x._id}>
-                            {/* <td>{x.nameApartment}</td> */}
-                            <td>{`עיר:${x.city},שכונה: ${x.neighbourhood}, רחוב:${x.street}, מס בניין:${x.numBuild}`}</td>
-                            {/* <td>{x.describe}</td> */}
-                            <td>{x.numRooms}</td>
-                            <td>{x.squareMeter}</td>
-                            <td><input type='checkbox' checked={x.porch}></input></td>
-                            <td>{x.porchSquareMeter}</td>
-                            <td>{x.price}</td>
-                            <td>{x.kodKategory[0]?.nameKategory}</td>
-                            <td>{x.kodPublisher[0]?.email}</td>
-                            <td>{x.kodPublisher[0]?.phone}</td>
-                            <td><input type='checkbox' checked={x.realEstateAgency}></input></td>
-                             <td>
-                                                            {x.kodPublisher[0]?.email === localStorage.getItem('userEmail') && (
-                                                                <div>
-                                                                    <button onClick={() => Delete(x)} 
-                                                                    // className="delete-button"
-                                                                    >                        <FaTrashAlt /> {/* אייקון מחיקה */}
-                                                                   
-                                                                    </button>
-                                                                    <button onClick={() => update(x)} 
-                                                                    // className="update-button"
-                                                                    >                         <FaPen /> {/* אייקון עדכון */}
-                                                                   
-                                                                    </button>
-                                                                </div>
-                                                            )}
-                                                        </td>
-                                                        <td>
-                                                            <button onClick={() => handlePrint(x)}>           <FaShareSquare /> {/* אייקון ייצוא */}
-                                                            <FaPrint /> {/* אייקון הדפסה */}
-                                                            </button>
-                                                        </td>
-                        </tr>
-                    ))}
-                </tbody>
-            </table>
+    <thead>
+        <tr>
+            <th>עיר</th>
+            <th>שכונה</th>
+            <th>רחוב</th>
+            <th>מס' בניין</th>
+            <th>מספר חדרים</th>
+            <th>שטח דירה (מ"ר)</th>
+            <th>מרפסת</th>
+            <th>שטח מרפסת (מ"ר)</th>
+            <th>מחיר</th>
+            <th>קטגוריה</th>
+            <th>מייל</th>
+            <th>טלפון</th>
+            <th>תיווך</th>
+            {/* <th>פעולות</th> */}
+            <th>ייצוא</th>
+        </tr>
+    </thead>
+    <tbody>
+        {listApartment && listApartment.map((x) => (
+            <tr key={x._id}>
+                <td>{x.city}</td>
+                <td>{x.neighbourhood}</td>
+                <td>{x.street}</td>
+                <td>{x.numBuild}</td>
+                <td>{x.numRooms}</td>
+                <td>{x.squareMeter}</td>
+                <td><input type='checkbox' checked={x.porch} readOnly /></td>
+                <td>{x.porchSquareMeter}</td>
+                <td>{x.price}</td>
+                <td>{x.kodKategory[0]?.nameKategory}</td>
+                <td>{x.kodPublisher[0]?.email}</td>
+                <td>{x.kodPublisher[0]?.phone}</td>
+                <td><input type='checkbox' checked={x.realEstateAgency} readOnly /></td>
+                {/* <td>
+                    {x.kodPublisher[0]?.email === localStorage.getItem('userEmail') && (
+                        <div>
+                            <button onClick={() => Delete(x)}><FaTrashAlt /></button>
+                            <button onClick={() => update(x)}><FaPen /></button>
+                        </div>
+                    )}
+                </td> */}
+                <td>
+                    <button onClick={() => handlePrint(x)}>
+                        <FaShareSquare /> <FaPrint />
+                    </button>
+                </td>
+            </tr>
+        ))}
+    </tbody>
+</table>
+
         </>
     );
 };
