@@ -23,7 +23,13 @@ export const ApartmentForsale = () => {
     const [Kategory1, setKategory1] = useState();
     const [room, setNumBRooms] = useState();
     const [listApartment, setList] = useState();
+    const [listApartment1, setList1] = useState();
     const [listKategories, setListK] = useState();
+    const [minRooms, setMinRooms] = useState('');
+    const [neighbourhood, setneighbourhood] = useState('');
+    const [street, setstreet] = useState('');
+    const [numBuild, setnumBuild] = useState();
+    const [numFloor, setnumFloor] = useState('');
 
     // Fetch apartments and categories
     useEffect(() => {
@@ -32,14 +38,62 @@ export const ApartmentForsale = () => {
                 const filteredApartments = x.data.apartmens.filter(item => item.kodKategory[0]?.nameKategory === 'למכירה');
 
                 setList(filteredApartments);
+                setList1(filteredApartments);
                 console.log("listApartment",filteredApartments);
             })
             .catch(err => {
                 console.log(err);
             });
+           
     }, []);
+    useEffect(() => {
+      if (listApartment1 && listApartment1.length > 0) {
+        const f1 = listApartment1.filter(item =>{    
+          const isCityMatch = minRooms!='' ? item.city === minRooms : true;
+          return isCityMatch;
+        } );
+        setList(f1); // עדכון הרשימה המסוננת
+    }
+  }, [minRooms]);
+  useEffect(() => {
+    if (listApartment1 && listApartment1.length > 0) {
+      const f1 = listApartment1.filter(item =>{    
+        const isnumFloorMatch = numFloor!='' ? parseInt(item.numFloor) === parseInt(numFloor) : true;
+        return isnumFloorMatch;
+      } );
+      setList(f1); // עדכון הרשימה המסוננת
+  }
+}, [numFloor]);
+useEffect(() => {
+  if (listApartment1 && listApartment1.length > 0) {
+    const f1 = listApartment1.filter(item =>{    
+      const isnumBuildMatch = numBuild ? parseInt(item.numBuild) ===parseInt(numBuild)  : true;
+      console.log(numBuild,item.numBuild,isnumBuildMatch)
+      return isnumBuildMatch;
+    } );
+    setList(f1); // עדכון הרשימה המסוננת
+}
+}, [numBuild]);
+useEffect(() => {
+  if (listApartment1 && listApartment1.length > 0) {
+    const f1 = listApartment1.filter(item =>{    
+      const isstreetMatch = street!='' ? item.street === street : true;
+      return isstreetMatch;
+    } );
+    setList(f1); // עדכון הרשימה המסוננת
+}
+}, [street]);
+useEffect(() => {
+  if (listApartment1 && listApartment1.length > 0) {
+    const f1 = listApartment1.filter(item =>{    
+      const isneighbourhoodMatch = neighbourhood!='' ? item.neighbourhood === neighbourhood : true;
+      return isneighbourhoodMatch;
+    } );
+    setList(f1); // עדכון הרשימה המסוננת
+}
+}, [neighbourhood]);
 
- 
+    
     const [selectedApartment, setSelectedApartment] = useState(null); // דירה נבחרת להדפסה
     const printRef = useRef();
    // נרשם את הפונט המותאם אישית
@@ -213,7 +267,7 @@ const styles = StyleSheet.create({
       printWindow.print();
   };
   
-    const [minRooms, setMinRooms] = useState('');
+  
     const [login, setlogin] = useState('')
 
     const [email, setEmail] = useState('')
@@ -286,10 +340,24 @@ const styles = StyleSheet.create({
     <input 
         type="text" 
         placeholder="עיר "
-        onChange={(e) => setMinRooms(e.target.value)} 
+        onBlur={(e) => setMinRooms(e.target.value)} 
+    />
+    <input 
+        type="text" 
+        placeholder="שכונה "
+        onBlur={(e) => setneighbourhood(e.target.value)} 
+    /><input 
+    type="text" 
+    placeholder="רחוב "
+    onBlur={(e) => setstreet(e.target.value)} 
+/><input 
+        type="Number" 
+        placeholder="מס' בניין"
+        onBlur={(e) => setnumBuild(e.target.value)} 
     />
 
 </div> 
+{/* //קומה */}
           {/* <button>
 <PDFDownloadLink document={<MyDocument />} fileName="apartments-list.pdf">
                 {({ loading }) => (loading ? 'יוצרים PDF...' : 'הורד PDF')}
