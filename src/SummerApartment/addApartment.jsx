@@ -558,12 +558,7 @@ export const AddApartments = () => {
   const send = (event) => {
       event.preventDefault();
 
-      const selectedCategory = listKategories.find((x) => x.nameKategory === Kategory);
-      if (selectedCategory) {
-        console.log(Kategory);
-          setKategory1(selectedCategory._id);
-          console.log(selectedCategory)
-      }
+    
 
       const formData = new FormData();
       formData.append("neighbourhood", event.target[0].value);
@@ -577,8 +572,13 @@ export const AddApartments = () => {
       formData.append("porchSquareMeter", event.target[8].value);
       formData.append("realEstateAgency", event.target[9].value);
       formData.append("city", event.target[10].value);
-
-      if (Kategory1) formData.append("kodKategory", Kategory1);
+      const selectedCategory = listKategories.find((x) => x.nameKategory === Kategory);
+      if (selectedCategory) {
+        console.log(Kategory);
+          setKategory1(selectedCategory._id);
+          console.log(Kategory1)
+      }
+      if (Kategory1) formData.append("kodKategory", selectedCategory._id);
       if (city) formData.append("kodCity", city);
       formData.append("kodPublisher", localStorage.getItem("user"));
 

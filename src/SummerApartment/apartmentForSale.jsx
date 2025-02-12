@@ -39,7 +39,7 @@ export const ApartmentForsale = () => {
 
                 setList(filteredApartments);
                 setList1(filteredApartments);
-                console.log("listApartment",filteredApartments);
+                console.log("listApartment",x.data.apartmens);
             })
             .catch(err => {
                 console.log(err);
@@ -47,49 +47,84 @@ export const ApartmentForsale = () => {
            
     }, []);
     useEffect(() => {
-      if (listApartment1 && listApartment1.length > 0) {
-        const f1 = listApartment1.filter(item =>{    
+      if (listApartment && listApartment.length > 0) {
+        if(minRooms!=''){
+        const f1 = listApartment.filter(item =>{    
           const isCityMatch = minRooms!='' ? item.city === minRooms : true;
           return isCityMatch;
         } );
         setList(f1); // עדכון הרשימה המסוננת
+      }
+      else{
+        const f1 = listApartment1.filter(item =>{    
+          const isMatch =  (numBuild!=''&& neighbourhood!=''&& street!=''?item.street===street && item.minRooms ===numBuild&& item.neighbourhood===neighbourhood:neighbourhood!=''&& street!=''?item.street===street &&  item.neighbourhood===neighbourhood:neighbourhood!=''&& numBuild!=''?item.numBuild ===numBuild&& item.neighbourhood===neighbourhood:numBuild!=''&& street!=''?item.street===street && item.numBuild ===numBuild:neighbourhood!=''?item.neighbourhood ===neighbourhood:street!=''?item.street ===street:numBuild!=''?item.numBuild ===numBuild:true)
+          console.log(numBuild,item.numBuild)
+          return isMatch;
+        } );
+        setList(f1);} 
+
     }
   }, [minRooms]);
-  useEffect(() => {
-    if (listApartment1 && listApartment1.length > 0) {
-      const f1 = listApartment1.filter(item =>{    
-        const isnumFloorMatch = numFloor!='' ? parseInt(item.numFloor) === parseInt(numFloor) : true;
-        return isnumFloorMatch;
-      } );
-      setList(f1); // עדכון הרשימה המסוננת
-  }
-}, [numFloor]);
+//   useEffect(() => {
+//     if (listApartment1 && listApartment1.length > 0) {
+//       const f1 = listApartment1.filter(item =>{    
+//         const isnumFloorMatch = numFloor!='' ? parseInt(item.numFloor) === parseInt(numFloor):true;
+//         return isnumFloorMatch;
+//       } );
+//       setList(f1); // עדכון הרשימה המסוננת
+//   }
+// }, [numFloor]);
 useEffect(() => {
-  if (listApartment1 && listApartment1.length > 0) {
-    const f1 = listApartment1.filter(item =>{    
-      const isnumBuildMatch = numBuild ? parseInt(item.numBuild) ===parseInt(numBuild)  : true;
+  if (listApartment && listApartment.length > 0) {
+    console.log(numBuild,"num")
+  if( numBuild){
+    const f1 = listApartment.filter(item =>{    
+      const isnumBuildMatch = numBuild ? parseInt(item.numBuild) ===parseInt(numBuild)  : (minRooms!=''&& neighbourhood!=''&& street!=''?item.street===street && item.city ===minRooms&& item.neighbourhood===neighbourhood:neighbourhood!=''&& street!=''?item.street===street &&  item.neighbourhood===neighbourhood:neighbourhood!=''&& minRooms!=''?item.city ===minRooms&& item.neighbourhood===neighbourhood:minRooms!=''&& street!=''?item.street===street && item.city ===minRooms:neighbourhood!=''?item.neighbourhood ===neighbourhood:street!=''?item.street ===street:minRooms!=''?item.city ===minRooms:false)
       console.log(numBuild,item.numBuild,isnumBuildMatch)
       return isnumBuildMatch;
     } );
-    setList(f1); // עדכון הרשימה המסוננת
-}
+    setList(f1);} // עדכון הרשימה המסוננת
+    else{
+      const f1 = listApartment1.filter(item =>{    
+        const isnumBuildMatch =  (minRooms!=''&& neighbourhood!=''&& street!=''?item.street===street && item.city ===minRooms&& item.neighbourhood===neighbourhood:neighbourhood!=''&& street!=''?item.street===street &&  item.neighbourhood===neighbourhood:neighbourhood!=''&& minRooms!=''?item.city ===minRooms&& item.neighbourhood===neighbourhood:minRooms!=''&& street!=''?item.street===street && item.city ===minRooms:neighbourhood!=''?item.neighbourhood ===neighbourhood:street!=''?item.street ===street:minRooms!=''?item.city ===minRooms:true)
+        console.log(numBuild,item.numBuild,isnumBuildMatch)
+        return isnumBuildMatch;
+      } );
+      setList(f1);} // עדכון הרשימה המסוננת
+    }
 }, [numBuild]);
 useEffect(() => {
-  if (listApartment1 && listApartment1.length > 0) {
-    const f1 = listApartment1.filter(item =>{    
+  if (listApartment && listApartment.length > 0) {
+    if(street!=''){
+    const f1 = listApartment.filter(item =>{    
       const isstreetMatch = street!='' ? item.street === street : true;
       return isstreetMatch;
     } );
     setList(f1); // עדכון הרשימה המסוננת
+  } else{
+    const f1 = listApartment1.filter(item =>{    
+      const isMatch =  (minRooms!=''&& neighbourhood!=''&& numBuild!=''?item.numBuild===numBuild && item.city ===minRooms&& item.neighbourhood===neighbourhood:neighbourhood!=''&& numBuild!=''?item.numBuild===numBuild &&  item.neighbourhood===neighbourhood:neighbourhood!=''&& minRooms!=''?item.city ===minRooms&& item.neighbourhood===neighbourhood:minRooms!=''&& numBuild!=''?item.numBuild===numBuild && item.city ===minRooms:neighbourhood!=''?item.neighbourhood ===neighbourhood:numBuild!=''?item.numBuild ===numBuild:minRooms!=''?item.city ===minRooms:true)
+      return isMatch;
+    } );
+    setList(f1);} 
+  
 }
 }, [street]);
 useEffect(() => {
-  if (listApartment1 && listApartment1.length > 0) {
-    const f1 = listApartment1.filter(item =>{    
+  if (listApartment && listApartment.length > 0) {
+    if(neighbourhood!=''){
+    const f1 = listApartment.filter(item =>{    
       const isneighbourhoodMatch = neighbourhood!='' ? item.neighbourhood === neighbourhood : true;
       return isneighbourhoodMatch;
     } );
     setList(f1); // עדכון הרשימה המסוננת
+  }
+  else{
+    const f1 = listApartment1.filter(item =>{    
+      const isMatch =  (minRooms!=''&& numBuild!=''&& street!=''?item.street===street && item.city ===minRooms&& item.numBuild===numBuild:numBuild!=''&& street!=''?item.street===street &&  item.numBuild===numBuild:numBuild!=''&& minRooms!=''?item.city ===minRooms&& item.numBuild===numBuild:minRooms!=''&& street!=''?item.street===street && item.city ===minRooms:numBuild!=''?item.numBuild ===numBuild:street!=''?item.street ===street:minRooms!=''?item.city ===minRooms:true)
+      return isMatch;
+    } );
+    setList(f1);} 
 }
 }, [neighbourhood]);
 
