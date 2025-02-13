@@ -25,10 +25,10 @@ export const ApartmentForsale = () => {
     const [listApartment, setList] = useState();
     const [listApartment1, setList1] = useState();
     const [listKategories, setListK] = useState();
-    const [minRooms, setMinRooms] = useState('');
+    const [city, setcity] = useState('');
     const [neighbourhood, setneighbourhood] = useState('');
     const [street, setstreet] = useState('');
-    const [numBuild, setnumBuild] = useState();
+    const [numRooms, setnumRooms] = useState();
     const [numFloor, setnumFloor] = useState('');
 
     // Fetch apartments and categories
@@ -46,204 +46,134 @@ export const ApartmentForsale = () => {
             });
            
     }, []);
-    useEffect(() => {
-      if (listApartment && listApartment.length > 0) {
-        if(minRooms!=''){
-        const f1 = listApartment.filter(item =>{    
-          const isCityMatch = minRooms!='' ? item.city === minRooms : true;
-          return isCityMatch;
-        } );
-        setList(f1); // עדכון הרשימה המסוננת
-      }
-      else{
-        const f1 = listApartment1.filter(item =>{    
-          const isMatch =  (numBuild!=''&& neighbourhood!=''&& street!=''?item.street===street && item.minRooms ===numBuild&& item.neighbourhood===neighbourhood:neighbourhood!=''&& street!=''?item.street===street &&  item.neighbourhood===neighbourhood:neighbourhood!=''&& numBuild!=''?item.numBuild ===numBuild&& item.neighbourhood===neighbourhood:numBuild!=''&& street!=''?item.street===street && item.numBuild ===numBuild:neighbourhood!=''?item.neighbourhood ===neighbourhood:street!=''?item.street ===street:numBuild!=''?item.numBuild ===numBuild:true)
-          console.log(numBuild,item.numBuild)
-          return isMatch;
-        } );
-        setList(f1);} 
+//     useEffect(() => {
+//       if (listApartment && listApartment.length > 0) {
+//         if(city){
+//         const f1 = listApartment.filter(item =>{    
+//           const isCityMatch = city!='' ? item.city === city :
+//  true;
+//           return isCityMatch;
+//         } );
+//         setList(f1); // עדכון הרשימה המסוננת
+//       }
+//       else{
+//         const f1 = listApartment1.filter(item =>{    
+//           const isMatch =  (numRooms!=''&& neighbourhood!=''&& street!=''?item.street===street && item.city ===numRooms&& item.neighbourhood===neighbourhood:
+// neighbourhood!=''&& street!=''?item.street===street &&  item.neighbourhood===neighbourhood:
+// neighbourhood!=''&& numRooms!=''?item.numRooms ===numRooms&& item.neighbourhood===neighbourhood:
+// numRooms!=''&& street!=''?item.street===street && item.numRooms ===numRooms:
+// neighbourhood!=''?item.neighbourhood ===neighbourhood:
+// street!=''?item.street ===street:
+// numRooms!=''?item.numRooms ===numRooms:
+// true)
+//           console.log(numRooms,item.numRooms)
+//           return isMatch;
+//         } );
+//         setList(f1);} 
 
-    }
-  }, [minRooms]);
+//     }
+//   }, [city]);
 //   useEffect(() => {
 //     if (listApartment1 && listApartment1.length > 0) {
 //       const f1 = listApartment1.filter(item =>{    
-//         const isnumFloorMatch = numFloor!='' ? parseInt(item.numFloor) === parseInt(numFloor):true;
+//         const isnumFloorMatch = numFloor!='' ? parseInt(item.numFloor) === parseInt(numFloor):
+// true;
 //         return isnumFloorMatch;
 //       } );
 //       setList(f1); // עדכון הרשימה המסוננת
 //   }
 // }, [numFloor]);
 useEffect(() => {
-  if (listApartment && listApartment.length > 0) {
-    console.log(numBuild,"num")
-  if( numBuild){
-    const f1 = listApartment.filter(item =>{    
-      const isnumBuildMatch = numBuild ? parseInt(item.numBuild) ===parseInt(numBuild)  : (minRooms!=''&& neighbourhood!=''&& street!=''?item.street===street && item.city ===minRooms&& item.neighbourhood===neighbourhood:neighbourhood!=''&& street!=''?item.street===street &&  item.neighbourhood===neighbourhood:neighbourhood!=''&& minRooms!=''?item.city ===minRooms&& item.neighbourhood===neighbourhood:minRooms!=''&& street!=''?item.street===street && item.city ===minRooms:neighbourhood!=''?item.neighbourhood ===neighbourhood:street!=''?item.street ===street:minRooms!=''?item.city ===minRooms:false)
-      console.log(numBuild,item.numBuild,isnumBuildMatch)
-      return isnumBuildMatch;
+  if (listApartment1 && listApartment1.length > 0) {
+    console.log(numRooms,"num")
+  debugger
+    const f1 = listApartment1.filter(item =>{    
+      const isnumRoomsMatch = numRooms&&city!=''&& neighbourhood!=''&& street!=''?parseInt(item.numRooms) ===parseInt(numRooms)&&item.street===street && item.city ===city&& item.neighbourhood===neighbourhood:
+city!=''&& neighbourhood!=''&& street!=''?item.street===street && item.city ===city&& item.neighbourhood===neighbourhood:
+neighbourhood!=''&& street!=''?item.street===street &&  item.neighbourhood===neighbourhood:
+numRooms&&neighbourhood!=''&& street!=''?item.street===street &&parseInt(item.numRooms) ===parseInt(numRooms)&&  item.neighbourhood===neighbourhood:
+numRooms&&neighbourhood!=''&& city!=''?parseInt(item.numRooms) ===parseInt(numRooms)&&item.city ===city&& item.neighbourhood===neighbourhood:
+neighbourhood!=''&& city!=''?item.city ===city&& item.neighbourhood===neighbourhood:
+numRooms&&city!=''&& street!=''?parseInt(item.numRooms) ===parseInt(numRooms)&&item.street===street && item.city ===city:
+city!=''&& street!=''?item.street===street && item.city ===city:
+neighbourhood!=''&&numRooms?item.neighbourhood ===neighbourhood&&parseInt(item.numRooms) ===parseInt(numRooms):
+neighbourhood!=''?item.neighbourhood ===neighbourhood:
+street!=''&&numRooms?item.street ===street&&parseInt(item.numRooms) ===parseInt(numRooms):
+street!=''?item.street ===street:
+numRooms&&city!=''?parseInt(item.numRooms) ===parseInt(numRooms)&&item.city ===city:
+city!=''?item.city ===city:
+numRooms?parseInt(item.numRooms) ===parseInt(numRooms):false;
+      console.log(numRooms,item.numRooms,isnumRoomsMatch)
+      return isnumRoomsMatch;
     } );
     setList(f1);} // עדכון הרשימה המסוננת
-    else{
-      const f1 = listApartment1.filter(item =>{    
-        const isnumBuildMatch =  (minRooms!=''&& neighbourhood!=''&& street!=''?item.street===street && item.city ===minRooms&& item.neighbourhood===neighbourhood:neighbourhood!=''&& street!=''?item.street===street &&  item.neighbourhood===neighbourhood:neighbourhood!=''&& minRooms!=''?item.city ===minRooms&& item.neighbourhood===neighbourhood:minRooms!=''&& street!=''?item.street===street && item.city ===minRooms:neighbourhood!=''?item.neighbourhood ===neighbourhood:street!=''?item.street ===street:minRooms!=''?item.city ===minRooms:true)
-        console.log(numBuild,item.numBuild,isnumBuildMatch)
-        return isnumBuildMatch;
-      } );
-      setList(f1);} // עדכון הרשימה המסוננת
-    }
-}, [numBuild]);
-useEffect(() => {
-  if (listApartment && listApartment.length > 0) {
-    if(street!=''){
-    const f1 = listApartment.filter(item =>{    
-      const isstreetMatch = street!='' ? item.street === street : true;
-      return isstreetMatch;
-    } );
-    setList(f1); // עדכון הרשימה המסוננת
-  } else{
-    const f1 = listApartment1.filter(item =>{    
-      const isMatch =  (minRooms!=''&& neighbourhood!=''&& numBuild!=''?item.numBuild===numBuild && item.city ===minRooms&& item.neighbourhood===neighbourhood:neighbourhood!=''&& numBuild!=''?item.numBuild===numBuild &&  item.neighbourhood===neighbourhood:neighbourhood!=''&& minRooms!=''?item.city ===minRooms&& item.neighbourhood===neighbourhood:minRooms!=''&& numBuild!=''?item.numBuild===numBuild && item.city ===minRooms:neighbourhood!=''?item.neighbourhood ===neighbourhood:numBuild!=''?item.numBuild ===numBuild:minRooms!=''?item.city ===minRooms:true)
-      return isMatch;
-    } );
-    setList(f1);} 
+}, [numRooms,street,neighbourhood,city]);
+// useEffect(() => {
+//   if (listApartment && listApartment.length > 0) {
+//     if(street!=''){
+//     const f1 = listApartment.filter(item =>{    
+//       const isstreetMatch = street!='' ? item.street === street :
+//  true;
+//       return isstreetMatch;
+//     } );
+//     setList(f1); // עדכון הרשימה המסוננת
+//   } else{
+//     const f1 = listApartment1.filter(item =>{    
+//       const isMatch =  (city!=''&& neighbourhood!=''&& numRooms!=''?item.numRooms===numRooms && item.city ===city&& item.neighbourhood===neighbourhood:
+
+// neighbourhood!=''&& numRooms!=''?item.numRooms===numRooms &&  item.neighbourhood===neighbourhood:
+
+// neighbourhood!=''&& city!=''?item.city ===city&& item.neighbourhood===neighbourhood:
+// city!=''&& numRooms!=''?item.numRooms===numRooms && item.city ===city:
+// neighbourhood!=''?item.neighbourhood ===neighbourhood:
+// numRooms!=''?item.numRooms ===numRooms:
+// city!=''?item.city ===city:
+// true)
+//       return isMatch;
+//     } );
+//     setList(f1);} 
   
-}
-}, [street]);
-useEffect(() => {
-  if (listApartment && listApartment.length > 0) {
-    if(neighbourhood!=''){
-    const f1 = listApartment.filter(item =>{    
-      const isneighbourhoodMatch = neighbourhood!='' ? item.neighbourhood === neighbourhood : true;
-      return isneighbourhoodMatch;
-    } );
-    setList(f1); // עדכון הרשימה המסוננת
-  }
-  else{
-    const f1 = listApartment1.filter(item =>{    
-      const isMatch =  (minRooms!=''&& numBuild!=''&& street!=''?item.street===street && item.city ===minRooms&& item.numBuild===numBuild:numBuild!=''&& street!=''?item.street===street &&  item.numBuild===numBuild:numBuild!=''&& minRooms!=''?item.city ===minRooms&& item.numBuild===numBuild:minRooms!=''&& street!=''?item.street===street && item.city ===minRooms:numBuild!=''?item.numBuild ===numBuild:street!=''?item.street ===street:minRooms!=''?item.city ===minRooms:true)
-      return isMatch;
-    } );
-    setList(f1);} 
-}
-}, [neighbourhood]);
+// }
+// }, [street]);
+// useEffect(() => {
+//   if (listApartment && listApartment.length > 0) {
+//     if(neighbourhood!=''){
+//     const f1 = listApartment.filter(item =>{    
+//       const isneighbourhoodMatch = neighbourhood!='' ? item.neighbourhood === neighbourhood :
+//  true;
+//       return isneighbourhoodMatch;
+//     } );
+//     setList(f1); // עדכון הרשימה המסוננת
+//   }
+//   else{
+//     const f1 = listApartment1.filter(item =>{    
+//       const isMatch =  (city!=''&& numRooms!=''&& street!=''?item.street===street && item.city ===city&& item.numRooms===numRooms:
+// numRooms!=''&& street!=''?item.street===street &&  item.numRooms===numRooms:
+// numRooms!=''&& city!=''?item.city ===city&& item.numRooms===numRooms:
+// city!=''&& street!=''?item.street===street && item.city ===city:
+// numRooms!=''?item.numRooms ===numRooms:
+// street!=''?item.street ===street:
+// city!=''?item.city ===city:
+// true)
+//       return isMatch;
+//     } );
+//     setList(f1);} 
+// }
+// }, [neighbourhood]);
 
     
     const [selectedApartment, setSelectedApartment] = useState(null); // דירה נבחרת להדפסה
     const printRef = useRef();
-   // נרשם את הפונט המותאם אישית
-    // Font.register({
-    //   family: 'NotoSansHebrew1',
-    //   src: '/NotoSansHebrew-Regular.ttf', // נתיב הפונט שלך
-    // });
-    
-  
-  // נתיב הפונט מ-Google Fonts
-const notoSansHebrewSrc = 'https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew:wght@100..900&display=swap" rel="stylesheet';
-
-// רישום הפונט המשתנה
-Font.register({
-  family: 'Noto Sans Hebrew',
-  fonts: [
-    {
-      fontStyle: 'normal',
-      fontWeight: 400,
-      src: `${notoSansHebrewSrc}/nq6v_y6B5yo8OeHjP1K3vTk8X63f0OsYJhFqfEqyM2RfBLSXZcKg.ttf`, // גרסה רגילה 400
-    },
-    {
-      fontStyle: 'italic',
-      fontWeight: 400,
-      src: `${notoSansHebrewSrc}/nq6v_y6B5yo8OeHjP1K3vTk8X63f0OsYJhFqfEqyM2RfBLSXZcKg.ttf`, // גרסה נטויה 400 (לבדוק אם קיימת גרסה כזו)
-    },
-    {
-      fontStyle: 'normal',
-      fontWeight: 700,
-      src: `${notoSansHebrewSrc}/nq6v_y6B5yo8OeHjP1K3vTk8X63f0OsYJhFqfEqyM2RfBLSXZcKg.ttf`, // גרסה רגילה 700
-    },
-    {
-      fontStyle: 'italic',
-      fontWeight: 700,
-      src: `${notoSansHebrewSrc}/nq6v_y6B5yo8OeHjP1K3vTk8X63f0OsYJhFqfEqyM2RfBLSXZcKg.ttf`, // גרסה נטויה 700 (אם קיימת)
-    },
-  ],
-});
-
-// יצירת סטיילים ב-PDF
-const styles = StyleSheet.create({
-  page: {
-    backgroundColor: '#f0f0f0',
-    padding: 30,
-  },
-  section: {
-    marginBottom: 10,
-  },
-  text: {
-    fontFamily: 'Noto Sans Hebrew',
-    fontSize: 12,
-    color: '#333',
-    fontVariationSettings: '"wdth" 100',  // שימוש בהגדרה של font-variation-settings
-  },
-  header: {
-    fontFamily: 'Noto Sans Hebrew',
-    fontSize: 18,
-    fontWeight: 'bold',
-    color: '#333',
-    marginBottom: 20,
-    fontVariationSettings: '"wdth" 100',  // גם כאן
-  },
-});
-
-  // // סטיילים לקובץ ה-PDF
-    // const styles = StyleSheet.create({
-    //   page: {
-    //     backgroundColor: '#f0f0f0',
-    //     padding: 30,
-    //   },
-    //   section: {
-    //     marginBottom: 10,
-    //   },
-    //   text: {
-    //     fontFamily: 'NotoSansHebrew1',
-    //     fontSize: 12,
-    //     color: '#333',
-    //   },
-    //   header: {
-    //     fontFamily: 'NotoSansHebrew1',
-    //     fontSize: 18,
-    //     fontWeight: 'bold',
-    //     color: '#333',
-    //     marginBottom: 20,
-    //   },
-    // });
-    // // הרכיב שמייצר את ה-PDF
-    const MyDocument = () => (
-      <Document>        
-
-        <Page style={styles.page}>
-          <View style={styles.section}>
-            <Text style={styles.header}>ברוכים הבאים לדירה למכירה</Text>
-            <Text style={styles.text}>תיאור הדירה: דירה מדהימה עם נוף יפה ושפע של אור טבעי. ממוקמת באזור מרכזי בעיר.</Text>
-            <Text style={styles.text}>כתובת: רחוב הדירה, תל אביב</Text>
-            <Text style={styles.text}>מחיר: 2,500,000 ש"ח</Text>
-          </View>
-        </Page>
-      </Document>
-    );
-
-    const downloadPDF = () => {
-      debugger
-        // הפעלת ההורדה באמצעות לחיצה על הקישור האוטומטי
-        downloadLinkRef.current?.click();
-      };
+   
     // פונקציה להדפסת דירה נבחרת
     const handlePrint = (apartment) => {
         const printWindow = window.open('', '', 'height=600,width=800');
         printWindow.document.write('<html><head><title>הדפסה</title></head><body>');
         printWindow.document.write(`<h3>פרטי דירה</h3>`);
-        printWindow.document.write(`<p>עיר: ${apartment.city}, שכונה: ${apartment.neighbourhood}, רחוב: ${apartment.street}</p>`);
-        printWindow.document.write(`<p>מספר חדרים: ${apartment.numRooms}</p>`);
-        printWindow.document.write(`<p>שטח דירה: ${apartment.squareMeter} מ"ר</p>`);
-        printWindow.document.write(`<p>מחיר: ${apartment.price}</p>`);
+        printWindow.document.write(`<p>עיר:${apartment.city}, שכונה:${apartment.neighbourhood}, רחוב:${apartment.street}</p>`);
+        printWindow.document.write(`<p>מספר חדרים:${apartment.numRooms}</p>`);
+        printWindow.document.write(`<p>שטח דירה:${apartment.squareMeter} מ"ר</p>`);
+        printWindow.document.write(`<p>מחיר:${apartment.price}</p>`);
         printWindow.document.write('</body></html>');
         printWindow.document.close();
         printWindow.print();
@@ -255,12 +185,12 @@ const styles = StyleSheet.create({
       printWindow.document.write('<html><head><title>ייצוא</title><style>');
       printWindow.document.write(`
           table {
-              width: 100%;
-              border-collapse: collapse;
+              width:100%;
+              border-collapse:collapse;
           }
           th, td {
-              border: 1px solid black;
-              padding: 8px;
+              border:1px solid black;
+              padding:8px;
               text-align: center;
           }
           th {
@@ -281,7 +211,7 @@ const styles = StyleSheet.create({
                   <td>${apartment.city}</td>
                   <td>${apartment.neighbourhood}</td>
                   <td>${apartment.street}</td>
-                  <td>${apartment.numBuild}</td>
+                  <td>${apartment.numRooms}</td>
                   <td>${apartment.numRooms}</td>
                   <td>${apartment.squareMeter}</td>
                   <td><input type='checkbox' checked=${apartment.porch} readOnly /></td>
@@ -314,7 +244,7 @@ const styles = StyleSheet.create({
         const Publisher =  {
           
             email:email,
-             password: password
+             password:password
         }
         console.log(    Publisher)
         loginp(Publisher.email,Publisher.password) 
@@ -375,27 +305,38 @@ const styles = StyleSheet.create({
     <input 
         type="text" 
         placeholder="עיר "
-        onBlur={(e) => setMinRooms(e.target.value)} 
+        
+        onBlur={(e) =>{
+          console.log('blur triggered:', e.target.value); // להדפיס את הערך בלוג
+          setcity(e.target.value);}} 
     />
     <input 
         type="text" 
         placeholder="שכונה "
-        onBlur={(e) => setneighbourhood(e.target.value)} 
+        onBlur={(e) => {
+          console.log('blur triggered:', e.target.value); // להדפיס את הערך בלוג
+          setneighbourhood(e.target.value)}} 
     /><input 
     type="text" 
     placeholder="רחוב "
-    onBlur={(e) => setstreet(e.target.value)} 
+    onBlur={(e) =>{
+      console.log('blur triggered:', e.target.value); // להדפיס את הערך בלוג
+      setstreet(e.target.value)}} 
 /><input 
         type="Number" 
-        placeholder="מס' בניין"
-        onBlur={(e) => setnumBuild(e.target.value)} 
+        placeholder="מס' חדרים"
+        onBlur={(e) => {
+          console.log('blur triggered:', e.target.value); // להדפיס את הערך בלוג
+          setnumRooms(e.target.value)
+        console.log(numRooms)}} 
     />
 
 </div> 
 {/* //קומה */}
           {/* <button>
 <PDFDownloadLink document={<MyDocument />} fileName="apartments-list.pdf">
-                {({ loading }) => (loading ? 'יוצרים PDF...' : 'הורד PDF')}
+                {({ loading }) => (loading ? 'יוצרים PDF...' :
+ 'הורד PDF')}
             </PDFDownloadLink>
 
       </button> */}
@@ -404,7 +345,8 @@ const styles = StyleSheet.create({
                 <button onClick={addApartment} className="add-button">הוספת דירה למאגר</button>
             </div>
             <div className="add-button"> <button onClick={loginS} className="button-container" >התחברות</button> <input type="text" placeholder='סיסמה' onBlur={(e)=>setPassword(e.target.value)}/><input placeholder='מייל'  onBlur={ (e)=>setEmail(e.target.value)}></input>
-               :ע"מ לערוך או למחוק דירה שפירסמת עליך להתחבר
+               :
+ע"מ לערוך או למחוק דירה שפירסמת עליך להתחבר
             </div> */}
             {/* Filter components */}
             {/* <div className="filter-container">
