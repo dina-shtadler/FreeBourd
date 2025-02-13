@@ -79,23 +79,23 @@ export const Register = () => {
    <form className='form'  onSubmit={(e) => send(e)} >
   <div class="input-container">
     <i class="fa fa-user icon"></i>
-    <input class="input-field" type="text" placeholder="UserFone" name="usrfone" required></input>
+    <input class="input-field" type="text" placeholder="טלפון" name="usrfone" required></input>
   </div>
   <div class="input-container">
     <i class="fa fa-user icon"></i>
-    <input class="input-field" type="text" placeholder="UserEnotherFone" name="usrEnotherFone" required></input>
+    <input class="input-field" type="text" placeholder="טלפון נוסף" name="usrEnotherFone" required></input>
   </div>
   <div class="input-container">
     <i class="fa fa-envelope icon"></i>
-    <input class="input-field" type="email" placeholder="Email" name="email" required></input>
+    <input class="input-field" type="email" placeholder="כתובת מייל" name="email" required></input>
   </div>
 
   <div class="input-container">
     <i class="fa fa-key icon"></i>
-    <input class="input-field" type="password" placeholder="Password" name="psw" required></input>
+    <input class="input-field" type="password" placeholder="סיסמא" name="psw" required></input>
   </div>
 
-  <button type="submit" class="btn" >Register</button>
+  <button type="submit" class="btn" >הרשמה</button>
   
 </form >
    
