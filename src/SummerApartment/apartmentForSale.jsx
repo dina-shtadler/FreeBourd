@@ -88,21 +88,21 @@ useEffect(() => {
     console.log(numRooms,"num")
   debugger
     const f1 = listApartment1.filter(item =>{    
-      const isnumRoomsMatch = numRooms&&city!=''&& neighbourhood!=''&& street!=''?parseInt(item.numRooms) ===parseInt(numRooms)&&item.street===street && item.city ===city&& item.neighbourhood===neighbourhood:
+      const isnumRoomsMatch = numRooms&&city!=''&& neighbourhood!=''&& street!=''?parseInt(item.numRooms) <=parseInt(numRooms)&&item.street===street && item.city ===city&& item.neighbourhood===neighbourhood:
 city!=''&& neighbourhood!=''&& street!=''?item.street===street && item.city ===city&& item.neighbourhood===neighbourhood:
 neighbourhood!=''&& street!=''?item.street===street &&  item.neighbourhood===neighbourhood:
-numRooms&&neighbourhood!=''&& street!=''?item.street===street &&parseInt(item.numRooms) ===parseInt(numRooms)&&  item.neighbourhood===neighbourhood:
-numRooms&&neighbourhood!=''&& city!=''?parseInt(item.numRooms) ===parseInt(numRooms)&&item.city ===city&& item.neighbourhood===neighbourhood:
+numRooms&&neighbourhood!=''&& street!=''?item.street===street &&parseInt(item.numRooms) <=parseInt(numRooms)&&  item.neighbourhood===neighbourhood:
+numRooms&&neighbourhood!=''&& city!=''?parseInt(item.numRooms) <=parseInt(numRooms)&&item.city ===city&& item.neighbourhood===neighbourhood:
 neighbourhood!=''&& city!=''?item.city ===city&& item.neighbourhood===neighbourhood:
-numRooms&&city!=''&& street!=''?parseInt(item.numRooms) ===parseInt(numRooms)&&item.street===street && item.city ===city:
+numRooms&&city!=''&& street!=''?parseInt(item.numRooms) <=parseInt(numRooms)&&item.street===street && item.city ===city:
 city!=''&& street!=''?item.street===street && item.city ===city:
-neighbourhood!=''&&numRooms?item.neighbourhood ===neighbourhood&&parseInt(item.numRooms) ===parseInt(numRooms):
+neighbourhood!=''&&numRooms?item.neighbourhood ===neighbourhood&&parseInt(item.numRooms) <=parseInt(numRooms):
 neighbourhood!=''?item.neighbourhood ===neighbourhood:
-street!=''&&numRooms?item.street ===street&&parseInt(item.numRooms) ===parseInt(numRooms):
+street!=''&&numRooms?item.street ===street&&parseInt(item.numRooms) <=parseInt(numRooms):
 street!=''?item.street ===street:
-numRooms&&city!=''?parseInt(item.numRooms) ===parseInt(numRooms)&&item.city ===city:
+numRooms&&city!=''?parseInt(item.numRooms) <=parseInt(numRooms)&&item.city ===city:
 city!=''?item.city ===city:
-numRooms?parseInt(item.numRooms) ===parseInt(numRooms):false;
+numRooms?parseInt(item.numRooms) <=parseInt(numRooms):false;
       console.log(numRooms,item.numRooms,isnumRoomsMatch)
       return isnumRoomsMatch;
     } );
@@ -382,7 +382,7 @@ numRooms?parseInt(item.numRooms) ===parseInt(numRooms):false;
             <th>טלפון</th>
             <th>תיווך</th>
             {/* <th>פעולות</th> */}
-            <th>ייצוא</th>
+            <th> pdfהדפסה ו</th>
         </tr>
     </thead>
     <tbody>

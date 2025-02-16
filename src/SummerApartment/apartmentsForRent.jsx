@@ -254,7 +254,7 @@ export const ApartmentForRent = () => {
             <th>טלפון</th>
             <th>תיווך</th>
             {/* <th>פעולות</th> */}
-            <th>ייצוא</th>
+            <th> pdfהדפסה ו</th>
         </tr>
     </thead>
     <tbody>
