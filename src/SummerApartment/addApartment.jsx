@@ -530,7 +530,10 @@ export const AddApartments = () => {
   const [Kategory1, setKategory1] = useState();
   const [listKategories, setListK] = useState([]);
   const [image, setImage] = useState({});
-
+  const currentDate = new Date().toISOString().split('T')[0]; // התאריך היום
+  const maxDate = new Date();
+  maxDate.setDate(maxDate.getDate() + 30);
+  const maxDateString = maxDate.toISOString().split('T')[0]; // התאריך אחרי 30 יום
   const handleImageChange = (event) => {
       setImage(event.target.files[0]);
   };
@@ -572,6 +575,8 @@ export const AddApartments = () => {
       formData.append("porchSquareMeter", event.target[8].value);
       formData.append("realEstateAgency", event.target[9].value);
       formData.append("city", event.target[10].value);
+      formData.append("datend", event.target[11].value);
+      console.log("datend", event.target[11].value)
       const selectedCategory = listKategories.find((x) => x.nameKategory === Kategory);
       if (selectedCategory) {
         console.log(Kategory);
@@ -679,6 +684,16 @@ export const AddApartments = () => {
               <div className="input-container">
                   <input className="input-field" type="text" placeholder="עיר" name="city" required />
               </div>
+              <div className="input-container">
+                <label>פירסום עד:</label>
+              <input 
+        type="date" 
+        required
+        id="date" 
+        name="datend" 
+        min={currentDate} // תאריך מינימלי - היום
+        max={maxDateString} // תאריך מקסימלי - 30 יום קדימה
+      /></div>
               <button type="submit" className="btn">
                   שלח
               </button>

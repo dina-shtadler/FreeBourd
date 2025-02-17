@@ -29,6 +29,8 @@ export const ApartmentForsale = () => {
     const [neighbourhood, setneighbourhood] = useState('');
     const [street, setstreet] = useState('');
     const [numRooms, setnumRooms] = useState();
+    const [squermeter, setsquermeter] = useState();
+    const [price, setPrice] = useState();
     const [numFloor, setnumFloor] = useState('');
 
     // Fetch apartments and categories
@@ -88,26 +90,75 @@ useEffect(() => {
     console.log(numRooms,"num")
   debugger
     const f1 = listApartment1.filter(item =>{    
-      const isnumRoomsMatch = numRooms&&city!=''&& neighbourhood!=''&& street!=''?parseInt(item.numRooms) <=parseInt(numRooms)&&item.street===street && item.city ===city&& item.neighbourhood===neighbourhood:
-city!=''&& neighbourhood!=''&& street!=''?item.street===street && item.city ===city&& item.neighbourhood===neighbourhood:
+      const isnumRoomsMatch =
+      price&&squermeter&&numRooms&&city!=''&& neighbourhood!=''&& street!=''?parseInt(item.price) <=parseInt(price)&&parseInt(item.squareMeter) <=parseInt(squermeter)&&parseInt(item.numRooms) <=parseInt(numRooms)&&item.street===street && item.city ===city&& item.neighbourhood===neighbourhood:
+      squermeter&&numRooms&&city!=''&& neighbourhood!=''&& street!=''?parseInt(item.squareMeter) <=parseInt(squermeter)&&parseInt(item.numRooms) <=parseInt(numRooms)&&item.street===street && item.city ===city&& item.neighbourhood===neighbourhood:
+      price&&numRooms&&city!=''&& neighbourhood!=''&& street!=''?parseInt(item.price) <=parseInt(price)&&parseInt(item.numRooms) <=parseInt(numRooms)&&item.street===street && item.city ===city&& item.neighbourhood===neighbourhood:
+      numRooms&&city!=''&& neighbourhood!=''&& street!=''?parseInt(item.numRooms) <=parseInt(numRooms)&&item.street===street && item.city ===city&& item.neighbourhood===neighbourhood:
+     price&&squermeter&&city!=''&& neighbourhood!=''&& street!=''?parseInt(item.price) <=parseInt(price)&&parseInt(item.squareMeter) <=parseInt(squermeter)&&item.street===street && item.city ===city&& item.neighbourhood===neighbourhood:
+      squermeter&&city!=''&& neighbourhood!=''&& street!=''?parseInt(item.squareMeter) <=parseInt(squermeter)&&item.street===street && item.city ===city&& item.neighbourhood===neighbourhood:
+      price&&city!=''&& neighbourhood!=''&& street!=''?parseInt(item.price) <=parseInt(price)&&item.street===street && item.city ===city&& item.neighbourhood===neighbourhood:
+      city!=''&& neighbourhood!=''&& street!=''?item.street===street && item.city ===city&& item.neighbourhood===neighbourhood:
+price&&squermeter&&neighbourhood!=''&& street!=''?parseInt(item.price) <=parseInt(price)&&parseInt(item.squareMeter) <=parseInt(squermeter)&&item.street===street &&  item.neighbourhood===neighbourhood:
+squermeter&&neighbourhood!=''&& street!=''?parseInt(item.squareMeter) <=parseInt(squermeter)&&item.street===street &&  item.neighbourhood===neighbourhood:
+price&&neighbourhood!=''&& street!=''?parseInt(item.price) <=parseInt(price)&&item.street===street &&  item.neighbourhood===neighbourhood:
 neighbourhood!=''&& street!=''?item.street===street &&  item.neighbourhood===neighbourhood:
+price&&squermeter&&numRooms&&neighbourhood!=''&& street!=''?parseInt(item.price) <=parseInt(price)&&parseInt(item.squareMeter) <=parseInt(squermeter)&&item.street===street &&parseInt(item.numRooms) <=parseInt(numRooms)&&  item.neighbourhood===neighbourhood:
+squermeter&&numRooms&&neighbourhood!=''&& street!=''?parseInt(item.squareMeter) <=parseInt(squermeter)&&item.street===street &&parseInt(item.numRooms) <=parseInt(numRooms)&&  item.neighbourhood===neighbourhood:
+price&&numRooms&&neighbourhood!=''&& street!=''?parseInt(item.price) <=parseInt(price)&&item.street===street &&parseInt(item.numRooms) <=parseInt(numRooms)&&  item.neighbourhood===neighbourhood:
 numRooms&&neighbourhood!=''&& street!=''?item.street===street &&parseInt(item.numRooms) <=parseInt(numRooms)&&  item.neighbourhood===neighbourhood:
+price&&squermeter&&numRooms&&neighbourhood!=''&& city!=''?parseInt(item.price) <=parseInt(price)&&parseInt(item.squareMeter) <=parseInt(squermeter)&&parseInt(item.numRooms) <=parseInt(numRooms)&&item.city ===city&& item.neighbourhood===neighbourhood:
+squermeter&&numRooms&&neighbourhood!=''&& city!=''?parseInt(item.squareMeter) <=parseInt(squermeter)&&parseInt(item.numRooms) <=parseInt(numRooms)&&item.city ===city&& item.neighbourhood===neighbourhood:
+price&&numRooms&&neighbourhood!=''&& city!=''?parseInt(item.price) <=parseInt(price)&&parseInt(item.numRooms) <=parseInt(numRooms)&&item.city ===city&& item.neighbourhood===neighbourhood:
 numRooms&&neighbourhood!=''&& city!=''?parseInt(item.numRooms) <=parseInt(numRooms)&&item.city ===city&& item.neighbourhood===neighbourhood:
+price&&squermeter&&neighbourhood!=''&& city!=''?parseInt(item.price) <=parseInt(price)&&parseInt(item.squareMeter) <=parseInt(squermeter)&&item.city ===city&& item.neighbourhood===neighbourhood:
+squermeter&&neighbourhood!=''&& city!=''?parseInt(item.squareMeter) <=parseInt(squermeter)&&item.city ===city&& item.neighbourhood===neighbourhood:
+price&&neighbourhood!=''&& city!=''?parseInt(item.price) <=parseInt(price)&&item.city ===city&& item.neighbourhood===neighbourhood:
 neighbourhood!=''&& city!=''?item.city ===city&& item.neighbourhood===neighbourhood:
+price&&squermeter&&numRooms&&city!=''&& street!=''?parseInt(item.price) <=parseInt(price)&&parseInt(item.squareMeter) <=parseInt(squermeter)&&parseInt(item.numRooms) <=parseInt(numRooms)&&item.street===street && item.city ===city:
+squermeter&&numRooms&&city!=''&& street!=''?parseInt(item.squareMeter) <=parseInt(squermeter)&&parseInt(item.numRooms) <=parseInt(numRooms)&&item.street===street && item.city ===city:
+price&&numRooms&&city!=''&& street!=''?parseInt(item.price) <=parseInt(price)&&parseInt(item.numRooms) <=parseInt(numRooms)&&item.street===street && item.city ===city:
 numRooms&&city!=''&& street!=''?parseInt(item.numRooms) <=parseInt(numRooms)&&item.street===street && item.city ===city:
+price&&squermeter&&city!=''&& street!=''?parseInt(item.price) <=parseInt(price)&&parseInt(item.squareMeter) <=parseInt(squermeter)&&item.street===street && item.city ===city:
+squermeter&&city!=''&& street!=''?parseInt(item.squareMeter) <=parseInt(squermeter)&&item.street===street && item.city ===city:
+price&&city!=''&& street!=''?parseInt(item.price) <=parseInt(price)&&item.street===street && item.city ===city:
 city!=''&& street!=''?item.street===street && item.city ===city:
+price&&squermeter&&neighbourhood!=''&&numRooms?parseInt(item.price) <=parseInt(price)&&parseInt(item.squareMeter) <=parseInt(squermeter)&&item.neighbourhood ===neighbourhood&&parseInt(item.numRooms) <=parseInt(numRooms):
+squermeter&&neighbourhood!=''&&numRooms?parseInt(item.squareMeter) <=parseInt(squermeter)&&item.neighbourhood ===neighbourhood&&parseInt(item.numRooms) <=parseInt(numRooms):
+price&&neighbourhood!=''&&numRooms?parseInt(item.price) <=parseInt(price)&&item.neighbourhood ===neighbourhood&&parseInt(item.numRooms) <=parseInt(numRooms):
 neighbourhood!=''&&numRooms?item.neighbourhood ===neighbourhood&&parseInt(item.numRooms) <=parseInt(numRooms):
+price&&squermeter&&neighbourhood!=''?parseInt(item.price) <=parseInt(price)&&parseInt(item.squareMeter) <=parseInt(squermeter)&&item.neighbourhood ===neighbourhood:
+squermeter&&neighbourhood!=''?parseInt(item.squareMeter) <=parseInt(squermeter)&&item.neighbourhood ===neighbourhood:
+price&&neighbourhood!=''?parseInt(item.price) <=parseInt(price)&&item.neighbourhood ===neighbourhood:
 neighbourhood!=''?item.neighbourhood ===neighbourhood:
+price&&squermeter&&street!=''&&numRooms?parseInt(item.price) <=parseInt(price)&&parseInt(item.squareMeter) <=parseInt(squermeter)&&item.street ===street&&parseInt(item.numRooms) <=parseInt(numRooms):
+squermeter&&street!=''&&numRooms?parseInt(item.squareMeter) <=parseInt(squermeter)&&item.street ===street&&parseInt(item.numRooms) <=parseInt(numRooms):
+price&&street!=''&&numRooms?parseInt(item.price) <=parseInt(price)&&item.street ===street&&parseInt(item.numRooms) <=parseInt(numRooms):
 street!=''&&numRooms?item.street ===street&&parseInt(item.numRooms) <=parseInt(numRooms):
+price&&squermeter&&street!=''?parseInt(item.price) <=parseInt(price)&&parseInt(item.squareMeter) <=parseInt(squermeter)&&item.street ===street:
+squermeter&&street!=''?parseInt(item.squareMeter) <=parseInt(squermeter)&&item.street ===street:
+price&&street!=''?parseInt(item.price) <=parseInt(price)&&item.street ===street:
 street!=''?item.street ===street:
+price&&squermeter&&numRooms&&city!=''?parseInt(item.price) <=parseInt(price)&&parseInt(item.squareMeter) <=parseInt(squermeter)&&parseInt(item.numRooms) <=parseInt(numRooms)&&item.city ===city:
+squermeter&&numRooms&&city!=''?parseInt(item.squareMeter) <=parseInt(squermeter)&&parseInt(item.numRooms) <=parseInt(numRooms)&&item.city ===city:
+price&&numRooms&&city!=''?parseInt(item.price) <=parseInt(price)&&parseInt(item.numRooms) <=parseInt(numRooms)&&item.city ===city:
 numRooms&&city!=''?parseInt(item.numRooms) <=parseInt(numRooms)&&item.city ===city:
+price&&squermeter&&city!=''?parseInt(item.numRooms) <=parseInt(numRooms)&&parseInt(item.squareMeter) <=parseInt(squermeter)&&item.city ===city:
+squermeter&&city!=''?parseInt(item.squareMeter) <=parseInt(squermeter)&&item.city ===city:
+price&&city!=''?parseInt(item.price) <=parseInt(price)&&item.city ===city:
 city!=''?item.city ===city:
-numRooms?parseInt(item.numRooms) <=parseInt(numRooms):false;
+price&&squermeter&&numRooms?parseInt(item.price) <=parseInt(price)&&parseInt(item.squareMeter) <=parseInt(squermeter)&&parseInt(item.numRooms) <=parseInt(numRooms):
+squermeter&&numRooms?parseInt(item.squareMeter) <=parseInt(squermeter)&&parseInt(item.numRooms) <=parseInt(numRooms):
+price&&numRooms?parseInt(item.price) <=parseInt(price)&&parseInt(item.numRooms) <=parseInt(numRooms):
+numRooms?parseInt(item.numRooms) <=parseInt(numRooms):
+price&&squermeter?parseInt(item.price) <=parseInt(price)&&parseInt(item.squareMeter) <=parseInt(squermeter):
+squermeter?parseInt(item.squareMeter) <=parseInt(squermeter):
+price?parseInt(item.price) <=parseInt(price):false;
       console.log(numRooms,item.numRooms,isnumRoomsMatch)
       return isnumRoomsMatch;
     } );
     setList(f1);} // עדכון הרשימה המסוננת
-}, [numRooms,street,neighbourhood,city]);
+}, [numRooms,street,neighbourhood,city,squermeter,price]);
 // useEffect(() => {
 //   if (listApartment && listApartment.length > 0) {
 //     if(street!=''){
@@ -330,7 +381,21 @@ numRooms?parseInt(item.numRooms) <=parseInt(numRooms):false;
           setnumRooms(e.target.value)
         console.log(numRooms)}} 
     />
-
+<input 
+        type="Number" 
+        placeholder="מ'ר לדירה"
+        onBlur={(e) => {
+          console.log('blur triggered:', e.target.value); // להדפיס את הערך בלוג
+          setsquermeter(e.target.value)
+        console.log(squermeter)}} 
+    /><input 
+    type="Number" 
+    placeholder="מחיר"
+    onBlur={(e) => {
+      console.log('blur triggered:', e.target.value); // להדפיס את הערך בלוג
+      setPrice(e.target.value)
+    console.log(price)}} 
+/>
 </div> 
 {/* //קומה */}
           {/* <button>
