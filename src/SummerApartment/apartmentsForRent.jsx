@@ -23,8 +23,15 @@ export const ApartmentForRent = () => {
     const [Kategory1, setKategory1] = useState();
     const [room, setNumBRooms] = useState();
     const [listApartment, setList] = useState();
+    const [listApartment1, setList1] = useState();
     const [listKategories, setListK] = useState();
-
+    const [city, setcity] = useState('');
+    const [neighbourhood, setneighbourhood] = useState('');
+    const [street, setstreet] = useState('');
+    const [numRooms, setnumRooms] = useState();
+    const [squermeter, setsquermeter] = useState();
+    const [price, setPrice] = useState();
+    const [floor, setFloor] = useState('');
     // Fetch apartments and categories
     useEffect(() => {
         getAllApartment()
@@ -33,23 +40,153 @@ export const ApartmentForRent = () => {
 
             );
 
-                setList(filteredApartments);
-                console.log("listApartment",filteredApartments);
+            setList(filteredApartments);
+            setList1(filteredApartments);
+                            console.log("listApartment",filteredApartments);
             })
             .catch(err => {
                 console.log(err);
             });
     }, []);
-
     useEffect(() => {
-        getAllKategorys()
-            .then(x => {
-                setListK(x.data.kategorys);
-            })
-            .catch(err => {
-                console.log(err);
-            });
-    }, []);
+        if (listApartment1 && listApartment1.length > 0) {
+          console.log(numRooms,"num")
+        debugger
+          const f1 = listApartment1.filter(item =>{    
+            const isnumRoomsMatch =
+          floor&&price&&squermeter&&numRooms&&city!=''&& neighbourhood!=''&& street!=''?parseInt(item.floor) <=parseInt(floor)&&parseInt(item.price) <=parseInt(price)&&parseInt(item.squareMeter) <=parseInt(squermeter)&&parseInt(item.numRooms) <=parseInt(numRooms)&&item.street===street && item.city ===city&& item.neighbourhood===neighbourhood:
+            price&&squermeter&&numRooms&&city!=''&& neighbourhood!=''&& street!=''?parseInt(item.price) <=parseInt(price)&&parseInt(item.squareMeter) <=parseInt(squermeter)&&parseInt(item.numRooms) <=parseInt(numRooms)&&item.street===street && item.city ===city&& item.neighbourhood===neighbourhood:
+      floor&&      squermeter&&numRooms&&city!=''&& neighbourhood!=''&& street!=''?parseInt(item.floor) <=parseInt(floor)&&parseInt(item.squareMeter) <=parseInt(squermeter)&&parseInt(item.numRooms) <=parseInt(numRooms)&&item.street===street && item.city ===city&& item.neighbourhood===neighbourhood:
+            squermeter&&numRooms&&city!=''&& neighbourhood!=''&& street!=''?parseInt(item.squareMeter) <=parseInt(squermeter)&&parseInt(item.numRooms) <=parseInt(numRooms)&&item.street===street && item.city ===city&& item.neighbourhood===neighbourhood:
+      floor&&      price&&numRooms&&city!=''&& neighbourhood!=''&& street!=''?parseInt(item.floor) <=parseInt(floor)&&parseInt(item.price) <=parseInt(price)&&parseInt(item.numRooms) <=parseInt(numRooms)&&item.street===street && item.city ===city&& item.neighbourhood===neighbourhood:
+            price&&numRooms&&city!=''&& neighbourhood!=''&& street!=''?parseInt(item.price) <=parseInt(price)&&parseInt(item.numRooms) <=parseInt(numRooms)&&item.street===street && item.city ===city&& item.neighbourhood===neighbourhood:
+      floor&&      numRooms&&city!=''&& neighbourhood!=''&& street!=''?parseInt(item.floor) <=parseInt(floor)&&parseInt(item.numRooms) <=parseInt(numRooms)&&item.street===street && item.city ===city&& item.neighbourhood===neighbourhood:
+            numRooms&&city!=''&& neighbourhood!=''&& street!=''?parseInt(item.numRooms) <=parseInt(numRooms)&&item.street===street && item.city ===city&& item.neighbourhood===neighbourhood:
+      floor&&      price&&squermeter&&city!=''&& neighbourhood!=''&& street!=''?parseInt(item.floor) <=parseInt(floor)&&parseInt(item.price) <=parseInt(price)&&parseInt(item.squareMeter) <=parseInt(squermeter)&&item.street===street && item.city ===city&& item.neighbourhood===neighbourhood:
+            price&&squermeter&&city!=''&& neighbourhood!=''&& street!=''?parseInt(item.price) <=parseInt(price)&&parseInt(item.squareMeter) <=parseInt(squermeter)&&item.street===street && item.city ===city&& item.neighbourhood===neighbourhood:
+      floor&&      squermeter&&city!=''&& neighbourhood!=''&& street!=''?parseInt(item.floor) <=parseInt(floor)&&parseInt(item.squareMeter) <=parseInt(squermeter)&&item.street===street && item.city ===city&& item.neighbourhood===neighbourhood:
+            squermeter&&city!=''&& neighbourhood!=''&& street!=''?parseInt(item.squareMeter) <=parseInt(squermeter)&&item.street===street && item.city ===city&& item.neighbourhood===neighbourhood:
+      floor&&      price&&city!=''&& neighbourhood!=''&& street!=''?parseInt(item.floor) <=parseInt(floor)&&parseInt(item.price) <=parseInt(price)&&item.street===street && item.city ===city&& item.neighbourhood===neighbourhood:
+            price&&city!=''&& neighbourhood!=''&& street!=''?parseInt(item.price) <=parseInt(price)&&item.street===street && item.city ===city&& item.neighbourhood===neighbourhood:
+      floor&&      city!=''&& neighbourhood!=''&& street!=''?parseInt(item.floor) <=parseInt(floor)&&item.street===street && item.city ===city&& item.neighbourhood===neighbourhood:
+            city!=''&& neighbourhood!=''&& street!=''?item.street===street && item.city ===city&& item.neighbourhood===neighbourhood:
+       floor&&     price&&squermeter&&neighbourhood!=''&& street!=''?parseInt(item.floor) <=parseInt(floor)&&parseInt(item.price) <=parseInt(price)&&parseInt(item.squareMeter) <=parseInt(squermeter)&&item.street===street &&  item.neighbourhood===neighbourhood:
+            price&&squermeter&&neighbourhood!=''&& street!=''?parseInt(item.price) <=parseInt(price)&&parseInt(item.squareMeter) <=parseInt(squermeter)&&item.street===street &&  item.neighbourhood===neighbourhood:
+            floor&&squermeter&&neighbourhood!=''&& street!=''?parseInt(item.floor) <=parseInt(floor)&&parseInt(item.squareMeter) <=parseInt(squermeter)&&item.street===street &&  item.neighbourhood===neighbourhood:
+            squermeter&&neighbourhood!=''&& street!=''?parseInt(item.squareMeter) <=parseInt(squermeter)&&item.street===street &&  item.neighbourhood===neighbourhood:
+            floor&&price&&neighbourhood!=''&& street!=''?parseInt(item.floor) <=parseInt(floor)&&parseInt(item.price) <=parseInt(price)&&item.street===street &&  item.neighbourhood===neighbourhood:
+            price&&neighbourhood!=''&& street!=''?parseInt(item.price) <=parseInt(price)&&item.street===street &&  item.neighbourhood===neighbourhood:
+            floor&&neighbourhood!=''&& street!=''?parseInt(item.floor) <=parseInt(floor)&&item.street===street &&  item.neighbourhood===neighbourhood:
+            neighbourhood!=''&& street!=''?item.street===street &&  item.neighbourhood===neighbourhood:
+            floor&&price&&squermeter&&numRooms&&neighbourhood!=''&& street!=''?parseInt(item.floor) <=parseInt(floor)&&parseInt(item.price) <=parseInt(price)&&parseInt(item.squareMeter) <=parseInt(squermeter)&&item.street===street &&parseInt(item.numRooms) <=parseInt(numRooms)&&  item.neighbourhood===neighbourhood:
+            price&&squermeter&&numRooms&&neighbourhood!=''&& street!=''?parseInt(item.price) <=parseInt(price)&&parseInt(item.squareMeter) <=parseInt(squermeter)&&item.street===street &&parseInt(item.numRooms) <=parseInt(numRooms)&&  item.neighbourhood===neighbourhood:
+            floor&&squermeter&&numRooms&&neighbourhood!=''&& street!=''?parseInt(item.floor) <=parseInt(floor)&&parseInt(item.squareMeter) <=parseInt(squermeter)&&item.street===street &&parseInt(item.numRooms) <=parseInt(numRooms)&&  item.neighbourhood===neighbourhood:
+            squermeter&&numRooms&&neighbourhood!=''&& street!=''?parseInt(item.squareMeter) <=parseInt(squermeter)&&item.street===street &&parseInt(item.numRooms) <=parseInt(numRooms)&&  item.neighbourhood===neighbourhood:
+            floor&&price&&numRooms&&neighbourhood!=''&& street!=''?parseInt(item.floor) <=parseInt(floor)&&parseInt(item.price) <=parseInt(price)&&item.street===street &&parseInt(item.numRooms) <=parseInt(numRooms)&&  item.neighbourhood===neighbourhood:
+            price&&numRooms&&neighbourhood!=''&& street!=''?parseInt(item.price) <=parseInt(price)&&item.street===street &&parseInt(item.numRooms) <=parseInt(numRooms)&&  item.neighbourhood===neighbourhood:
+            floor&&numRooms&&neighbourhood!=''&& street!=''?parseInt(item.floor) <=parseInt(floor)&&item.street===street &&parseInt(item.numRooms) <=parseInt(numRooms)&&  item.neighbourhood===neighbourhood:
+            numRooms&&neighbourhood!=''&& street!=''?item.street===street &&parseInt(item.numRooms) <=parseInt(numRooms)&&  item.neighbourhood===neighbourhood:
+            floor&&price&&squermeter&&numRooms&&neighbourhood!=''&& city!=''?parseInt(item.floor) <=parseInt(floor)&&parseInt(item.price) <=parseInt(price)&&parseInt(item.squareMeter) <=parseInt(squermeter)&&parseInt(item.numRooms) <=parseInt(numRooms)&&item.city ===city&& item.neighbourhood===neighbourhood:
+            price&&squermeter&&numRooms&&neighbourhood!=''&& city!=''?parseInt(item.price) <=parseInt(price)&&parseInt(item.squareMeter) <=parseInt(squermeter)&&parseInt(item.numRooms) <=parseInt(numRooms)&&item.city ===city&& item.neighbourhood===neighbourhood:
+            floor&&squermeter&&numRooms&&neighbourhood!=''&& city!=''?parseInt(item.floor) <=parseInt(floor)&&parseInt(item.squareMeter) <=parseInt(squermeter)&&parseInt(item.numRooms) <=parseInt(numRooms)&&item.city ===city&& item.neighbourhood===neighbourhood:
+            squermeter&&numRooms&&neighbourhood!=''&& city!=''?parseInt(item.squareMeter) <=parseInt(squermeter)&&parseInt(item.numRooms) <=parseInt(numRooms)&&item.city ===city&& item.neighbourhood===neighbourhood:
+            floor&&price&&numRooms&&neighbourhood!=''&& city!=''?parseInt(item.floor) <=parseInt(floor)&&parseInt(item.price) <=parseInt(price)&&parseInt(item.numRooms) <=parseInt(numRooms)&&item.city ===city&& item.neighbourhood===neighbourhood:
+            price&&numRooms&&neighbourhood!=''&& city!=''?parseInt(item.price) <=parseInt(price)&&parseInt(item.numRooms) <=parseInt(numRooms)&&item.city ===city&& item.neighbourhood===neighbourhood:
+            floor&&numRooms&&neighbourhood!=''&& city!=''?parseInt(item.floor) <=parseInt(floor)&&parseInt(item.numRooms) <=parseInt(numRooms)&&item.city ===city&& item.neighbourhood===neighbourhood:
+            numRooms&&neighbourhood!=''&& city!=''?parseInt(item.numRooms) <=parseInt(numRooms)&&item.city ===city&& item.neighbourhood===neighbourhood:
+            floor&&price&&squermeter&&neighbourhood!=''&& city!=''?parseInt(item.floor) <=parseInt(floor)&&parseInt(item.price) <=parseInt(price)&&parseInt(item.squareMeter) <=parseInt(squermeter)&&item.city ===city&& item.neighbourhood===neighbourhood:
+            price&&squermeter&&neighbourhood!=''&& city!=''?parseInt(item.price) <=parseInt(price)&&parseInt(item.squareMeter) <=parseInt(squermeter)&&item.city ===city&& item.neighbourhood===neighbourhood:
+            floor&&squermeter&&neighbourhood!=''&& city!=''?parseInt(item.floor) <=parseInt(floor)&&parseInt(item.squareMeter) <=parseInt(squermeter)&&item.city ===city&& item.neighbourhood===neighbourhood:
+            squermeter&&neighbourhood!=''&& city!=''?parseInt(item.squareMeter) <=parseInt(squermeter)&&item.city ===city&& item.neighbourhood===neighbourhood:
+            floor&&price&&neighbourhood!=''&& city!=''?parseInt(item.floor) <=parseInt(floor)&&parseInt(item.price) <=parseInt(price)&&item.city ===city&& item.neighbourhood===neighbourhood:
+            price&&neighbourhood!=''&& city!=''?parseInt(item.price) <=parseInt(price)&&item.city ===city&& item.neighbourhood===neighbourhood:
+            floor&&neighbourhood!=''&& city!=''?parseInt(item.floor) <=parseInt(floor)&&item.city ===city&& item.neighbourhood===neighbourhood:
+            neighbourhood!=''&& city!=''?item.city ===city&& item.neighbourhood===neighbourhood:
+            floor&&price&&squermeter&&numRooms&&city!=''&& street!=''?parseInt(item.floor) <=parseInt(floor)&&parseInt(item.price) <=parseInt(price)&&parseInt(item.squareMeter) <=parseInt(squermeter)&&parseInt(item.numRooms) <=parseInt(numRooms)&&item.street===street && item.city ===city:
+            price&&squermeter&&numRooms&&city!=''&& street!=''?parseInt(item.price) <=parseInt(price)&&parseInt(item.squareMeter) <=parseInt(squermeter)&&parseInt(item.numRooms) <=parseInt(numRooms)&&item.street===street && item.city ===city:
+            floor&&squermeter&&numRooms&&city!=''&& street!=''?parseInt(item.floor) <=parseInt(floor)&&parseInt(item.squareMeter) <=parseInt(squermeter)&&parseInt(item.numRooms) <=parseInt(numRooms)&&item.street===street && item.city ===city:
+            squermeter&&numRooms&&city!=''&& street!=''?parseInt(item.squareMeter) <=parseInt(squermeter)&&parseInt(item.numRooms) <=parseInt(numRooms)&&item.street===street && item.city ===city:
+            floor&&price&&numRooms&&city!=''&& street!=''?parseInt(item.floor) <=parseInt(floor)&&parseInt(item.price) <=parseInt(price)&&parseInt(item.numRooms) <=parseInt(numRooms)&&item.street===street && item.city ===city:
+            price&&numRooms&&city!=''&& street!=''?parseInt(item.price) <=parseInt(price)&&parseInt(item.numRooms) <=parseInt(numRooms)&&item.street===street && item.city ===city:
+            floor&&numRooms&&city!=''&& street!=''?parseInt(item.floor) <=parseInt(floor)&&parseInt(item.numRooms) <=parseInt(numRooms)&&item.street===street && item.city ===city:
+            numRooms&&city!=''&& street!=''?parseInt(item.numRooms) <=parseInt(numRooms)&&item.street===street && item.city ===city:
+            floor&&price&&squermeter&&city!=''&& street!=''?parseInt(item.floor) <=parseInt(floor)&&parseInt(item.price) <=parseInt(price)&&parseInt(item.squareMeter) <=parseInt(squermeter)&&item.street===street && item.city ===city:
+            price&&squermeter&&city!=''&& street!=''?parseInt(item.price) <=parseInt(price)&&parseInt(item.squareMeter) <=parseInt(squermeter)&&item.street===street && item.city ===city:
+            floor&&squermeter&&city!=''&& street!=''?parseInt(item.floor) <=parseInt(floor)&&parseInt(item.squareMeter) <=parseInt(squermeter)&&item.street===street && item.city ===city:
+            squermeter&&city!=''&& street!=''?parseInt(item.squareMeter) <=parseInt(squermeter)&&item.street===street && item.city ===city:
+            floor&&price&&city!=''&& street!=''?parseInt(item.floor) <=parseInt(floor)&&parseInt(item.price) <=parseInt(price)&&item.street===street && item.city ===city:
+            price&&city!=''&& street!=''?parseInt(item.price) <=parseInt(price)&&item.street===street && item.city ===city:
+            floor&&city!=''&& street!=''?parseInt(item.floor) <=parseInt(floor)&&item.street===street && item.city ===city:
+            city!=''&& street!=''?item.street===street && item.city ===city:
+            floor&&price&&squermeter&&neighbourhood!=''&&numRooms?parseInt(item.floor) <=parseInt(floor)&&parseInt(item.price) <=parseInt(price)&&parseInt(item.squareMeter) <=parseInt(squermeter)&&item.neighbourhood ===neighbourhood&&parseInt(item.numRooms) <=parseInt(numRooms):
+            price&&squermeter&&neighbourhood!=''&&numRooms?parseInt(item.price) <=parseInt(price)&&parseInt(item.squareMeter) <=parseInt(squermeter)&&item.neighbourhood ===neighbourhood&&parseInt(item.numRooms) <=parseInt(numRooms):
+            floor&&squermeter&&neighbourhood!=''&&numRooms?parseInt(item.floor) <=parseInt(floor)&&parseInt(item.squareMeter) <=parseInt(squermeter)&&item.neighbourhood ===neighbourhood&&parseInt(item.numRooms) <=parseInt(numRooms):
+            squermeter&&neighbourhood!=''&&numRooms?parseInt(item.squareMeter) <=parseInt(squermeter)&&item.neighbourhood ===neighbourhood&&parseInt(item.numRooms) <=parseInt(numRooms):
+            floor&&price&&neighbourhood!=''&&numRooms?parseInt(item.floor) <=parseInt(floor)&&parseInt(item.price) <=parseInt(price)&&item.neighbourhood ===neighbourhood&&parseInt(item.numRooms) <=parseInt(numRooms):
+            price&&neighbourhood!=''&&numRooms?parseInt(item.price) <=parseInt(price)&&item.neighbourhood ===neighbourhood&&parseInt(item.numRooms) <=parseInt(numRooms):
+            floor&&neighbourhood!=''&&numRooms?parseInt(item.floor) <=parseInt(floor)&&item.neighbourhood ===neighbourhood&&parseInt(item.numRooms) <=parseInt(numRooms):
+            neighbourhood!=''&&numRooms?item.neighbourhood ===neighbourhood&&parseInt(item.numRooms) <=parseInt(numRooms):
+            floor&&price&&squermeter&&neighbourhood!=''?parseInt(item.floor) <=parseInt(floor)&&parseInt(item.price) <=parseInt(price)&&parseInt(item.squareMeter) <=parseInt(squermeter)&&item.neighbourhood ===neighbourhood:
+            price&&squermeter&&neighbourhood!=''?parseInt(item.price) <=parseInt(price)&&parseInt(item.squareMeter) <=parseInt(squermeter)&&item.neighbourhood ===neighbourhood:
+            floor&&squermeter&&neighbourhood!=''?parseInt(item.floor) <=parseInt(floor)&&parseInt(item.squareMeter) <=parseInt(squermeter)&&item.neighbourhood ===neighbourhood:
+            squermeter&&neighbourhood!=''?parseInt(item.squareMeter) <=parseInt(squermeter)&&item.neighbourhood ===neighbourhood:
+            floor&&price&&neighbourhood!=''?parseInt(item.floor) <=parseInt(floor)&&parseInt(item.price) <=parseInt(price)&&item.neighbourhood ===neighbourhood:
+            price&&neighbourhood!=''?parseInt(item.price) <=parseInt(price)&&item.neighbourhood ===neighbourhood:
+            floor&&neighbourhood!=''?parseInt(item.floor) <=parseInt(floor)&&item.neighbourhood ===neighbourhood:
+            neighbourhood!=''?item.neighbourhood ===neighbourhood:
+            floor&&price&&squermeter&&street!=''&&numRooms?parseInt(item.floor) <=parseInt(floor)&&parseInt(item.price) <=parseInt(price)&&parseInt(item.squareMeter) <=parseInt(squermeter)&&item.street ===street&&parseInt(item.numRooms) <=parseInt(numRooms):
+            price&&squermeter&&street!=''&&numRooms?parseInt(item.price) <=parseInt(price)&&parseInt(item.squareMeter) <=parseInt(squermeter)&&item.street ===street&&parseInt(item.numRooms) <=parseInt(numRooms):
+            floor&&squermeter&&street!=''&&numRooms?parseInt(item.floor) <=parseInt(floor)&&parseInt(item.squareMeter) <=parseInt(squermeter)&&item.street ===street&&parseInt(item.numRooms) <=parseInt(numRooms):
+            squermeter&&street!=''&&numRooms?parseInt(item.squareMeter) <=parseInt(squermeter)&&item.street ===street&&parseInt(item.numRooms) <=parseInt(numRooms):
+            floor&&price&&street!=''&&numRooms?parseInt(item.floor) <=parseInt(floor)&&parseInt(item.price) <=parseInt(price)&&item.street ===street&&parseInt(item.numRooms) <=parseInt(numRooms):
+            price&&street!=''&&numRooms?parseInt(item.price) <=parseInt(price)&&item.street ===street&&parseInt(item.numRooms) <=parseInt(numRooms):
+            floor&&street!=''&&numRooms?parseInt(item.floor) <=parseInt(floor)&&item.street ===street&&parseInt(item.numRooms) <=parseInt(numRooms):
+            street!=''&&numRooms?item.street ===street&&parseInt(item.numRooms) <=parseInt(numRooms):
+            floor&&price&&squermeter&&street!=''?parseInt(item.floor) <=parseInt(floor)&&parseInt(item.price) <=parseInt(price)&&parseInt(item.squareMeter) <=parseInt(squermeter)&&item.street ===street:
+            price&&squermeter&&street!=''?parseInt(item.price) <=parseInt(price)&&parseInt(item.squareMeter) <=parseInt(squermeter)&&item.street ===street:
+            floor&&squermeter&&street!=''?parseInt(item.floor) <=parseInt(floor)&&parseInt(item.squareMeter) <=parseInt(squermeter)&&item.street ===street:
+            squermeter&&street!=''?parseInt(item.squareMeter) <=parseInt(squermeter)&&item.street ===street:
+            floor&&price&&street!=''?parseInt(item.floor) <=parseInt(floor)&&parseInt(item.price) <=parseInt(price)&&item.street ===street:
+            price&&street!=''?parseInt(item.price) <=parseInt(price)&&item.street ===street:
+            floor&&street!=''?parseInt(item.floor) <=parseInt(floor)&&item.street ===street:
+            street!=''?item.street ===street:
+            floor&&price&&squermeter&&numRooms&&city!=''?parseInt(item.floor) <=parseInt(floor)&&parseInt(item.price) <=parseInt(price)&&parseInt(item.squareMeter) <=parseInt(squermeter)&&parseInt(item.numRooms) <=parseInt(numRooms)&&item.city ===city:
+            price&&squermeter&&numRooms&&city!=''?parseInt(item.price) <=parseInt(price)&&parseInt(item.squareMeter) <=parseInt(squermeter)&&parseInt(item.numRooms) <=parseInt(numRooms)&&item.city ===city:
+            floor&&squermeter&&numRooms&&city!=''?parseInt(item.floor) <=parseInt(floor)&&parseInt(item.squareMeter) <=parseInt(squermeter)&&parseInt(item.numRooms) <=parseInt(numRooms)&&item.city ===city:
+            squermeter&&numRooms&&city!=''?parseInt(item.squareMeter) <=parseInt(squermeter)&&parseInt(item.numRooms) <=parseInt(numRooms)&&item.city ===city:
+            floor&&price&&numRooms&&city!=''?parseInt(item.floor) <=parseInt(floor)&&parseInt(item.price) <=parseInt(price)&&parseInt(item.numRooms) <=parseInt(numRooms)&&item.city ===city:
+            price&&numRooms&&city!=''?parseInt(item.price) <=parseInt(price)&&parseInt(item.numRooms) <=parseInt(numRooms)&&item.city ===city:
+            floor&&numRooms&&city!=''?parseInt(item.floor) <=parseInt(floor)&&parseInt(item.numRooms) <=parseInt(numRooms)&&item.city ===city:
+            numRooms&&city!=''?parseInt(item.numRooms) <=parseInt(numRooms)&&item.city ===city:
+            floor&&price&&squermeter&&city!=''?parseInt(item.floor) <=parseInt(floor)&&parseInt(item.numRooms) <=parseInt(numRooms)&&parseInt(item.squareMeter) <=parseInt(squermeter)&&item.city ===city:
+            price&&squermeter&&city!=''?parseInt(item.numRooms) <=parseInt(numRooms)&&parseInt(item.squareMeter) <=parseInt(squermeter)&&item.city ===city:
+            floor&&squermeter&&city!=''?parseInt(item.floor) <=parseInt(floor)&&parseInt(item.squareMeter) <=parseInt(squermeter)&&item.city ===city:
+            squermeter&&city!=''?parseInt(item.squareMeter) <=parseInt(squermeter)&&item.city ===city:
+            floor&&price&&city!=''?parseInt(item.floor) <=parseInt(floor)&&parseInt(item.price) <=parseInt(price)&&item.city ===city:
+            price&&city!=''?parseInt(item.price) <=parseInt(price)&&item.city ===city:
+            floor&&city!=''?parseInt(item.floor) <=parseInt(floor)&&item.city ===city:
+            city!=''?item.city ===city:
+            floor&&price&&squermeter&&numRooms?parseInt(item.floor) <=parseInt(floor)&&parseInt(item.price) <=parseInt(price)&&parseInt(item.squareMeter) <=parseInt(squermeter)&&parseInt(item.numRooms) <=parseInt(numRooms):
+            price&&squermeter&&numRooms?parseInt(item.price) <=parseInt(price)&&parseInt(item.squareMeter) <=parseInt(squermeter)&&parseInt(item.numRooms) <=parseInt(numRooms):
+            floor&&squermeter&&numRooms?parseInt(item.floor) <=parseInt(floor)&&parseInt(item.squareMeter) <=parseInt(squermeter)&&parseInt(item.numRooms) <=parseInt(numRooms):
+            squermeter&&numRooms?parseInt(item.squareMeter) <=parseInt(squermeter)&&parseInt(item.numRooms) <=parseInt(numRooms):
+            floor&&price&&numRooms?parseInt(item.floor) <=parseInt(floor)&&parseInt(item.price) <=parseInt(price)&&parseInt(item.numRooms) <=parseInt(numRooms):
+            price&&numRooms?parseInt(item.price) <=parseInt(price)&&parseInt(item.numRooms) <=parseInt(numRooms):
+            floor&&numRooms?parseInt(item.floor) <=parseInt(floor)&&parseInt(item.numRooms) <=parseInt(numRooms):
+            numRooms?parseInt(item.numRooms) <=parseInt(numRooms):
+            floor&&price&&squermeter?parseInt(item.floor) <=parseInt(floor)&&parseInt(item.price) <=parseInt(price)&&parseInt(item.squareMeter) <=parseInt(squermeter):
+            price&&squermeter?parseInt(item.price) <=parseInt(price)&&parseInt(item.squareMeter) <=parseInt(squermeter):
+            floor&&squermeter?parseInt(item.floor) <=parseInt(floor)&&parseInt(item.squareMeter) <=parseInt(squermeter):
+            squermeter?parseInt(item.squareMeter) <=parseInt(squermeter):
+            floor&&price?parseInt(item.floor) <=parseInt(floor)&&parseInt(item.price) <=parseInt(price):
+            price?parseInt(item.price) <=parseInt(price):
+            floor?parseInt(item.floor) <=parseInt(floor)
+      :true;
+            console.log(numRooms,item.numRooms,isnumRoomsMatch)
+            return isnumRoomsMatch;
+          } );
+          setList(f1);} // עדכון הרשימה המסוננת
+      }, [numRooms,street,neighbourhood,city,squermeter,price,floor]);
   
     // Filter apartments by category
     const send = () => {
@@ -200,21 +337,61 @@ export const ApartmentForRent = () => {
     return (
         <>
 <div className="filters">
-    {/* <select onChange={(e) => setSelectedCategory(e.target.value)}>
-        <option value="">בחר קטגוריה</option>
-        {listKategories && listKategories.map((category) => (
-            <option key={category._id} value={category.nameKategory}>{category.nameKategory}</option>
-        ))}
-    </select> */}
-    
-    <input 
-        type="text" 
-        placeholder="עיר "
-        onChange={(e) => setMinRooms(e.target.value)} 
-    />
+  
+  <input 
+      type="text" 
+      placeholder="עיר "
+      
+      onBlur={(e) =>{
+        console.log('blur triggered:', e.target.value); // להדפיס את הערך בלוג
+        setcity(e.target.value);}} 
+  />
+  <input 
+      type="text" 
+      placeholder="שכונה "
+      onBlur={(e) => {
+        console.log('blur triggered:', e.target.value); // להדפיס את הערך בלוג
+        setneighbourhood(e.target.value)}} 
+  /><input 
+  type="text" 
+  placeholder="רחוב "
+  onBlur={(e) =>{
+    console.log('blur triggered:', e.target.value); // להדפיס את הערך בלוג
+    setstreet(e.target.value)}} 
+/><input 
+      type="Number" 
+      placeholder="מס' חדרים"
+      onBlur={(e) => {
+        console.log('blur triggered:', e.target.value); // להדפיס את הערך בלוג
+        setnumRooms(e.target.value)
+      console.log(numRooms)}} 
+  />
+<input 
+      type="Number" 
+      placeholder="מ'ר לדירה"
+      onBlur={(e) => {
+        console.log('blur triggered:', e.target.value); // להדפיס את הערך בלוג
+        setsquermeter(e.target.value)
+      console.log(squermeter)}} 
+  /><input 
+  type="Number" 
+  placeholder="מחיר"
+  onBlur={(e) => {
+    console.log('blur triggered:', e.target.value); // להדפיס את הערך בלוג
+    setPrice(e.target.value)
+  console.log(price)}} 
+/>
+<input 
+  type="Number" 
+  placeholder=" מס' קומה"
+  onBlur={(e) => {
+    console.log('blur triggered:', e.target.value); // להדפיס את הערך בלוג
+    setFloor(e.target.value)
+  console.log(floor)}} 
+/>
+</div> 
 <button onClick={handlePrintAll}>הדפס את הכל</button>
 
-</div>
 
             {/* <div className="button-container">
                 <button onClick={addApartment} className="add-button">הוספת דירה למאגר</button>
