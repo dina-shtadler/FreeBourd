@@ -332,6 +332,7 @@ export const UpdateApartment = () => {
             porch: event.target.porch.value,
             porchSquareMeter: event.target.porchSquareMeter.value,
             realEstateAgency: event.target.realEstateAgency.value,
+            floor:event.target.floor.value,
         };
 
         console.log(Apartment);
@@ -434,6 +435,15 @@ export const UpdateApartment = () => {
                     name="numBuild"
                     type="number"
                     defaultValue={thisApartment1.numBuild}
+                    variant="outlined"
+                />
+                <TextField
+                    fullWidth
+                    margin="normal"
+                    label="מספר קומה"
+                    name="floor"
+                    type="number"
+                    defaultValue={thisApartment1.floor}
                     variant="outlined"
                 />
 

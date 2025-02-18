@@ -565,7 +565,7 @@ export const AddApartments = () => {
 
       const formData = new FormData();
       formData.append("neighbourhood", event.target[0].value);
-      formData.append("picture", image);
+      formData.append("floor", event.target[1].value);
       formData.append("street", event.target[2].value);
       formData.append("numBuild", event.target[3].value);
       formData.append("price", event.target[4].value);
@@ -635,10 +635,8 @@ export const AddApartments = () => {
               <div className="input-container">
                   <input
                       className="input-field"
-                      type="file"
-                      id="apartment-image"
-                      onChange={handleImageChange}
-                    //   required
+                      type="text"
+placeholder="קומה"          name="floor"            required
                   />
               </div>
 

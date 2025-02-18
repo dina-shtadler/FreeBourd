@@ -29,7 +29,9 @@ export const ApartmentForRent = () => {
     useEffect(() => {
         getAllApartment()
             .then(x => {
-                const filteredApartments = x.data.apartmens.filter(item => item.kodKategory[0]?.nameKategory === 'להשכרה');
+                const filteredApartments = x.data.apartmens.filter(item => item.kodKategory[0]?.nameKategory === 'להשכרה'&&  (!item.datend || new Date(item.datend).getTime() >= new Date().setHours(0, 0, 0, 0)) // אם אין datend או אם datend קטן או שווה להיום
+
+            );
 
                 setList(filteredApartments);
                 console.log("listApartment",filteredApartments);
