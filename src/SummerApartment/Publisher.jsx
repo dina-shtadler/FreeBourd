@@ -83,7 +83,7 @@ const register=()=>{
 
 
     return <>
-      <h2>login Publisher</h2> 
+      <h2>התחברות למפרסמים</h2> 
 
              <button className='ToRegister' onClick={()=>register()}>להרשמה</button>
 
@@ -93,15 +93,15 @@ const register=()=>{
   
   <div class="input-container">
     <i class="fa fa-envelope icon"></i>
-    <input class="input-field" type="email" placeholder="Email" name="email" required></input>
+    <input class="input-field" type="email" placeholder="כתובת מייל" name="email" required></input>
   </div>
 
   <div class="input-container">
     <i class="fa fa-key icon"></i>
-    <input class="input-field" type="password" placeholder="Password" name="psw" required></input>
+    <input class="input-field" type="password" placeholder="סיסמא" name="psw" required></input>
   </div>
 
-  <button type="submit" className="btn">login</button>
+  <button type="submit" className="btn">התחברות</button>
 </form>
    
     </>

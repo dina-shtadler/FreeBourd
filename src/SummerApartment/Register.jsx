@@ -74,7 +74,7 @@ export const Register = () => {
 //     Nav('/Home')
 // }   }
     return <>
-      <h2>Register Publisher</h2>
+      <h2>רישום לפירסום דירות</h2>
 
    <form className='form'  onSubmit={(e) => send(e)} >
   <div class="input-container">
