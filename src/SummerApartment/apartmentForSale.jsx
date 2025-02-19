@@ -2,7 +2,6 @@ import { Outlet } from 'react-router-dom'
 import './apartment.css'
 import { useEffect, useState ,useRef} from "react";
 import { getAllApartment, getAllKategorys, removeApartment, getAllByKodKategory, loginp } from "./api";
-import { useNavigate } from 'react-router-dom';
 import { jsPDF } from "jspdf";
 import pdfMake from 'pdfmake/build/pdfmake';
 import pdfFonts from 'pdfmake/build/vfs_fonts'; // פונט מובנה של pdfmake
@@ -12,8 +11,11 @@ import swal from 'sweetalert'
 import { MdDelete, MdEdit } from 'react-icons/md';
 import { FaPrint, FaShareSquare } from 'react-icons/fa';
 import { FaTrashAlt, FaPen } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 
 import { Document, Page, Text, View, StyleSheet, Font, PDFDownloadLink } from '@react-pdf/renderer';
+import Private from './Private';
+import PersonalArea from './PersonalArea'; // דף האזור האישי
 
 
 export const ApartmentForsale = () => {
@@ -32,7 +34,7 @@ export const ApartmentForsale = () => {
     const [squermeter, setsquermeter] = useState();
     const [price, setPrice] = useState();
     const [floor, setFloor] = useState('');
-
+    const [isLoggedIn, setIsLoggedIn] = useState(false); // ניהול סטטוס הכניסה של המשתמש
     // Fetch apartments and categories
     useEffect(() => {
         getAllApartment()
@@ -415,9 +417,18 @@ floor&&      city!=''&& neighbourhood!=''&& street!=''?parseInt(item.floor) <=pa
     const downloadLinkRef = useRef();
   
     // פונקציה להורדת ה-PDF
-    
+        const personalArea = () =>{
+          if (!isLoggedIn) {
+            Nav('/private'); // אם המשתמש לא מחובר, שלח אותו לדף ההתחברות
+          } else {
+           Nav('/personal-area'); // אם הוא מחובר, שלח אותו לאזור האישי
+           }
+        };
+
     return (
         <>
+              <button className="personal-area-button" onClick={personalArea}>לאזור אישי</button>
+
 <div className="filters">
   
     <input 

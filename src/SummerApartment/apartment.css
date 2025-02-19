@@ -100,6 +100,24 @@ select, input {
     background-color: #2980b9;
 } */
  /* עיצוב כפתור הוספה */
+ .personal-area-button {
+    position: fixed;
+    top: 10px; /* המרחק מלמעלה */
+    left: 10px; /* המרחק מצד שמאל */
+    padding: 10px 20px;
+    background-color: #4CAF50; /* צבע רקע לכפתור */
+    color: white; /* צבע טקסט */
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    z-index: 1000; /* לוודא שהכפתור יהיה מעל כל התוכן */
+  }
+  
+  .personal-area-button:hover {
+    background-color: #45a049; /* צבע רקע שונה בעת ריחוף על הכפתור */
+  }
+  
 .add-button {
     background-color: #4CAF50;
     color: white;

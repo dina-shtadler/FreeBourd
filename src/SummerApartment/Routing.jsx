@@ -12,6 +12,8 @@ import { Client } from './Client'
 import { UpdateApartment } from './UpdateApartment'
 import { ApartmentForsale } from './apartmentForSale'
 import { ApartmentForRent } from './apartmentsForRent'
+import {Private} from './Private'
+import {PersonalArea} from './PersonalArea'
 export const Routing = () => {
     return <>
 
@@ -30,7 +32,9 @@ export const Routing = () => {
             <Route path={'Apartments'} element={<Apartments></Apartments>}></Route> 
             <Route path={'addApartments'} element={<AddApartments></AddApartments>}></Route>
             <Route path={'UpdateApartment'} element={<UpdateApartment></UpdateApartment>}></Route>
-            <Route path={'apartmentForsale'} element={<ApartmentForsale></ApartmentForsale>}></Route>
+            <Route path={'apartmentForsale'} element={<ApartmentForsale></ApartmentForsale>}></Route> 
+             <Route path={'private'} element={<Private></Private>} ></Route>
+            <Route path={'personal-area'}element={<PersonalArea></PersonalArea>} ></Route>
             <Route path={'apartmentForRent'} element={<ApartmentForRent></ApartmentForRent>}></Route>
 
             <Route path={'Login'} element={<Login></Login>}></Route>
