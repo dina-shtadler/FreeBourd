@@ -704,6 +704,8 @@ placeholder="קומה"          name="floor"            required
           <div className="input-container">
                   <input className="input-field" type="text"   value={inputText}
         onChange={handleChange} placeholder="פרטים נוספים" name="describe" required />
+              <p>נכנסו {inputText.trim().split(/\s+/).length} מילים</p>
+
               </div>
               <button type="submit" className="btn">
                   שלח
