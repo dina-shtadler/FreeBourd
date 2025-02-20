@@ -1,68 +1,88 @@
-/* עיצוב עבור הקומפוננטה של ההתחברות */
+/* הגדרה כללית לכל האלמנטים */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* הקונטיינר של הטופס */
 .login-container {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 400px;
-    margin: auto;
-  }
-  
-  .login-title {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 20px;
-    text-align: center;
-    color: #333;
-  }
-  
-  .login-form {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .form-group {
-    margin-bottom: 15px;
-  }
-  
-  .form-group label {
-    font-size: 16px;
-    font-weight: 600;
-    color: #333;
-  }
-  
-  .form-input {
-    padding: 10px;
-    font-size: 14px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    margin-top: 5px;
-  }
-  
-  .form-input:focus {
-    border-color: #4CAF50;
-    outline: none;
-  }
-  
-  .error-message {
-    color: #ff0000;
-    font-size: 14px;
-    margin-top: 10px;
-  }
-  
-  .login-button {
-    padding: 12px;
-    font-size: 16px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .login-button:hover {
-    background-color: #45a049;
-  }
-  
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto; /* ממקם את הקונטיינר במרכז */
+  box-sizing: border-box; /* כולל את הריפוד כחלק מהגודל הכללי */
+}
+
+/* כותרת הטופס */
+.login-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #333;
+}
+
+/* עיצוב הטופס */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* רווח אחיד בין השדות */
+  width: 100%;
+}
+
+/* עיצוב כל שדה קלט */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.form-group label {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.form-input {
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-top: 5px;
+  width: 100%; /* השדה יתפוס את כל הרוחב של הקונטיינר */
+  box-sizing: border-box; /* ודא שאין בריחה לצדדים */
+}
+
+.form-input:focus {
+  border-color: #4CAF50;
+  outline: none;
+}
+
+.error-message {
+  color: #ff0000;
+  font-size: 14px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.login-button {
+  padding: 12px;
+  font-size: 16px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 100%; /* הכפתור יתפוס את כל הרוחב של הקונטיינר */
+  box-sizing: border-box; /* ודא שהכפתור לא בורח לצדדים */
+}
+
+.login-button:hover {
+  background-color: #45a049;
+}

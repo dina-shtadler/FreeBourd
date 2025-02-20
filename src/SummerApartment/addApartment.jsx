@@ -576,7 +576,7 @@ export const AddApartments = () => {
       formData.append("realEstateAgency", event.target[9].value);
       formData.append("city", event.target[10].value);
       formData.append("datend", event.target[11].value);
-      console.log("datend", event.target[11].value)
+      console.log("describe", event.target[12].value)
       const selectedCategory = listKategories.find((x) => x.nameKategory === Kategory);
       if (selectedCategory) {
         console.log(Kategory);
@@ -605,6 +605,16 @@ export const AddApartments = () => {
               console.error(err);
           });
   };
+  const [inputText, setInputText] = useState('');
+
+  const handleChange = (event) => {
+    const value = event.target.value;
+
+    // מחלק את הטקסט למילים ומוודא שיש לא יותר מ-10 מילים
+    const words = value.trim().split(/\s+/); // מפריד לפי רווחים או רווחים מרובים
+    if (words.length <= 10) {
+      setInputText(value);
+    }}
 
   return (
       <>
@@ -640,7 +650,6 @@ placeholder="קומה"          name="floor"            required
                   />
               </div>
 
-              {/* תיאור הדירה */}
               <div className="input-container">
                   <input className="input-field" type="text" placeholder="רחוב" name="street" required />
               </div>
@@ -692,6 +701,10 @@ placeholder="קומה"          name="floor"            required
         min={currentDate} // תאריך מינימלי - היום
         max={maxDateString} // תאריך מקסימלי - 30 יום קדימה
       /></div>
+          <div className="input-container">
+                  <input className="input-field" type="text"   value={inputText}
+        onChange={handleChange} placeholder="פרטים נוספים" name="describe" required />
+              </div>
               <button type="submit" className="btn">
                   שלח
               </button>

@@ -227,6 +227,8 @@ export const PersonalArea =() =>{
                       <FaShareSquare /> <FaPrint />
                   </button>
               </td>
+              {new Date(x.datend).getTime() < new Date().setHours(0, 0, 0, 0)&& // אם אין datend או אם datend קטן או שווה להיום
+        ( <td>פג תוקף פירסומת </td>)}
           </tr>
       ))}
   </tbody>

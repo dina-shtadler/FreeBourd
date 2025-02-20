@@ -433,6 +433,10 @@ export const ApartmentForRent = () => {
             <th>טלפון</th>
             <th>תיווך</th>
             {/* <th>פעולות</th> */}
+            <th>קומה</th>
+
+            <th>פרטים נוספים</th>
+
             <th> pdfהדפסה ו</th>
         </tr>
     </thead>
@@ -460,6 +464,8 @@ export const ApartmentForRent = () => {
                         </div>
                     )}
                 </td> */}
+                  <td>{x.floor}</td>
+                  <td>{x.describe}</td>
                 <td>
                     <button onClick={() => handlePrint(x)}>
                         <FaShareSquare /> <FaPrint />

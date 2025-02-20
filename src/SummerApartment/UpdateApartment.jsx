@@ -333,6 +333,7 @@ export const UpdateApartment = () => {
             porchSquareMeter: event.target.porchSquareMeter.value,
             realEstateAgency: event.target.realEstateAgency.value,
             floor:event.target.floor.value,
+            describe:event.target.describe.value,
         };
 
         console.log(Apartment);
@@ -490,13 +491,21 @@ export const UpdateApartment = () => {
                 <TextField
                     fullWidth
                     margin="normal"
-                    label="סוכנות נדל"
+                    label=" תיווך"
                     name="realEstateAgency"
                     type="text"
                     defaultValue={thisApartment1.realEstateAgency}
                     variant="outlined"
                 />
-
+              <TextField
+                   fullWidth
+                    margin="normal"
+                    label=" פרטים נוספים"
+                    name="describe"
+                    type="text"
+                    defaultValue={thisApartment1.describe}
+                    variant="outlined"
+                />
                 <ButtonBase
                     type="submit"
                     sx={{

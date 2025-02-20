@@ -453,7 +453,7 @@ floor&&      city!=''&& neighbourhood!=''&& street!=''?parseInt(item.floor) <=pa
       setstreet(e.target.value)}} 
 /><input 
         type="Number" 
-        placeholder="מס' חדרים"
+        placeholder="(מס' חדרים (מקסימום"
         onBlur={(e) => {
           console.log('blur triggered:', e.target.value); // להדפיס את הערך בלוג
           setnumRooms(e.target.value)
@@ -461,14 +461,14 @@ floor&&      city!=''&& neighbourhood!=''&& street!=''?parseInt(item.floor) <=pa
     />
 <input 
         type="Number" 
-        placeholder="מ'ר לדירה"
+        placeholder="מ'ר לדירה (מקסימום)"
         onBlur={(e) => {
           console.log('blur triggered:', e.target.value); // להדפיס את הערך בלוג
           setsquermeter(e.target.value)
         console.log(squermeter)}} 
     /><input 
     type="Number" 
-    placeholder="מחיר"
+    placeholder="מחיר (מקסימום)"
     onBlur={(e) => {
       console.log('blur triggered:', e.target.value); // להדפיס את הערך בלוג
       setPrice(e.target.value)
@@ -531,6 +531,8 @@ floor&&      city!=''&& neighbourhood!=''&& street!=''?parseInt(item.floor) <=pa
             <th>מייל</th>
             <th>טלפון</th>
             <th>תיווך</th>
+            <th>קומה</th>
+            <th>פרטים נוספים</th>
             {/* <th>פעולות</th> */}
             <th> pdfהדפסה ו</th>
         </tr>
@@ -559,6 +561,8 @@ floor&&      city!=''&& neighbourhood!=''&& street!=''?parseInt(item.floor) <=pa
                         </div>
                     )}
                 </td> */}
+                <td>{x.floor}</td>
+                <td>{x.describe}</td>
                 <td>
                     <button onClick={() => handlePrint(x)}>
                         <FaShareSquare /> <FaPrint />
