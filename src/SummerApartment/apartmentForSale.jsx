@@ -416,7 +416,6 @@ floor&&      city!=''&& neighbourhood!=''&& street!=''?parseInt(item.floor) <=pa
 // רכיב שמייצר את כפתור ההורדה
     const downloadLinkRef = useRef();
   
-    // פונקציה להורדת ה-PDF
         const personalArea = () =>{
           if (!isLoggedIn) {
             Nav('/private'); // אם המשתמש לא מחובר, שלח אותו לדף ההתחברות
@@ -427,7 +426,7 @@ floor&&      city!=''&& neighbourhood!=''&& street!=''?parseInt(item.floor) <=pa
 
     return (
         <>
-              <button className="personal-area-button" onClick={personalArea}>לאזור אישי</button>
+              <button className="personal-area-button" onClick={personalArea}>אזור אישי למפרסמים</button>
 
 <div className="filters">
   

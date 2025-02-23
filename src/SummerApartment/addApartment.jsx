@@ -608,6 +608,7 @@ export const AddApartments = () => {
   const [inputText, setInputText] = useState('');
 
   const handleChange = (event) => {
+    debugger
     const value = event.target.value;
 
     // מחלק את הטקסט למילים ומוודא שיש לא יותר מ-10 מילים

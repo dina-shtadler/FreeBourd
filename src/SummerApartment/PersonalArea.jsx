@@ -1,7 +1,7 @@
 import React from 'react';
 import './apartment.css'
 import { useEffect, useState } from "react";
-import { getAllApartment, getAllKategorys, removeApartment, loginp,getAllByKodKategory } from "./api";
+import { getAllApartment,updateApartment, getAllKategorys, removeApartment, loginp,getAllByKodKategory } from "./api";
 import { useNavigate } from 'react-router-dom';
 import { jsPDF } from "jspdf";
 import { PDFDownloadLink, Document, Page, Text, StyleSheet, View, Font } from '@react-pdf/renderer';
@@ -173,7 +173,66 @@ export const PersonalArea =() =>{
   const addApartment = () => {
       Nav('/addApartments');
   };
+//פופאפ
+  // State to manage popup visibility and selected date
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [selectedDate, setSelectedDate] = useState("");
 
+  // Get today's date and 30 days from today
+  const [minDate, setMinDate] = useState("");
+  const [maxDate, setMaxDate] = useState("");
+
+  useEffect(() => {
+    const today = new Date();
+    const max = new Date(today);
+    max.setDate(today.getDate() + 30); // 30 days from today
+
+    const formattedToday = today.toISOString().split("T")[0];
+    const formattedMax = max.toISOString().split("T")[0];
+
+    setMinDate(formattedToday);
+    setMaxDate(formattedMax);
+  }, []);
+
+  // Function to handle opening the popup
+  const openPopup = () => {
+    setIsPopupOpen(true);
+  };
+
+  // Function to handle closing the popup
+  const closePopup = () => {
+    setIsPopupOpen(false);
+  };
+
+  // Function to handle date change
+  const handleDateChange = (e) => {
+    setSelectedDate(e.target.value);
+  };
+
+  // Function to save the selected date
+  const saveDate = (a) => {
+    const Apartment = {
+      _id: a._id,
+      kodPublisher: localStorage.getItem(`user`),
+    datend:selectedDate
+  };
+
+    if (selectedDate) {
+      alert(`התאריך שנבחר: ${selectedDate}`);
+      updateApartment(localStorage.getItem(`user`), Apartment)
+      .then(x => {
+          console.log(x.data);
+          swal(`🤭🤭🤭 success`);
+      })
+      .catch(err => {
+          console.log(err);
+      });
+
+      closePopup();
+    } else {
+      alert("נא לבחור תאריך.");
+    }
+  };
   return (
       <>
 
@@ -227,8 +286,31 @@ export const PersonalArea =() =>{
                       <FaShareSquare /> <FaPrint />
                   </button>
               </td>
-              {new Date(x.datend).getTime() < new Date().setHours(0, 0, 0, 0)&& // אם אין datend או אם datend קטן או שווה להיום
-        ( <td>פג תוקף פירסומת </td>)}
+              {new Date(x.datend).getTime()  <new Date().setHours(0, 0, 0, 0)&& // אם אין datend או אם datend קטן או שווה להיום
+        ( <td>פג תוקף פירסומת   <div className="App">
+          <button onClick={openPopup}> להוספת זמן לפירסום</button>
+    
+          {/* Popup */}
+          {isPopupOpen && (
+            <div className="popup">
+              <div className="popup-content">
+                <span className="close" onClick={closePopup}>
+                  &times;
+                </span>
+                <h2>בחר תאריך</h2>
+                <input
+                  type="date"
+                  value={selectedDate}
+                  min={minDate}
+                  max={maxDate}
+                  onChange={handleDateChange}
+                />
+                <button onClick={()=>saveDate(x)}>שמור תאריך</button>
+              </div>
+            </div>
+          )}
+        </div>
+      </td> )}
           </tr>
       ))}
   </tbody>

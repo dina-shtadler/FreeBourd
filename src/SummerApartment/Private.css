@@ -9,6 +9,8 @@
 .login-container {
   background-color: #fff;
   padding: 20px;
+    display: flex;
+  flex-direction: column;
   border-radius: 8px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
   width: 100%;
@@ -28,10 +30,16 @@
 
 /* עיצוב הטופס */
 .login-form {
-  display: flex;
+  background-color: #fff;
+  padding: 20px;
+    display: flex;
   flex-direction: column;
-  gap: 15px; /* רווח אחיד בין השדות */
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
   width: 100%;
+  max-width: 400px;
+  margin: 0 auto; /* ממקם את הקונטיינר במרכז */
+  box-sizing: border-box; /* כולל את הריפוד כחלק מהגודל הכללי */
 }
 
 /* עיצוב כל שדה קלט */

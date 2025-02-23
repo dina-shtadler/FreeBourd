@@ -32,6 +32,8 @@ export const ApartmentForRent = () => {
     const [squermeter, setsquermeter] = useState();
     const [price, setPrice] = useState();
     const [floor, setFloor] = useState('');
+    const [isLoggedIn, setIsLoggedIn] = useState(false); // ניהול סטטוס הכניסה של המשתמש
+
     // Fetch apartments and categories
     useEffect(() => {
         getAllApartment()
@@ -333,9 +335,17 @@ export const ApartmentForRent = () => {
     const addApartment = () => {
         Nav('/addApartments');
     };
-
+    const personalArea = () =>{
+        if (!isLoggedIn) {
+          Nav('/private'); // אם המשתמש לא מחובר, שלח אותו לדף ההתחברות
+        } else {
+         Nav('/personal-area'); // אם הוא מחובר, שלח אותו לאזור האישי
+         }
+      };
     return (
         <>
+                      <button className="personal-area-button" onClick={personalArea}>אזור אישי למפרסמים</button>
+
 <div className="filters">
   
   <input 
