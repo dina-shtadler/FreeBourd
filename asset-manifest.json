@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/FreeBourd/static/css/main.83b1103f.css",
-    "main.js": "/FreeBourd/static/js/main.8f2891e8.js",
+    "main.css": "/FreeBourd/static/css/main.169ccb60.css",
+    "main.js": "/FreeBourd/static/js/main.642b1aed.js",
     "static/js/498.20efc46e.chunk.js": "/FreeBourd/static/js/498.20efc46e.chunk.js",
     "static/js/703.3de3b10f.chunk.js": "/FreeBourd/static/js/703.3de3b10f.chunk.js",
     "static/js/198.9d7a6080.chunk.js": "/FreeBourd/static/js/198.9d7a6080.chunk.js",
     "static/media/בניין.jpg": "/FreeBourd/static/media/בניין.b2905fe0319128b4d636.jpg",
     "index.html": "/FreeBourd/index.html",
-    "main.83b1103f.css.map": "/FreeBourd/static/css/main.83b1103f.css.map",
-    "main.8f2891e8.js.map": "/FreeBourd/static/js/main.8f2891e8.js.map",
+    "main.169ccb60.css.map": "/FreeBourd/static/css/main.169ccb60.css.map",
+    "main.642b1aed.js.map": "/FreeBourd/static/js/main.642b1aed.js.map",
     "498.20efc46e.chunk.js.map": "/FreeBourd/static/js/498.20efc46e.chunk.js.map",
     "703.3de3b10f.chunk.js.map": "/FreeBourd/static/js/703.3de3b10f.chunk.js.map",
     "198.9d7a6080.chunk.js.map": "/FreeBourd/static/js/198.9d7a6080.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.83b1103f.css",
-    "static/js/main.8f2891e8.js"
+    "static/css/main.169ccb60.css",
+    "static/js/main.642b1aed.js"
   ]
 }
