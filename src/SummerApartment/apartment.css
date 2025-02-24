@@ -132,12 +132,21 @@ select, input {
 .add-button:hover {
     background-color: #45a049;
 }
-
+.table-container {
+    margin-right: 5%; /* ניתן להגדיל או להקטין בהתאם לרצוי */
+    display: flex;
+    justify-content: flex-start; /* מבטיח שהתוכן לא יהיה צמוד לשמאל */
+}.table-wrapper {
+    overflow-x: auto; /* מאפשר גלילה אופקית במידת הצורך */
+    white-space: nowrap; /* מונע שבירה של טקסטים בטבלה */
+    max-width: 100%; /* מבטיח שהטבלה לא תיחתך */
+}
 /* עיצוב הטבלה */
 .apartments-table {
-    width: 100%;
+    /* width: max-content; מבטיח שהטבלה לא תהיה קטנה מדי */
     border-collapse: collapse;
-    margin: 20px 0;
+      margin: 20px 0;
+    margin-right: 500px;
     background-color: #fff;
 }
 
@@ -199,7 +208,8 @@ select, input {
 }
 
 /* עיצוב הטבלה */
-.apartments-table {
+.apartments-table {    margin-right: 10%;
+
     width: 100%;
     border-collapse: collapse;
     margin: 20px 0;
@@ -257,7 +267,8 @@ select, input {
         padding: 8px; /* פחות ריווח */
     }
 
-    .apartments-table {
+    .apartments-table {    margin-right: 10%;
+
         font-size: 14px; /* הקטנת גודל הגופן */
     }
 
@@ -266,7 +277,8 @@ select, input {
     }
 
     /* גלילה אופקית אם הטבלה גדולה מדי */
-    .apartments-table {
+    .apartments-table {    margin-right: 10%;
+
         display: block;
         overflow-x: scroll;
     }

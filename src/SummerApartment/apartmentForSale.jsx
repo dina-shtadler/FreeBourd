@@ -606,6 +606,9 @@ const apartmentMatchesFilters = (apartment) => {
             </div> */}
 
             {/* Table displaying apartments */}
+            <div className="table-container">
+            <div className="table-wrapper">
+
             <table className="apartments-table">
     <thead>
         <tr>
@@ -662,8 +665,8 @@ const apartmentMatchesFilters = (apartment) => {
             </tr>
         ))}
     </tbody>
-</table>
-
+</table></div>
+</div>
         </>
     );
 };
