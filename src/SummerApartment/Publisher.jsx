@@ -10,7 +10,9 @@ import { useEffect, useState } from "react"
 // import { addUser1 } from "./api"
 export const Publisher = () => {
     const [login, setlogin] = useState()
-
+ const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
     const Nav=useNavigate()
     const send = (event) => {
         event.preventDefault()
@@ -85,24 +87,37 @@ const register=()=>{
     return <>
       <h2>התחברות למפרסמים</h2> 
 
-             <button className='ToRegister' onClick={()=>register()}>להרשמה</button>
 
-    <form action="./Home" className='form'  onSubmit={(e) => send(e)}>
-
-        {/* */}
-  
-  <div class="input-container">
-    <i class="fa fa-envelope icon"></i>
-    <input class="input-field" type="email" placeholder="כתובת מייל" name="email" required></input>
+             <div className="login-container">
+                 <button className='ToRegister' onClick={()=>register()}>להרשמה</button>
+<h2 className="login-title">התחברות</h2>
+    <form onSubmit={send} className="login-form">
+      <div className="form-group">
+        <label htmlFor="email">מייל:</label>
+        <input
+          type="email"
+          id="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+          className="form-input"
+        />
+      </div>
+      <div className="form-group">
+        <label htmlFor="password">סיסמה:</label>
+        <input
+          type="password"
+          id="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+          className="form-input"
+        />
+      </div>
+      {error && <p className="error-message">{error}</p>}
+      <button type="submit" className="login-button">התחבר</button>
+    </form>
   </div>
 
-  <div class="input-container">
-    <i class="fa fa-key icon"></i>
-    <input class="input-field" type="password" placeholder="סיסמא" name="psw" required></input>
-  </div>
-
-  <button type="submit" className="btn">התחברות</button>
-</form>
-   
     </>
 }
