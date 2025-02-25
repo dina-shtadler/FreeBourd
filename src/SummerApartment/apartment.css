@@ -132,34 +132,60 @@ select, input {
 .add-button:hover {
     background-color: #45a049;
 }
+
+/* ריווח מהצד הימני */
 .table-container {
-    margin-right: 7%; /* ניתן להגדיל או להקטין בהתאם לרצוי */
-    display: flex;
-    justify-content: flex-start; /* מבטיח שהתוכן לא יהיה צמוד לשמאל */
-}.table-wrapper {
-    overflow-x: auto; /* מאפשר גלילה אופקית במידת הצורך */
-    white-space: nowrap; /* מונע שבירה של טקסטים בטבלה */
-    max-width: 100%; /* מבטיח שהטבלה לא תיחתך */
-}
-/* עיצוב הטבלה */
-.apartments-table {
-    /* width: max-content; מבטיח שהטבלה לא תהיה קטנה מדי */
-    border-collapse: collapse;
-      margin: 20px 0;
-    margin-right: 500px;
-    background-color: #fff;
+    padding-left: 20px;
+    padding-right: 7%; /* ריווח מהצד הימני */
+    margin-bottom: 20px;
+    overflow-x: hidden;
 }
 
+/* הגדרת התנהגות פסי הגלילה */
+/* .scroll-top, .scroll-bottom {
+    height: 20px;
+    overflow-x: auto;
+    background-color: #f4f4f4;
+    cursor: grab;
+} */
+
+.scroll-inner {
+    width: 200%; /* הרחבת האזור של הגלילה */
+    height: 1px;
+}
+
+/* כעת גלילה אופקית תעבוד כמו שצריך */
+.table-scroll {
+    overflow-x: auto; 
+    overflow-y: auto; 
+    max-height: 550px;
+    white-space: nowrap;
+    display: flex;
+    direction: rtl;
+}
+
+/* גורם לטבלה עצמה לזוז עם הגלילה */
+.apartments-table {
+    width: max-content; 
+    border-collapse: collapse;
+}
+
+/* סגנון לתאים */
 .apartments-table th, .apartments-table td {
     padding: 12px;
     text-align: center;
     border: 1px solid #ddd;
+    white-space: nowrap;
 }
 
-.apartments-table th {
-    background-color: #f4f4f4;
-    font-weight: bold;
+/* גורם לכותרת להישאר קבועה */
+.apartments-table thead {
+    position: sticky;
+    top: 0;
+    background-color: white;
+    z-index: 100;
 }
+
 
 .apartments-table tr:nth-child(even) {
     background-color: #f9f9f9;

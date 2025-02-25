@@ -493,7 +493,7 @@ const apartmentMatchesFilters = (apartment) => {
            Nav('/personal-area'); // אם הוא מחובר, שלח אותו לאזור האישי
            }
         };
-
+       
     return (
         <>
               <button className="personal-area-button" onClick={personalArea}>אזור אישי למפרסמים</button>
@@ -608,7 +608,11 @@ const apartmentMatchesFilters = (apartment) => {
             {/* Table displaying apartments */}
             <div className="table-container">
             <div className="table-wrapper">
+                {/* פס גלילה עליון */}
+                <div className="scroll-inner"></div>
 
+            {/* גלילה אופקית ואנכית לטבלה */}
+            <div className="table-scroll" >
             <table className="apartments-table">
     <thead>
         <tr>
@@ -665,7 +669,11 @@ const apartmentMatchesFilters = (apartment) => {
             </tr>
         ))}
     </tbody>
-</table></div>
+</table></div>   {/* פס גלילה עליון */}
+             {/* פס גלילה תחתון */}
+                <div className="scroll-inner"></div>
+</div>{/* פס גלילה תחתון */}
+   
 </div>
         </>
     );
