@@ -348,6 +348,17 @@ export const UpdateApartment = () => {
             });
     };
 
+    const [inputText, setInputText] = useState('');
+
+    const handleChange = (event) => {
+      debugger
+      const value = event.target.value;
+  
+      // מחלק את הטקסט למילים ומוודא שיש לא יותר מ-10 מילים
+      const words = value.trim().split(/\s+/); // מפריד לפי רווחים או רווחים מרובים
+      if (words.length <= 10) {
+        setInputText(value);
+      }}
     return (
         <>
             <Typography variant="h4" gutterBottom>
@@ -367,163 +378,102 @@ export const UpdateApartment = () => {
                     ))}
                 </Select>
             </FormControl>
+            <div className="form-wrapper">
+  <div className="form-b">
+    <form id="t" onSubmit={send}>
+      <h1>הוספת דירה למאגר</h1>
 
-            <form id="t" action="./addApartment" onSubmit={send}>
-                <TextField
-                    fullWidth
-                    margin="normal"
-                    label="כתובת"
-                    name="adress"
-                    type="text"
-                    defaultValue={thisApartment1.adress}
-                    variant="outlined"
-                />
+      {/* קטגוריה */}
+      <div className="input-container full-width">
+        <label>קטגוריה:</label>
+        <select className="input-field select-field" required onChange={(e) => setKategory(e.target.value)}>
+          <option key="none" disabled selected>בחר קטגוריה</option>
+          {listKategories && listKategories.map((category) => (
+            <option key={category._id} value={category.nameKategory}>
+              {category.nameKategory}
+            </option>
+          ))}
+        </select>
+      </div>
 
-                <TextField
-                    fullWidth
-                    margin="normal"
-                    label="מחיר"
-                    name="price"
-                    type="number"
-                    defaultValue={thisApartment1.price}
-                    variant="outlined"
-                />
+      {/* מבנה של שני טורים */}
+      <div className="row">
+        <div className="input-container">
+          <label>שכונה:</label>
+          <input className="input-field" type="text" name="neighbourhood" defaultValue={thisApartment1.neighbourhood} required />
+        </div>
+        <div className="input-container">
+          <label>קומה:</label>
+          <input className="input-field" type="text" name="floor" defaultValue={thisApartment1.floor} required />
+        </div>
+      </div>
 
-                <TextField
-                    fullWidth
-                    margin="normal"
-                    label="תוספות"
-                    name="extras"
-                    type="text"
-                    defaultValue={thisApartment1.extras}
-                    variant="outlined"
-                />
+      {/* מבנה של שני טורים */}
+      <div className="row">
+        <div className="input-container">
+          <label>רחוב:</label>
+          <input className="input-field" type="text" name="street" defaultValue={thisApartment1.street} required />
+        </div>
+        <div className="input-container">
+          <label>מס' בניין:</label>
+          <input className="input-field" type="text" name="numBuild" defaultValue={thisApartment1.numBuild} required />
+        </div>
+      </div>
 
-                <TextField
-                    fullWidth
-                    margin="normal"
-                    label="עיר"
-                    name="city"
-                    type="text"
-                    defaultValue={thisApartment1.city}
-                    variant="outlined"
-                />
+      {/* מבנה של שני טורים */}
+      <div className="row">
+        <div className="input-container">
+          <label>מחיר:</label>
+          <input className="input-field" type="text" name="price" defaultValue={thisApartment1.price} required />
+        </div>
+        <div className="input-container">
+          <label>שטח דירה (מ"ר):</label>
+          <input className="input-field" type="text" name="squareMeter" defaultValue={thisApartment1.squareMeter} required />
+        </div>
+      </div>
 
-                <TextField
-                    fullWidth
-                    margin="normal"
-                    label="שכונה"
-                    name="neighbourhood"
-                    type="text"
-                    defaultValue={thisApartment1.neighbourhood}
-                    variant="outlined"
-                />
+      {/* מבנה של שני טורים */}
+      <div className="row">
+        <div className="input-container">
+          <label>מס' חדרים:</label>
+          <input className="input-field" type="text" name="numRooms" defaultValue={thisApartment1.numRooms} required />
+        </div>
+        <div className="input-container">
+          <label>מרפסת:</label>
+          <input type="checkbox" name="porch" defaultChecked={thisApartment1.porch} />
+        </div>
+      </div>
 
-                <TextField
-                    fullWidth
-                    margin="normal"
-                    label="רחוב"
-                    name="street"
-                    type="text"
-                    defaultValue={thisApartment1.street}
-                    variant="outlined"
-                />
+      {/* מבנה של שני טורים */}
+      <div className="row">
+        <div className="input-container">
+          <label>שטח מרפסת (מ"ר):</label>
+          <input className="input-field" type="text" name="porchSquareMeter" defaultValue={thisApartment1.porchSquareMeter} />
+        </div>
+        <div className="input-container">
+          <label>תיווך:</label>
+          <input type="checkbox" name="realEstateAgency" defaultChecked={thisApartment1.realEstateAgency} />
+        </div>
+      </div>
 
-                <TextField
-                    fullWidth
-                    margin="normal"
-                    label="מספר בניין"
-                    name="numBuild"
-                    type="number"
-                    defaultValue={thisApartment1.numBuild}
-                    variant="outlined"
-                />
-                <TextField
-                    fullWidth
-                    margin="normal"
-                    label="מספר קומה"
-                    name="floor"
-                    type="number"
-                    defaultValue={thisApartment1.floor}
-                    variant="outlined"
-                />
+      {/* טור מלא */}
+      <div className="input-container full-width">
+        <label>עיר:</label>
+        <input className="input-field" type="text" name="city" defaultValue={thisApartment1.city} required />
+      </div>
 
-                <TextField
-                    fullWidth
-                    margin="normal"
-                    label="מספר חדרים"
-                    name="numRooms"
-                    type="number"
-                    defaultValue={thisApartment1.numRooms}
-                    variant="outlined"
-                />
+      {/* טור מלא */}
+      <div className="input-container full-width">
+        <label>פרטים נוספים:</label>
+        <input className="input-field" type="text" name="describe" value={inputText} onChange={handleChange} required />
+        <p>נכנסו {inputText.trim().split(/\s+/).length} מילים</p>
+      </div>
 
-                <TextField
-                    fullWidth
-                    margin="normal"
-                    label="מר"
-                    name="squareMeter"
-                    type="number"
-                    defaultValue={thisApartment1.squareMeter}
-                    variant="outlined"
-                />
+      <button type="submit" className="btn">שלח</button>
+    </form>
+  </div>
+</div>
 
-                <TextField
-                    fullWidth
-                    margin="normal"
-                    label="מרפסת"
-                    name="porch"
-                    type="text"
-                    defaultValue={thisApartment1.porch}
-                    variant="outlined"
-                />
-
-                <TextField
-                    fullWidth
-                    margin="normal"
-                    label="מר למרפסת"
-                    name="porchSquareMeter"
-                    type="number"
-                    defaultValue={thisApartment1.porchSquareMeter}
-                    variant="outlined"
-                />
-
-                <TextField
-                    fullWidth
-                    margin="normal"
-                    label=" תיווך"
-                    name="realEstateAgency"
-                    type="text"
-                    defaultValue={thisApartment1.realEstateAgency}
-                    variant="outlined"
-                />
-              <TextField
-                   fullWidth
-                    margin="normal"
-                    label=" פרטים נוספים"
-                    name="describe"
-                    type="text"
-                    defaultValue={thisApartment1.describe}
-                    variant="outlined"
-                />
-                <ButtonBase
-                    type="submit"
-                    sx={{
-                        backgroundColor: "#1976d2",
-                        color: "white",
-                        padding: "10px 20px",
-                        borderRadius: "5px",
-                        cursor: "pointer",
-                        width: "100%",
-                        marginTop: "20px",
-                        "&:hover": {
-                            backgroundColor: "#1565c0",
-                        },
-                    }}
-                >
-                    שלח
-                </ButtonBase>
-            </form>
         </>
     );
 };

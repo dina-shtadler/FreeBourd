@@ -79,95 +79,98 @@ export const AddApartments = () => {
 
   return (
       <>
-       
-          {/* טופס הוספת דירה */}
-          <form id="t" onSubmit={send}>
-            {/* בחירת קטגוריה */}
-    <div className="input-container full-width">
-        <label>קטגוריה:</label>
-        <select className="input-field select-field" required onChange={(e) => setKategory(e.target.value)}>
-            <option key="none" disabled selected>בחר קטגוריה</option>
-            {listKategories &&
-                listKategories.map((category) => (
-                    <option key={category._id} value={category.nameKategory}>
-                        {category.nameKategory}
-                    </option>
-                ))}
-        </select>
-    </div>
-          <div className="row">
-        <div className="input-container">
-            <label>שכונה:</label>
-            <input className="input-field" type="text" name="neighbourhood" required />
-        </div>
-        <div className="input-container">
-            <label>קומה:</label>
-            <input className="input-field" type="text" name="floor" required />
-        </div>
-    </div>
+   <div className="form-wrapper"><div className="from-b">
+    <form id="t" onSubmit={send}>
+        <h1>הוספת דירה למאגר</h1>
 
-    <div className="row">
-        <div className="input-container">
-            <label>רחוב:</label>
-            <input className="input-field" type="text" name="street" required />
+        <div className="input-container full-width">
+            <label>קטגוריה:</label>
+            <select className="input-field select-field" required onChange={(e) => setKategory(e.target.value)}>
+                <option key="none" disabled selected>בחר קטגוריה</option>
+                {listKategories &&
+                    listKategories.map((category) => (
+                        <option key={category._id} value={category.nameKategory}>
+                            {category.nameKategory}
+                        </option>
+                    ))}
+            </select>
         </div>
-        <div className="input-container">
-            <label>מס' בניין:</label>
-            <input className="input-field" type="text" name="numBuild" required />
-        </div>
-    </div>
 
-    <div className="row">
-        <div className="input-container">
-            <label>מחיר:</label>
-            <input className="input-field" type="text" name="price" required />
+        {/* מבנה של שני טורים */}
+        <div className="row">
+            <div className="input-container">
+                <label>שכונה:</label>
+                <input className="input-field" type="text" name="neighbourhood" required />
+            </div>
+            <div className="input-container">
+                <label>קומה:</label>
+                <input className="input-field" type="text" name="floor" required />
+            </div>
         </div>
-        <div className="input-container">
-            <label>שטח דירה (מ"ר):</label>
-            <input className="input-field" type="text" name="squareMeter" required />
+
+        <div className="row">
+            <div className="input-container">
+                <label>רחוב:</label>
+                <input className="input-field" type="text" name="street" required />
+            </div>
+            <div className="input-container">
+                <label>מס' בניין:</label>
+                <input className="input-field" type="text" name="numBuild" required />
+            </div>
         </div>
-    </div>
 
-    <div className="row">
-        <div className="input-container">
-            <label>מס' חדרים:</label>
-            <input className="input-field" type="text" name="numRooms" required />
+        <div className="row">
+            <div className="input-container">
+                <label>מחיר:</label>
+                <input className="input-field" type="text" name="price" required />
+            </div>
+            <div className="input-container">
+                <label>שטח דירה (מ"ר):</label>
+                <input className="input-field" type="text" name="squareMeter" required />
+            </div>
         </div>
-        <div className="input-container">
-            <label>מרפסת:</label>
-            <input type="checkbox" name="porch" />
+
+        <div className="row">
+            <div className="input-container">
+                <label>מס' חדרים:</label>
+                <input className="input-field" type="text" name="numRooms" required />
+            </div>
+            <div className="input-container">
+                <label>מרפסת:</label>
+                <input type="checkbox" name="porch" />
+            </div>
         </div>
-    </div>
 
-    <div className="row">
-        <div className="input-container">
-            <label>שטח מרפסת (מ"ר):</label>
-            <input className="input-field" type="text" name="porchSquareMeter" />
+        <div className="row">
+            <div className="input-container">
+                <label>שטח מרפסת (מ"ר):</label>
+                <input className="input-field" type="text" name="porchSquareMeter" />
+            </div>
+            <div className="input-container">
+                <label>תיווך:</label>
+                <input type="checkbox" name="realEstateAgency" />
+            </div>
         </div>
-        <div className="input-container">
-            <label>תיווך:</label>
-            <input type="checkbox" name="realEstateAgency" />
+
+        <div className="input-container full-width">
+            <label>עיר:</label>
+            <input className="input-field" type="text" name="city" required />
         </div>
-    </div>
 
-    <div className="input-container full-width">
-        <label>עיר:</label>
-        <input className="input-field" type="text" name="city" required />
-    </div>
+        <div className="input-container full-width">
+            <label>פרסום עד:</label>
+            <input type="date" name="datend" required min={currentDate} max={maxDateString} />
+        </div>
 
-    <div className="input-container full-width">
-        <label>פרסום עד:</label>
-        <input type="date" name="datend" required min={currentDate} max={maxDateString} />
-    </div>
+        <div className="input-container full-width">
+            <label>פרטים נוספים:</label>
+            <input className="input-field" type="text" name="describe" value={inputText} onChange={handleChange} required />
+            <p>נכנסו {inputText.trim().split(/\s+/).length} מילים</p>
+        </div>
 
-    <div className="input-container full-width">
-        <label>פרטים נוספים:</label>
-        <input className="input-field" type="text" name="describe" value={inputText} onChange={handleChange} required />
-        <p>נכנסו {inputText.trim().split(/\s+/).length} מילים</p>
-    </div>
-
-    <button type="submit" className="btn">שלח</button>
-</form>
+        <button type="submit" className="btn">שלח</button>
+    </form></div>
+</div>
       </>
   );
 };
