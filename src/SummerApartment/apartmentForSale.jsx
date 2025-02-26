@@ -644,13 +644,13 @@ const apartmentMatchesFilters = (apartment) => {
                 <td>{x.numBuild}</td>
                 <td>{x.numRooms}</td>
                 <td>{x.squareMeter}</td>
-                <td><input type='checkbox' checked={x.porch} readOnly /></td>
+                <td><input type='checkbox' checked={x.porch === true || x.porch === "true"} readOnly /></td>
                 <td>{x.porchSquareMeter}</td>
                 <td>{x.price}</td>
                 <td>{x.kodKategory[0]?.nameKategory}</td>
                 <td>{x.kodPublisher[0]?.email}</td>
                 <td>{x.kodPublisher[0]?.phone}</td>
-                <td><input type='checkbox' checked={x.realEstateAgency} readOnly /></td>
+                <td><input type='checkbox' checked={x.realEstateAgency === true || x.realEstateAgency === "true"} readOnly /></td>
                 {/* <td>
                     {x.kodPublisher[0]?.email === localStorage.getItem('userEmail') && (
                         <div>

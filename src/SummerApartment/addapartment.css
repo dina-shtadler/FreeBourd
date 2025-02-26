@@ -1,90 +1,94 @@
-/* בסיסי - עיצוב טופס
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f4f4f9;
-  } */
-  
-  /* טופס */
-  form {
-    width: 100%;
-    max-width: 600px; /* קובע את רוחב הטופס על 600px במקרה של מסכים רחבים יותר */
-    margin: 20px;
-    padding: 20px;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* כותרת */
-  h1 {
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: 1.5em;
-  }
-  
-  /* שדות קלט */
-  .input-container {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 15px;
-  }
-  
-  .input-field {
-    padding: 10px;
-    margin-top: 5px;
-    border-radius: 4px;
-    border: 1px solid #ddd;
-    font-size: 1em;
-  }
-  
-  .input-field:focus {
-    outline: none;
-    border-color: #007bff;
-  }
-  
-  /* כפתור שליחה */
-  .btn {
-    width: 100%;
-    padding: 10px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    font-size: 1.2em;
-    cursor: pointer;
-  }
-  
-  .btn:hover {
-    background-color: #0056b3;
-  }
-  
-  /* רספונסיביות: עיצוב מסכים קטנים יותר */
-  @media (max-width: 600px) {
-    body {
+
+
+/* מסגרת הטופס */
+form {
+  width: 100%;
+  max-width: 600px;
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* מבנה של 2 שדות בשורה */
+.row {
+  display: flex;
+  gap: 15px;
+  width: 100%;
+}
+
+/* כל שדה בטופס */
+.input-container {
+  flex: 1;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+}
+
+/* שדות ברוחב מלא */
+.full-width {
+  width: 100%;
+}
+
+/* שדה קלט */
+.input-field {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+.input-field:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* עיצוב לכותרות של השדות */
+label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+/* שדה הבחירה (select) */
+.select-field {
+  background: #fff;
+  appearance: none;
+  cursor: pointer;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="gray"><path d="M7 10l5 5 5-5z"></path></svg>');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 18px;
+  padding-right: 30px;
+}
+
+/* כפתור שליחה */
+.btn {
+  width: 100%;
+  padding: 12px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin-top: 15px;
+}
+
+.btn:hover {
+  background: #0056b3;
+}
+
+/* רספונסיביות - טלפונים (שדה אחד בשורה) */
+@media (max-width: 600px) {
+  .row {
       flex-direction: column;
-      justify-content: flex-start;
-      padding: 10px;
-    }
-  
-    form {
-      width: 100%;
-      margin: 10px;
-    }
-  
-    .input-field {
-      font-size: 0.9em;
-      padding: 8px;
-    }
-  
-    .btn {
-      font-size: 1em;
-      padding: 12px;
-    }
   }
-  
+}
