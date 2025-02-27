@@ -35,7 +35,7 @@
   .card-footer {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    gap: 10px;
     margin-top: 15px;
   }
   
@@ -46,8 +46,7 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin-bottom: 10px;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     gap: 5px;
   }
@@ -97,8 +96,43 @@
   }
   
   .export-button {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     gap: 5px;
+  }
+  
+  /* אייקונים לפעילים - כל האייקונים באותה שורה */
+  .card-footer button {
+    display: inline-flex;
+    gap: 10px;
+  }
+  
+  /* לאובייקטים לא פעילים - כל שלושה אייקונים בשורה אחת */
+  .expired-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 10px;
+  }
+  
+  .update-button-container {
+    text-align: center;
+  }
+  
+  /* עיצוב לכפתור הוסף זמן לפירסום */
+  .popup-button {
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .popup-button:hover {
+    background-color: #218838;
   }
   

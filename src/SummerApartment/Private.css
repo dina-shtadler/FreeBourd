@@ -65,7 +65,11 @@
   width: 100%; /* השדה יתפוס את כל הרוחב של הקונטיינר */
   box-sizing: border-box; /* ודא שאין בריחה לצדדים */
 }
-
+.expired-text {
+  color: red;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
 .form-input:focus {
   border-color: #4CAF50;
   outline: none;

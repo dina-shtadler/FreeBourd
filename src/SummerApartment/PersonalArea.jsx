@@ -286,53 +286,57 @@ export const PersonalArea =() =>{
               </div>
 
               <div className="card-footer">
-                {/* כפתור עדכון */}
-                <button onClick={() => update(x)}>
-                  <FaPen /> עדכן
-                </button>
+               
+  {/* אם הפג תוקף, יש אייקון ופעולה להוספת זמן */}
+  {new Date(x.datend).getTime() < new Date().setHours(0, 0, 0, 0) && (
+                  <div className="expired-container">
+                                      <div className="expired-text">פג תוקף פירסומת</div>
 
-                {/* כפתור מחיקה */}
-                <button onClick={() => Delete(x)}>
-                  <FaTrashAlt /> מחק
-                </button>
-
-                {/* אם הפג תוקף, יש אייקון ופעולה להוספת זמן */}
-                {new Date(x.datend).getTime() < new Date().setHours(0, 0, 0, 0) && (
-                  <>
-                    <div className="expired-text">פג תוקף פירסומת</div>
-                    <button onClick={openPopup} className="popup-button">
-                      הוסף זמן לפירסום
-                    </button>
-                    {isPopupOpen && (
-                      <div className="popup">
-                        <div className="popup-content">
-                          <span className="close" onClick={closePopup}>
-                            &times;
-                          </span>
-                          <h2>בחר תאריך</h2>
-                          <input
-                            type="date"
-                            value={selectedDate}
-                            min={minDate}
-                            max={maxDate}
-                            onChange={handleDateChange}
-                          />
-                          <button onClick={() => saveDate(x)}>שמור תאריך</button>
+                    <div className="update-button-container">
+                      <button onClick={openPopup} className="popup-button">
+                        הוסף זמן לפירסום
+                      </button>
+                      {isPopupOpen && (
+                        <div className="popup">
+                          <div className="popup-content">
+                            <span className="close" onClick={closePopup}>
+                              &times;
+                            </span>
+                            <h2>בחר תאריך</h2>
+                            <input
+                              type="date"
+                              value={selectedDate}
+                              min={minDate}
+                              max={maxDate}
+                              onChange={handleDateChange}
+                            />
+                            <button onClick={() => saveDate(x)}>שמור תאריך</button>
+                          </div>
                         </div>
-                      </div>
-                    )}
-                  </>
+                      )}
+                    </div>
+                  </div>
                 )}
 
-                {/* כפתור הדפסה */}
-                <button onClick={() => handlePrint(x)} className="export-button">
-                  <FaShareSquare /> <FaPrint />
-                </button>
+              
+
+                <div className="expired-icons">
+                      <button onClick={() => Delete(x)}>
+                        <FaTrashAlt /> מחק
+                      </button>
+                      <button onClick={() => update(x)}>
+                        <FaPen /> עדכן
+                      </button>
+                      <button onClick={() => handlePrint(x)}>
+                        <FaShareSquare /> <FaPrint />
+                      </button>
+                    </div>
+              
               </div>
             </div>
           ))}
       </div>
     </div>
-    </>
+  </>
   );
 };
