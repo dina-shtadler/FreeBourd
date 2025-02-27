@@ -1,5 +1,5 @@
 import React from 'react';
-import './apartment.css'
+import './personalarea.css'
 import { useEffect, useState } from "react";
 import { getAllApartment,updateApartment, getAllKategorys, removeApartment, loginp,getAllByKodKategory } from "./api";
 import { useNavigate } from 'react-router-dom';
@@ -235,89 +235,104 @@ export const PersonalArea =() =>{
   };
   return (
       <>
+      <h1>הדירות שלי</h1>
+      <div className="apartments-wrapper">
+      <button onClick={handlePrintAll}>הדפס את הכל</button>
 
-<button onClick={handlePrintAll}>הדפס את הכל</button>
+      <div className="apartments-list">
+        {listApartment &&
+          listApartment.map((x) => (
+            <div
+              key={x._id}
+              className={`card ${
+                new Date(x.datend).getTime() <
+                new Date().setHours(0, 0, 0, 0)
+                  ? "card-expired"
+                  : ""
+              }`}
+            >
+              <div className="card-header">
+                <h3>{x.city}</h3>
+              </div>
 
-          <table className="apartments-table">
-  <thead>
-      <tr>
-          <th>עיר</th>
-          <th>שכונה</th>
-          <th>רחוב</th>
-          <th>מס' בניין</th>
-          <th>מספר חדרים</th>
-          <th>שטח דירה (מ"ר)</th>
-          <th>מרפסת</th>
-          <th>שטח מרפסת (מ"ר)</th>
-          <th>מחיר</th>
-          <th>קטגוריה</th>
-          <th>מייל</th>
-          <th>טלפון</th>
-          <th>תיווך</th>
-          <th>עידכון ומחיקה</th>
-          <th> pdfהדפסה ו</th>
-      </tr>
-  </thead>
-  <tbody>
-      {listApartment && listApartment.map((x) => (
-          <tr key={x._id}>
-              <td>{x.city}</td>
-              <td>{x.neighbourhood}</td>
-              <td>{x.street}</td>
-              <td>{x.numBuild}</td>
-              <td>{x.numRooms}</td>
-              <td>{x.squareMeter}</td>
-              <td><input type='checkbox' checked={x.porch} readOnly /></td>
-              <td>{x.porchSquareMeter}</td>
-              <td>{x.price}</td>
-              <td>{x.kodKategory[0]?.nameKategory}</td>
-              <td>{x.kodPublisher[0]?.email}</td>
-              <td>{x.kodPublisher[0]?.phone}</td>
-              <td><input type='checkbox' checked={x.realEstateAgency} readOnly /></td>
-              <td>
-                      <div>
-                          <button onClick={() => Delete(x)}><FaTrashAlt /></button>
-                          <button onClick={() => update(x)}><FaPen /></button>
+              <div className="card-body">
+                <p>
+                  <strong>שכונה:</strong> {x.neighbourhood}
+                </p>
+                <p>
+                  <strong>רחוב:</strong> {x.street}
+                </p>
+                <p>
+                  <strong>מס' בניין:</strong> {x.numBuild}
+                </p>
+                <p>
+                  <strong>מס' חדרים:</strong> {x.numRooms}
+                </p>
+                <p>
+                  <strong>שטח דירה (מ"ר):</strong> {x.squareMeter}
+                </p>
+                <p>
+                  <strong>מרפסת:</strong> {x.porch ? "כן" : "לא"}
+                </p>
+                <p>
+                  <strong>שטח מרפסת (מ"ר):</strong> {x.porchSquareMeter}
+                </p>
+                <p>
+                  <strong>מחיר:</strong> {x.price}
+                </p>
+                <p>
+                  <strong>קטגוריה:</strong> {x.kodKategory[0]?.nameKategory}
+                </p>
+              </div>
+
+              <div className="card-footer">
+                {/* כפתור עדכון */}
+                <button onClick={() => update(x)}>
+                  <FaPen /> עדכן
+                </button>
+
+                {/* כפתור מחיקה */}
+                <button onClick={() => Delete(x)}>
+                  <FaTrashAlt /> מחק
+                </button>
+
+                {/* אם הפג תוקף, יש אייקון ופעולה להוספת זמן */}
+                {new Date(x.datend).getTime() < new Date().setHours(0, 0, 0, 0) && (
+                  <>
+                    <div className="expired-text">פג תוקף פירסומת</div>
+                    <button onClick={openPopup} className="popup-button">
+                      הוסף זמן לפירסום
+                    </button>
+                    {isPopupOpen && (
+                      <div className="popup">
+                        <div className="popup-content">
+                          <span className="close" onClick={closePopup}>
+                            &times;
+                          </span>
+                          <h2>בחר תאריך</h2>
+                          <input
+                            type="date"
+                            value={selectedDate}
+                            min={minDate}
+                            max={maxDate}
+                            onChange={handleDateChange}
+                          />
+                          <button onClick={() => saveDate(x)}>שמור תאריך</button>
+                        </div>
                       </div>
-                  
-              </td>
-              <td>
-                  <button onClick={() => handlePrint(x)}>
-                      <FaShareSquare /> <FaPrint />
-                  </button>
-              </td>
-              {new Date(x.datend).getTime()  <new Date().setHours(0, 0, 0, 0)&& // אם אין datend או אם datend קטן או שווה להיום
-        ( <td>פג תוקף פירסומת   <div className="App">
-          <button onClick={openPopup}> להוספת זמן לפירסום</button>
-    
-          {/* Popup */}
-          {isPopupOpen && (
-            <div className="popup">
-              <div className="popup-content">
-                <span className="close" onClick={closePopup}>
-                  &times;
-                </span>
-                <h2>בחר תאריך</h2>
-                <input
-                  type="date"
-                  value={selectedDate}
-                  min={minDate}
-                  max={maxDate}
-                  onChange={handleDateChange}
-                />
-                <button onClick={()=>saveDate(x)}>שמור תאריך</button>
+                    )}
+                  </>
+                )}
+
+                {/* כפתור הדפסה */}
+                <button onClick={() => handlePrint(x)} className="export-button">
+                  <FaShareSquare /> <FaPrint />
+                </button>
               </div>
             </div>
-          )}
-        </div>
-      </td> )}
-          </tr>
-      ))}
-  </tbody>
-</table>
-
-      </>
+          ))}
+      </div>
+    </div>
+    </>
   );
 };
-
-
