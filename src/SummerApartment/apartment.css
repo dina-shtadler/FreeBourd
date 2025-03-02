@@ -168,6 +168,8 @@ select, input {
 .apartments-table {
     width: max-content; 
     border-collapse: collapse;
+        direction: rtl;
+
 }
 
 /* סגנון לתאים */
@@ -176,6 +178,7 @@ select, input {
     text-align: center;
     border: 1px solid #ddd;
     white-space: nowrap;
+
 }
 
 /* גורם לכותרת להישאר קבועה */

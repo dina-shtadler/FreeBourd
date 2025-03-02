@@ -41,8 +41,8 @@
   
   .card-footer button {
     padding: 10px;
-    background-color: #1976d2;
-    color: white;
+    /* background-color: #1976d2; */
+    /* color: white; */
     border: none;
     border-radius: 5px;
     cursor: pointer;

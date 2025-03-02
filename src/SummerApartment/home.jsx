@@ -1,22 +1,21 @@
 import "./design.css"
+import React from 'react';
+
 import { useNavigate } from 'react-router-dom';
 
 export const Home = () => {
         const Nav = useNavigate();
 
-    const addApartment = () => {
-        // localStorage.setItem('thisApartment', JSON.stringify(a));
-        Nav('/Publisher');
-    };
-    const apartmentForsale = () => {
-        // localStorage.setItem('thisApartment', JSON.stringify(a));
-        Nav('/apartmentForSale');
-    };
-    const apartmentForRent = () => {
-        // localStorage.setItem('thisApartment', JSON.stringify(a));
-        Nav('/apartmentForRent');
-    };
-
+          const addApartment = () => {
+            Nav('/Publisher');
+        };
+        const apartmentForsale = () => {
+            Nav('/apartmentForSale');
+        };
+        const apartmentForRent = () => {
+            Nav('/apartmentForRent');
+        };
+     
     return<>
     
    <div className="home-container">
