@@ -212,9 +212,11 @@ export const ApartmentForsale = () => {
                                     <th>רחוב</th>
                                     <th>מס' בניין</th>
                                     <th>מספר חדרים</th>
-                                    <th>שטח דירה (מ"ר)</th>
+                                    <th>שטח 
+                                      <div>דירה</div> (מ"ר)</th>
                                     <th>מרפסת</th>
-                                    <th>שטח מרפסת (מ"ר)</th>
+                                    <th>שטח 
+                                      <div>מרפסת</div> (מ"ר)</th>
                                     <th>מחיר</th>
                                     <th>קטגוריה</th>
                                     <th>מייל</th>
