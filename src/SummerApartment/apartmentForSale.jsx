@@ -5,9 +5,13 @@ import { getAllApartment, getAllKategorys, removeApartment, getAllByKodKategory,
 import swal from 'sweetalert';
 import { FaPrint, FaShareSquare } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 export const ApartmentForsale = () => {
     const Nav = useNavigate();
+    const location = useLocation();
+    const { apartments } = location.state.listApartment || {}; // נוודא שהסטייט קיים
+  console.log("ll",location)
     const [Kategory, setKategory] = useState();
     const [Kategory1, setKategory1] = useState();
     const [room, setNumBRooms] = useState();
@@ -29,18 +33,17 @@ export const ApartmentForsale = () => {
     const [currentPage, setCurrentPage] = useState(1); // דף נוכחי
     const [itemsPerPage] = useState(10); // מספר הדירות שמופיעות לכל דף
 
-    // Fetch apartments and categories
     useEffect(() => {
-        getAllApartment()
-            .then(x => {
-                const filteredApartments = x.data.apartmens.filter(item => item.kodKategory[0]?.nameKategory === 'למכירה' && (!item.datend || new Date(item.datend).getTime() >= new Date().setHours(0, 0, 0, 0))); // אם אין datend או אם datend קטן או שווה להיום
-                setList(filteredApartments);
-                setList1(filteredApartments);
-                console.log("listApartment", x.data.apartmens);
-            })
-            .catch(err => {
-                console.log(err);
-            });
+        // getAllApartment()
+        //     .then(x => {
+                // const filteredApartments = x.data.apartmens.filter(item => item.kodKategory[0]?.nameKategory === 'למכירה' && (!item.datend || new Date(item.datend).getTime() >= new Date().setHours(0, 0, 0, 0))); // אם אין datend או אם datend קטן או שווה להיום
+                setList(location.state.listApartment);
+                setList1(location.state.listApartment);
+            //     console.log("listApartment", x.data.apartmens);
+            // })
+            // .catch(err => {
+            //     console.log(err);
+            // });
     }, []);
 
     const apartmentMatchesFilters = (apartment) => {
@@ -210,8 +213,10 @@ export const ApartmentForsale = () => {
                                     <th>עיר</th>
                                     <th>שכונה</th>
                                     <th>רחוב</th>
-                                    <th>מס' בניין</th>
-                                    <th>מספר חדרים</th>
+                                    <th>מס'
+                                       <div>בניין</div></th>
+                                    <th>מספר 
+                                      <div>חדרים</div></th>
                                     <th>שטח 
                                       <div>דירה</div> (מ"ר)</th>
                                     <th>מרפסת</th>

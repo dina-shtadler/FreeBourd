@@ -174,7 +174,7 @@ select, input {
 
 /* סגנון לתאים */
 .apartments-table th, .apartments-table td {
-    padding: 2px;
+    padding: 5px;
     text-align: center;
     border: 1px solid #ddd;
     white-space: nowrap;
@@ -248,7 +248,7 @@ select, input {
 }
 
 .apartments-table th, .apartments-table td {
-    padding: 3px;
+    padding: 5px;
     text-align: center;
     border: 1px solid #ddd;
     word-wrap: break-word; /* וידא שיכולות המילים יישברו לשורה חדשה */

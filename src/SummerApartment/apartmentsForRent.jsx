@@ -14,10 +14,12 @@ import * as fontkit from 'fontkit';  // שינוי כאן, יבוא כל הפו�
 import swal from 'sweetalert'
 import { FaPrint, FaShareSquare } from 'react-icons/fa';
 import { FaTrashAlt, FaPen } from 'react-icons/fa';
+import { useLocation } from 'react-router-dom';
 
 export const ApartmentForRent = () => {
     // pdfMake.vfs = pdfFonts.pdfMake.vfs; // שייך את הפונט המובנה
-
+    const location = useLocation();
+console.log(location)  
     const Nav = useNavigate();
     const [listApartment, setList] = useState([]);
     const [listApartment1, setList1] = useState([]);
@@ -36,19 +38,10 @@ export const ApartmentForRent = () => {
    
     // Fetch apartments and categories
     useEffect(() => {
-        getAllApartment()
-            .then(x => {
-                const filteredApartments = x.data.apartmens.filter(item => item.kodKategory[0]?.nameKategory === 'להשכרה'&&  (!item.datend || new Date(item.datend).getTime() >= new Date().setHours(0, 0, 0, 0)) // אם אין datend או אם datend קטן או שווה להיום
-
-            );
-
-            setList(filteredApartments);
-            setList1(filteredApartments);
-                            console.log("listApartment",filteredApartments);
-            })
-            .catch(err => {
-                console.log(err);
-            });
+       
+            setList(location.state.listApartment1);
+            setList1(location.state.listApartment1);
+        
     }, []);
     const apartmentMatchesFilters = (apartment) => {
         // בדיקת טקסט – השוואה ללא רגישות לאותיות רישיות, וכשיש ערך שהמשתמש הזין
