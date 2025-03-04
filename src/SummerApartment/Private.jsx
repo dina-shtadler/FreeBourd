@@ -2,32 +2,57 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { loginp } from './api'
 import './Private.css';
-
+import { useEffect } from "react";
+  import { getAllApartment, } from "./api";
+  import swal from 'sweetalert'
+ 
 export const Private =() =>{
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const Nav = useNavigate();
+  
+  const [listApartment, setList] = useState();
 
+  useEffect(() => {
+    getAllApartment()
+        .then(x => {
+            const filteredApartments = x.data.apartmens.filter(item => item.kodPublisher[0]?.email === localStorage.getItem('userEmail')) 
+        
 
+        setList(filteredApartments);
+                        console.log("listApartment",filteredApartments);
+        })
+        .catch(err => {
+            console.log(err);
+        });
+}, []);
   // פונקציה של התחברות
   const login = async () => {
- 
     loginp(email,password) 
     .then(x => {
       console.log("א",x.data);
+    //  setlogin(x)
      if (x.data.message=='Login successful!'){
         localStorage.setItem(`user`,x.data.publisher._id)
         localStorage.setItem(`userEmail`,x.data.publisher.email)
                     localStorage.setItem(`token`,x.data.token)
 
-     
-      // אם התחברות הצליחה, נעבור לדף האזור האישי
-      Nav('/personal-area');
-    } else {
-      // אם התחברות לא הצליחה, הצג הודעת שגיאה
-      setError('פרטי ההתחברות לא נכונים');
-    }
+     swal( `🤭🤭🤭 success`);
+     Nav('/personal-area',{ state: { listApartment } });
+  
+}
+
+    else if(x.data.message==`email has been exists already!`)
+    swal( `🤭🤭🤭 email has been exists already!`);
+    // alert(x)
+  })
+  .catch(err => {
+      console.log(err);
+      swal(err.response.data.message)
+      if(err.response.data.message=='Email not found!')
+        Nav('/Register')
+
   })}
 
   return (

@@ -12,9 +12,11 @@ import * as fontkit from 'fontkit';  // שינוי כאן, יבוא כל הפו�
 import swal from 'sweetalert'
 import { FaPrint, FaShareSquare } from 'react-icons/fa';
 import { FaTrashAlt, FaPen } from 'react-icons/fa';
+import { useLocation } from 'react-router-dom';
 
 export const PersonalArea =() =>{
- 
+  const location = useLocation();
+
   const Nav = useNavigate();
   const [Kategory, setKategory] = useState();
   const [Kategory1, setKategory1] = useState();
@@ -31,18 +33,12 @@ export const PersonalArea =() =>{
   const [floor, setFloor] = useState('');
   // Fetch apartments and categories
   useEffect(() => {
-      getAllApartment()
-          .then(x => {
-              const filteredApartments = x.data.apartmens.filter(item => item.kodPublisher[0]?.email === localStorage.getItem('userEmail')) 
-          
+   
 
-          setList(filteredApartments);
-          setList1(filteredApartments);
-                          console.log("listApartment",filteredApartments);
-          })
-          .catch(err => {
-              console.log(err);
-          });
+          setList(location.state.listApartment);
+          setList1(location.state.listApartment);
+                          console.log("listApartment",listApartment);
+    
   }, []);
 
   
