@@ -188,20 +188,55 @@ export const ApartmentForsale = () => {
         <>
             <button className="personal-area-button" onClick={personalArea}>אזור אישי למפרסמים</button>
 
-            <div className="filters">
-                <input type="text" placeholder="עיר " onBlur={(e) => setcity(e.target.value)} />
-                <input type="text" placeholder="שכונה " onBlur={(e) => setneighbourhood(e.target.value)} />
-                <input type="text" placeholder="רחוב " onBlur={(e) => setstreet(e.target.value)} />
-                <input type="Number" placeholder="(מס' חדרים (מקסימום" onBlur={(e) => setnumRooms(e.target.value)} />
-                <input type="Number" placeholder="מס' חדרים (מינימום)" onBlur={(e) => setMinRooms(e.target.value)} />
-                <input type="Number" placeholder="מ'ר לדירה (מקסימום)" onBlur={(e) => setsquermeter(e.target.value)} />
-                <input type="Number" placeholder="מ'ר לדירה (מינימום)" onBlur={(e) => setminsquermeter(e.target.value)} />
-                <input type="Number" placeholder="מחיר (מקסימום)" onBlur={(e) => setPrice(e.target.value)} />
-                <input type="Number" placeholder="מחיר (מינימום)" onBlur={(e) => setminPrice(e.target.value)} />
-                <input type="Number" placeholder=" מס' קומה" onBlur={(e) => setFloor(e.target.value)} />
-            </div>
-
-            <button onClick={handlePrintAll}>הדפס את הכל</button>
+    <div className="main-container">
+      {/* קונטיינר Flex שבו הסינונים בצד ימין והטבלה בצד שמאל */}
+      <div className="filters-table-wrapper">
+            <div className="filters-container">
+      <div className="filters">
+        <div className="filter-item">
+          <label>עיר</label>
+          <input type="text" placeholder="עיר " onBlur={(e) => setcity(e.target.value)} />
+        </div>
+        <div className="filter-item">
+          <label>שכונה</label>
+          <input type="text" placeholder="שכונה " onBlur={(e) => setneighbourhood(e.target.value)} />
+        </div>
+        <div className="filter-item">
+          <label>רחוב</label>
+          <input type="text" placeholder="רחוב " onBlur={(e) => setstreet(e.target.value)} />
+        </div>
+        <div className="filter-item">
+          <label>(מס' חדרים (מקסימום</label>
+          <input type="Number" placeholder="(מס' חדרים (מקסימום" onBlur={(e) => setnumRooms(e.target.value)} />
+        </div>
+        <div className="filter-item">
+          <label>מס' חדרים (מינימום)</label>
+          <input type="Number" placeholder="מס' חדרים (מינימום)" onBlur={(e) => setMinRooms(e.target.value)} />
+        </div>
+        <div className="filter-item">
+          <label>מ'ר לדירה (מקסימום)</label>
+          <input type="Number" placeholder="מ'ר לדירה (מקסימום)" onBlur={(e) => setsquermeter(e.target.value)} />
+        </div>
+        <div className="filter-item">
+          <label>מ'ר לדירה (מינימום)</label>
+          <input type="Number" placeholder="מ'ר לדירה (מינימום)" onBlur={(e) => setminsquermeter(e.target.value)} />
+        </div>
+        <div className="filter-item">
+          <label>מחיר (מקסימום)</label>
+          <input type="Number" placeholder="מחיר (מקסימום)" onBlur={(e) => setPrice(e.target.value)} />
+        </div>
+        <div className="filter-item">
+          <label>מחיר (מינימום)</label>
+          <input type="Number" placeholder="מחיר (מינימום)" onBlur={(e) => setminPrice(e.target.value)} />
+        </div>
+        <div className="filter-item">
+          <label>מס' קומה</label>
+          <input type="Number" placeholder=" מס' קומה" onBlur={(e) => setFloor(e.target.value)} />
+        </div>
+      </div>
+    </div>
+     </div>
+     </div>       <button onClick={handlePrintAll}>הדפס את הכל</button>
 
             <div className="table-container">
                 <div className="table-wrapper">

@@ -136,7 +136,7 @@ select, input {
 /* ריווח מהצד הימני */
 .table-container {
     padding-left: 20px;
-    padding-right: 7%; /* ריווח מהצד הימני */
+    padding-right: 0.5%; /* ריווח מהצד הימני */
     margin-bottom: 20px;
     overflow-x: hidden;
 }
@@ -238,7 +238,6 @@ select, input {
 
 /* עיצוב הטבלה */
 .apartments-table {    margin-right: 10%;
-
     width: 100%;
     border-collapse: collapse;
     margin: 20px 0;
@@ -363,3 +362,41 @@ button {
   font-size: 30px;
   cursor: pointer;
 }
+.filters-container {
+    display: flex;
+    float: right;
+padding-right: 3%;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+    /* margin-left: 10px; */
+  }
+  
+  .filters {
+    display: flex;
+    flex-direction: column;
+    /* gap: -10px; */
+    width: 100px; /* עמודת הסינונים צרה יחסית */
+    padding: 10px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .filter-item {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .filter-item label {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .filter-item input {
+    padding: 8px;
+    font-size: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 100%;
+    box-sizing: border-box;
+  }
