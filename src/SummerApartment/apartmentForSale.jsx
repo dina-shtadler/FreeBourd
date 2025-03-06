@@ -241,7 +241,7 @@ export const ApartmentForsale = () => {
   </label>
   <label class="toggle">תצוגת גלילה</label>
 
-</div>  <button onClick={handlePrintAll}>הדפס את הכל</button></div>  
+</div>  <button className='ToRegister' onClick={handlePrintAll}>הדפס את הכל</button></div>  
 
             <div className="table-container">
                 <div className="table-wrapper">

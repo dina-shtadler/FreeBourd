@@ -145,7 +145,7 @@
     overflow-x: auto; /* איפשר הצגת גלילה אופקית */
     display: block; /* חשוב לאפשר גלילה */
 }
-
+.ToRegister{margin-right: 70%;}
 .apartments-table th, .apartments-table td {
     padding: 5px;
     text-align: center;

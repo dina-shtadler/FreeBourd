@@ -35,7 +35,7 @@ console.log(location)
     const [minprice, setminPrice] = useState();
     const [floor, setFloor] = useState('');
     const [isLoggedIn, setIsLoggedIn] = useState(false); // ניהול סטטוס הכניסה של המשתמש
-   
+
     // Fetch apartments and categories
     useEffect(() => {
        
@@ -124,6 +124,7 @@ console.log(location)
     // };
  
     const [login, setlogin] = useState()
+    const [tableScroll,settableScroll ] = useState(false);
 
    
     const [email, setEmail] = useState('')
@@ -257,188 +258,186 @@ console.log(location)
          Nav('/personal-area'); // אם הוא מחובר, שלח אותו לאזור האישי
          }
       };
+      
+    const handleToggle = (event) => {
+      if (event.target.checked) {
+        settableScroll(true); // אם הכפתור מסומן, מצב הגלילה הוא true
+        console.log("מצב: True");
+      } else {
+        settableScroll(false); // אם הכפתור לא מסומן, מצב הגלילה הוא false
+        console.log("מצב: False");
+      }
+    };
     return (
         <>
-        
         <button className="personal-area-button" onClick={personalArea}>אזור אישי למפרסמים</button>
+            <div className="filters-container">
+      <div className="filters">                <div>:סנן לפי</div>
 
-<div className="filters">
-  
-    <input 
-        type="text" 
-        placeholder="עיר "
-        
-        onBlur={(e) =>{
-          console.log('blur triggered:', e.target.value); // להדפיס את הערך בלוג
-          setcity(e.target.value);}} 
-    />
-    <input 
-        type="text" 
-        placeholder="שכונה "
-        onBlur={(e) => {
-          console.log('blur triggered:', e.target.value); // להדפיס את הערך בלוג
-          setneighbourhood(e.target.value)}} 
-    /><input 
-    type="text" 
-    placeholder="רחוב "
-    onBlur={(e) =>{
-      console.log('blur triggered:', e.target.value); // להדפיס את הערך בלוג
-      setstreet(e.target.value)}} 
-/><input 
-        type="Number" 
-        placeholder="(מס' חדרים (מקסימום"
-        onBlur={(e) => {
-          console.log('blur triggered:', e.target.value); // להדפיס את הערך בלוג
-          setnumRooms(e.target.value)
-        console.log(numRooms)}} 
-    />
-    <input 
-    type="Number" 
-    placeholder="מס' חדרים (מינימום)"
-    onBlur={(e) => {
-      console.log('blur triggered:', e.target.value); // להדפיס את הערך בלוג
-      setMinRooms(e.target.value)
-    console.log(minRooms)}} 
-/>
-<input 
-        type="Number" 
-        placeholder="מ'ר לדירה (מקסימום)"
-        onBlur={(e) => {
-          console.log('blur triggered:', e.target.value); // להדפיס את הערך בלוג
-          setsquermeter(e.target.value)
-        console.log(squermeter)}} 
-    /><input 
-    type="Number" 
-    placeholder="מ'ר לדירה (מינימום)"
-    onBlur={(e) => {
-      console.log('blur triggered:', e.target.value); // להדפיס את הערך בלוג
-      setminsquermeter(e.target.value)
-    console.log(minsquermeter)}} 
-/><input 
-    type="Number" 
-    placeholder="מחיר (מקסימום)"
-    onBlur={(e) => {
-      console.log('blur triggered:', e.target.value); // להדפיס את הערך בלוג
-      setPrice(e.target.value)
-    console.log(price)}} 
-/><input 
-    type="Number" 
-    placeholder="מחיר (מינימום)"
-    onBlur={(e) => {
-      console.log('blur triggered:', e.target.value); // להדפיס את הערך בלוג
-      setminPrice(e.target.value)
-    console.log(minprice)}} 
-/>
-<input 
-    type="Number" 
-    placeholder=" מס' קומה"
-    onBlur={(e) => {
-      console.log('blur triggered:', e.target.value); // להדפיס את הערך בלוג
-      setFloor(e.target.value)
-    console.log(floor)}} 
-/>
-</div> 
-          {/* <button>
-<PDFDownloadLink document={<MyDocument />} fileName="apartments-list.pdf">
-                {({ loading }) => (loading ? 'יוצרים PDF...' :
- 'הורד PDF')}
-            </PDFDownloadLink>
+        <div className="filter-item">
+          <label>עיר</label>
+          <input type="text" placeholder="עיר " onBlur={(e) => setcity(e.target.value)} />
+        </div>
+        <div className="filter-item">
+          <label>שכונה</label>
+          <input type="text" placeholder="שכונה " onBlur={(e) => setneighbourhood(e.target.value)} />
+        </div>
+        <div className="filter-item">
+          <label>רחוב</label>
+          <input type="text" placeholder="רחוב " onBlur={(e) => setstreet(e.target.value)} />
+        </div>
+        <div className="filter-item">
+          <label>(מס' חדרים (מקסימום</label>
+          <input type="Number" placeholder="(מס' חדרים (מקסימום" onBlur={(e) => setnumRooms(e.target.value)} />
+        </div>
+        <div className="filter-item">
+          <label>מס' חדרים (מינימום)</label>
+          <input type="Number" placeholder="מס' חדרים (מינימום)" onBlur={(e) => setMinRooms(e.target.value)} />
+        </div>
+        <div className="filter-item">
+          <label>מ'ר לדירה (מקסימום)</label>
+          <input type="Number" placeholder="מ'ר לדירה (מקסימום)" onBlur={(e) => setsquermeter(e.target.value)} />
+        </div>
+        <div className="filter-item">
+          <label>מ'ר לדירה (מינימום)</label>
+          <input type="Number" placeholder="מ'ר לדירה (מינימום)" onBlur={(e) => setminsquermeter(e.target.value)} />
+        </div>
+        <div className="filter-item">
+          <label>מחיר (מקסימום)</label>
+          <input type="Number" placeholder="מחיר (מקסימום)" onBlur={(e) => setPrice(e.target.value)} />
+        </div>
+        <div className="filter-item">
+          <label>מחיר (מינימום)</label>
+          <input type="Number" placeholder="מחיר (מינימום)" onBlur={(e) => setminPrice(e.target.value)} />
+        </div>
+        <div className="filter-item">
+          <label>מס' קומה</label>
+          <input type="Number" placeholder=" מס' קומה" onBlur={(e) => setFloor(e.target.value)} />
+        </div>
+      </div>
+    </div>
+         <div>  <div class="toggle-container">
+  <label class="toggle">
+    <input type="checkbox"           onChange={handleToggle} // משתמשים ב-onChange כדי לעדכן את ה-state
+ class="toggle-checkbox" id="toggleSwitch"/>
+    <span class="toggle-slider"></span>
+  </label>
+  <label class="toggle">תצוגת גלילה</label>
 
-      </button> */}
-<button onClick={handlePrintAll}>הדפס את הכל</button>
-            {/* <div className="button-container">
-                <button onClick={addApartment} className="add-button">הוספת דירה למאגר</button>
-            </div>
-            <div className="add-button"> <button onClick={loginS} className="button-container" >התחברות</button> <input type="text" placeholder='סיסמה' onBlur={(e)=>setPassword(e.target.value)}/><input placeholder='מייל'  onBlur={ (e)=>setEmail(e.target.value)}></input>
-               :
-ע"מ לערוך או למחוק דירה שפירסמת עליך להתחבר
-            </div> */}
-            {/* Filter components */}
-            {/* <div className="filter-container">
-                <h3>בחר קטגוריה</h3>
-                <select required onChange={(e) => setKategory(e.target.value)} onBlur={send}>
-                    <option value="" disabled selected>בחר קטגוריה</option>
-                    {listKategories && listKategories.map((x) => (
-                        <option key={x._id} value={x.nameKategory}>{x.nameKategory}</option>
-                    ))}
-                </select>
-            </div>
+</div>  <button className='ToRegister' onClick={handlePrintAll}>הדפס את הכל</button></div>  
 
-            <div className="filter-container">
-                <h3>הכנס מספר חדרים</h3>
-                <input type="number" onChange={(e) => setNumBRooms(e.target.value)} />
-            </div> */}
-
-            {/* Table displaying apartments */}
             <div className="table-container">
-            <div className="table-wrapper">
-                {/* פס גלילה עליון */}
-                <div className="scroll-inner"></div>
-
-            {/* גלילה אופקית ואנכית לטבלה */}
-            <div className="table-scroll" >
-            <table className="apartments-table">
-    <thead>
-        <tr>
-            <th>עיר</th>
-            <th>שכונה</th>
-            <th>רחוב</th>
-            <th>מס' בניין</th>
-            <th>מספר חדרים</th>
-            <th>שטח דירה (מ"ר)</th>
-            <th>מרפסת</th>
-            <th>שטח מרפסת (מ"ר)</th>
-            <th>מחיר</th>
-            <th>קטגוריה</th>
-            <th>מייל</th>
-            <th>טלפון</th>
-            <th>תיווך</th>
-            <th>קומה</th>
-            <th>פרטים נוספים</th>
-            {/* <th>פעולות</th> */}
-            <th> pdfהדפסה ו</th>
-        </tr>
-    </thead>
-    <tbody>
-        {listApartment && listApartment.map((x) => (
-            <tr key={x._id}>
-                <td>{x.city}</td>
-                <td>{x.neighbourhood}</td>
-                <td>{x.street}</td>
-                <td>{x.numBuild}</td>
-                <td>{x.numRooms}</td>
-                <td>{x.squareMeter}</td>
-                <td><input type='checkbox' checked={x.porch === true || x.porch === "true"} readOnly /></td>
-                <td>{x.porchSquareMeter}</td>
-                <td>{x.price}</td>
-                <td>{x.kodKategory[0]?.nameKategory}</td>
-                <td>{x.kodPublisher[0]?.email}</td>
-                <td>{x.kodPublisher[0]?.phone}</td>
-                <td><input type='checkbox' checked={x.realEstateAgency === true || x.realEstateAgency === "true"} readOnly /></td>
-                {/* <td>
-                    {x.kodPublisher[0]?.email === localStorage.getItem('userEmail') && (
-                        <div>
-                            <button onClick={() => Delete(x)}><FaTrashAlt /></button>
-                            <button onClick={() => update(x)}><FaPen /></button>
-                        </div>
-                    )}
-                </td> */}
-                <td>{x.floor}</td>
-                <td>{x.describe}</td>
-                <td>
-                    <button onClick={() => handlePrint(x)}>
-                        <FaShareSquare /> <FaPrint />
-                    </button>
-                </td>
-            </tr>
-        ))}
-    </tbody>
-</table></div>   {/* פס גלילה עליון */}
-             {/* פס גלילה תחתון */}
-                <div className="scroll-inner"></div>
-</div>{/* פס גלילה תחתון */}
-   
-</div>
+                <div className="table-wrapper">
+                    <div className="scroll-inner"></div>
+               {tableScroll?    <div className="table-scroll">
+                        <table className="apartments-table">
+                            <thead>
+                                <tr>
+                                    <th>עיר</th>
+                                    <th>שכונה</th>
+                                    <th>רחוב</th>
+                                    <th>מס'
+                                       <div>בניין</div></th>
+                                    <th>מספר 
+                                      <div>חדרים</div></th>
+                                    <th>שטח 
+                                      <div>דירה</div> (מ"ר)</th>
+                                    <th>מרפסת</th>
+                                    <th>שטח 
+                                      <div>מרפסת</div> (מ"ר)</th>
+                                    <th>מחיר</th>
+                                    <th>קטגוריה</th>
+                                    <th>מייל</th>
+                                    <th>טלפון</th>
+                                    <th>תיווך</th>
+                                    <th>קומה</th>
+                                    <th>פרטים נוספים</th>
+                                    <th>pdfהדפסה ו</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {listApartment && listApartment.map((x) => (
+                                    <tr key={x._id}>
+                                        <td>{x.city}</td>
+                                        <td>{x.neighbourhood}</td>
+                                        <td>{x.street}</td>
+                                        <td>{x.numBuild}</td>
+                                        <td>{x.numRooms}</td>
+                                        <td>{x.squareMeter}</td>
+                                        <td><input type='checkbox' checked={x.porch === true || x.porch === "true"} readOnly /></td>
+                                        <td>{x.porchSquareMeter}</td>
+                                        <td>{x.price}</td>
+                                        <td>{x.kodKategory[0]?.nameKategory}</td>
+                                        <td>{x.kodPublisher[0]?.email}</td>
+                                        <td>{x.kodPublisher[0]?.phone}</td>
+                                        <td><input type='checkbox' checked={x.realEstateAgency === true || x.realEstateAgency === "true"} readOnly /></td>
+                                        <td>{x.floor}</td>
+                                        <td>{x.describe}</td>
+                                        <td>
+                                            <button onClick={() => handlePrint(x)}>
+                                                <FaShareSquare /> <FaPrint />
+                                            </button>
+                                        </td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>: 
+                        <table className="apartments-table">
+                            <thead>
+                                <tr>
+                                    <th>עיר</th>
+                                    <th>שכונה</th>
+                                    <th>רחוב</th>
+                                    <th>מס'
+                                       <div>בניין</div></th>
+                                    <th>מספר 
+                                      <div>חדרים</div></th>
+                                    <th>שטח 
+                                      <div>דירה</div> (מ"ר)</th>
+                                    <th>מרפסת</th>
+                                    <th>שטח 
+                                      <div>מרפסת</div> (מ"ר)</th>
+                                    <th>מחיר</th>
+                                    <th>קטגוריה</th>
+                                    <th>מייל</th>
+                                    <th>טלפון</th>
+                                    <th>תיווך</th>
+                                    <th>קומה</th>
+                                    <th>פרטים נוספים</th>
+                                    <th>pdfהדפסה ו</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {listApartment && listApartment.map((x) => (
+                                    <tr key={x._id}>
+                                        <td>{x.city}</td>
+                                        <td>{x.neighbourhood}</td>
+                                        <td>{x.street}</td>
+                                        <td>{x.numBuild}</td>
+                                        <td>{x.numRooms}</td>
+                                        <td>{x.squareMeter}</td>
+                                        <td><input type='checkbox' checked={x.porch === true || x.porch === "true"} readOnly /></td>
+                                        <td>{x.porchSquareMeter}</td>
+                                        <td>{x.price}</td>
+                                        <td>{x.kodKategory[0]?.nameKategory}</td>
+                                        <td>{x.kodPublisher[0]?.email}</td>
+                                        <td>{x.kodPublisher[0]?.phone}</td>
+                                        <td><input type='checkbox' checked={x.realEstateAgency === true || x.realEstateAgency === "true"} readOnly /></td>
+                                        <td>{x.floor}</td>
+                                        <td>{x.describe}</td>
+                                        <td>
+                                            <button onClick={() => handlePrint(x)}>
+                                                <FaShareSquare /> <FaPrint />
+                                            </button>
+                                        </td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>                
+              
+                             } </div> 
+       </div>
         </>
     );
 };
