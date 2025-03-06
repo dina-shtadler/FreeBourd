@@ -316,7 +316,7 @@ console.log(location)
         </div>
       </div>
     </div>
-         <div>  <div class="toggle-container">
+         <div> <h1 className='label'>תצוגת דירות להשכרה</h1> <div class="toggle-container">
   <label class="toggle">
     <input type="checkbox"           onChange={handleToggle} // משתמשים ב-onChange כדי לעדכן את ה-state
  class="toggle-checkbox" id="toggleSwitch"/>
