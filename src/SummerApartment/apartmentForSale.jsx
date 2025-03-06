@@ -17,7 +17,7 @@ export const ApartmentForsale = () => {
     const [room, setNumBRooms] = useState();
     const [listApartment, setList] = useState([]);
     const [listApartment1, setList1] = useState([]);
-    const [listKategories, setListK] = useState();
+    const [tableScroll,settableScroll ] = useState(false);
     const [city, setcity] = useState('');
     const [neighbourhood, setneighbourhood] = useState('');
     const [street, setstreet] = useState('');
@@ -176,23 +176,21 @@ export const ApartmentForsale = () => {
         }
     };
 
-    // חישוב הדירות להציג לפי הדף הנוכחי
-    const indexOfLastItem = currentPage * itemsPerPage;
-    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-    const currentItems = listApartment.slice(indexOfFirstItem, indexOfLastItem);
-
-    // שינוי דף
-    const paginate = (pageNumber) => setCurrentPage(pageNumber);
-
+    const handleToggle = (event) => {
+        if (event.target.checked) {
+          settableScroll(true); // אם הכפתור מסומן, מצב הגלילה הוא true
+          console.log("מצב: True");
+        } else {
+          settableScroll(false); // אם הכפתור לא מסומן, מצב הגלילה הוא false
+          console.log("מצב: False");
+        }
+      };
     return (
         <>
-            <button className="personal-area-button" onClick={personalArea}>אזור אישי למפרסמים</button>
-
-    <div className="main-container">
-      {/* קונטיינר Flex שבו הסינונים בצד ימין והטבלה בצד שמאל */}
-      <div className="filters-table-wrapper">
+     <button className="personal-area-button" onClick={personalArea}>אזור אישי למפרסמים</button>
             <div className="filters-container">
-      <div className="filters">
+      <div className="filters">                <div>:סנן לפי</div>
+
         <div className="filter-item">
           <label>עיר</label>
           <input type="text" placeholder="עיר " onBlur={(e) => setcity(e.target.value)} />
@@ -235,13 +233,20 @@ export const ApartmentForsale = () => {
         </div>
       </div>
     </div>
-     </div>
-     </div>       <button onClick={handlePrintAll}>הדפס את הכל</button>
+         <div>  <div class="toggle-container">
+  <label class="toggle">
+    <input type="checkbox"           onChange={handleToggle} // משתמשים ב-onChange כדי לעדכן את ה-state
+ class="toggle-checkbox" id="toggleSwitch"/>
+    <span class="toggle-slider"></span>
+  </label>
+  <label class="toggle">תצוגת גלילה</label>
+
+</div>  <button onClick={handlePrintAll}>הדפס את הכל</button></div>  
 
             <div className="table-container">
                 <div className="table-wrapper">
                     <div className="scroll-inner"></div>
-                    {/* <div className="table-scroll"> */}
+               {tableScroll?    <div className="table-scroll">
                         <table className="apartments-table">
                             <thead>
                                 <tr>
@@ -268,7 +273,7 @@ export const ApartmentForsale = () => {
                                 </tr>
                             </thead>
                             <tbody>
-                                {currentItems.map((x) => (
+                                {listApartment && listApartment.map((x) => (
                                     <tr key={x._id}>
                                         <td>{x.city}</td>
                                         <td>{x.neighbourhood}</td>
@@ -294,18 +299,62 @@ export const ApartmentForsale = () => {
                                 ))}
                             </tbody>
                         </table>
-                    {/* </div> */}
-                </div>
-            </div>
-
-            {/* Pagination */}
-            <div className="pagination">
-                {Array.from({ length: Math.ceil(listApartment.length / itemsPerPage) }, (_, index) => (
-                    <button key={index} onClick={() => paginate(index + 1)} className={currentPage === index + 1 ? 'active' : ''}>
-                        {index + 1}
-                    </button>
-                ))}
-            </div>
+                    </div>: 
+                        <table className="apartments-table">
+                            <thead>
+                                <tr>
+                                    <th>עיר</th>
+                                    <th>שכונה</th>
+                                    <th>רחוב</th>
+                                    <th>מס'
+                                       <div>בניין</div></th>
+                                    <th>מספר 
+                                      <div>חדרים</div></th>
+                                    <th>שטח 
+                                      <div>דירה</div> (מ"ר)</th>
+                                    <th>מרפסת</th>
+                                    <th>שטח 
+                                      <div>מרפסת</div> (מ"ר)</th>
+                                    <th>מחיר</th>
+                                    <th>קטגוריה</th>
+                                    <th>מייל</th>
+                                    <th>טלפון</th>
+                                    <th>תיווך</th>
+                                    <th>קומה</th>
+                                    <th>פרטים נוספים</th>
+                                    <th>pdfהדפסה ו</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {listApartment && listApartment.map((x) => (
+                                    <tr key={x._id}>
+                                        <td>{x.city}</td>
+                                        <td>{x.neighbourhood}</td>
+                                        <td>{x.street}</td>
+                                        <td>{x.numBuild}</td>
+                                        <td>{x.numRooms}</td>
+                                        <td>{x.squareMeter}</td>
+                                        <td><input type='checkbox' checked={x.porch === true || x.porch === "true"} readOnly /></td>
+                                        <td>{x.porchSquareMeter}</td>
+                                        <td>{x.price}</td>
+                                        <td>{x.kodKategory[0]?.nameKategory}</td>
+                                        <td>{x.kodPublisher[0]?.email}</td>
+                                        <td>{x.kodPublisher[0]?.phone}</td>
+                                        <td><input type='checkbox' checked={x.realEstateAgency === true || x.realEstateAgency === "true"} readOnly /></td>
+                                        <td>{x.floor}</td>
+                                        <td>{x.describe}</td>
+                                        <td>
+                                            <button onClick={() => handlePrint(x)}>
+                                                <FaShareSquare /> <FaPrint />
+                                            </button>
+                                        </td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>                
+              
+                             } </div> 
+       </div>
         </>
     );
 };
