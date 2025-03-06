@@ -46,59 +46,37 @@ export const Register = () => {
       swal(err.response.data.message)
   })
 
-  // loginp(Publisher.email,Publisher.password)
-  //     .then()
-  //   .catch(err => {
-  //     console.log(err);
-  // })
+ 
 }
-//     for (let index = 0; index < list.length; index++) {
-//       if( list[index].password==Publisher.password&&list[index].email==Publisher.email)
-//     {swal( `🤭🤭🤭 כבר קיים במאגר`);
-//     x='1'
-//      Nav('/Home')
-//     break
-//     }}
-//      if(x!='1'){
-    
-//     dispatch(registerP(user))
-//     // dispatch(addUser1(user))
-//     // AddUser(user)
-//     //     .then(x => {
-//     //         //x.data - יכיל את מה שחזר מהשרת
 
-//     //     })
-//     swal(`שלום ${user.FirstName}!`, "😉😃😜נרשמת בהצלחה למערכת", "success")
-     
-     
-//     Nav('/Home')
-// }   }
     return <>
-      <h2>רישום לפירסום דירות</h2>
+                 <div className="login-container">
 
-   <form className='form'  onSubmit={(e) => send(e)} >
-  <div class="input-container">
-    <i class="fa fa-user icon"></i>
-    <input class="input-field" type="text" placeholder="טלפון" name="usrfone" required></input>
-  </div>
-  <div class="input-container">
-    <i class="fa fa-user icon"></i>
-    <input class="input-field" type="text" placeholder="טלפון נוסף" name="usrEnotherFone" required></input>
-  </div>
-  <div class="input-container">
-    <i class="fa fa-envelope icon"></i>
-    <input class="input-field" type="email" placeholder="כתובת מייל" name="email" required></input>
-  </div>
+      <h2 className="login-title">הרשמה לפירסום דירות</h2>
 
+   <form className="login-form"  onSubmit={(e) => send(e)} >
   <div class="input-container">
-    <i class="fa fa-key icon"></i>
-    <input class="input-field" type="password" placeholder="סיסמא" name="psw" required></input>
+    <input           className="form-input"
+ type="text" placeholder="טלפון" name="usrfone" required></input>
+  </div>
+  <div class="input-container">
+    <input           className="form-input"
+ type="text" placeholder="טלפון נוסף" name="usrEnotherFone" required></input>
+  </div>
+  <div class="input-container">
+    <input           className="form-input"
+ type="email" placeholder="כתובת מייל" name="email" required></input>
   </div>
 
-  <button type="submit" class="btn" >הרשמה</button>
+  <div class="input-container">
+    <input           className="form-input"
+ type="password" placeholder="סיסמא" name="psw" required></input>
+  </div>
+
+  <button type="submit"  className="login-button" >הרשמה</button>
   
 </form >
-   
+ </div>  
     </>
   }
 

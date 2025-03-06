@@ -196,7 +196,7 @@ console.log(location)
         
         // יצירת הטבלה
         printWindow.document.write('<table>');
-        printWindow.document.write('<thead><tr><th>עיר</th><th>שכונה</th><th>רחוב</th><th>מס\' בניין</th><th>מספר חדרים</th><th>שטח דירה (מ"ר)</th><th>מרפסת</th><th>שטח מרפסת (מ"ר)</th><th>מחיר</th><th>קטגוריה</th><th>מייל</th><th>טלפון</th><th>תיווך</th><th>ייצוא</th></tr></thead>');
+        printWindow.document.write('<thead><tr><th>עיר</th><th>שכונה</th><th>רחוב</th><th>מס\' בניין</th><th>מספר חדרים</th><th>שטח דירה (מ"ר)</th><th>מרפסת</th><th>שטח מרפסת (מ"ר)</th><th>מחיר</th><th>קטגוריה</th><th>מייל</th><th>טלפון</th><th>תיווך</th></tr></thead>');
         printWindow.document.write('<tbody>');
         
         listApartment.forEach((apartment) => {
@@ -208,14 +208,13 @@ console.log(location)
                     <td>${apartment.numBuild}</td>
                     <td>${apartment.numRooms}</td>
                     <td>${apartment.squareMeter}</td>
-                    <td><input type='checkbox' checked=${apartment.porch} readOnly /></td>
+                    <td><input type='checkbox'  checked=${apartment.porch === true || apartment.porch === "true"}readOnly /></td>
                     <td>${apartment.porchSquareMeter}</td>
                     <td>${apartment.price}</td>
                     <td>${apartment.kodKategory[0]?.nameKategory}</td>
                     <td>${apartment.kodPublisher[0]?.email}</td>
                     <td>${apartment.kodPublisher[0]?.phone}</td>
-                    <td><input type='checkbox' checked=${apartment.realEstateAgency} readOnly /></td>
-                    <td><button>ייצוא</button></td>
+                    <td><input type='checkbox'  checked=${apartment.realEstateAgency === true || apartment.realEstateAgency === "true"} readOnly /></td>
                 </tr>
             `);
         });

@@ -233,7 +233,7 @@ export const PersonalArea =() =>{
       <>
       <h1>הדירות שלי</h1>
       <div className="apartments-wrapper">
-      <button onClick={handlePrintAll}>הדפס את הכל</button>
+      <button onClick={handlePrintAll} className='ToRegister'>הדפס את הכל</button>
 
       <div className="apartments-list">
         {listApartment &&
