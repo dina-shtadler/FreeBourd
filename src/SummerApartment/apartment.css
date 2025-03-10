@@ -72,14 +72,6 @@
 
 }
 
-/* סגנון לתאים */
-.apartments-table th, .apartments-table td {
-    padding: 5px;
-    text-align: center;
-    border: 1px solid #ddd;
-    white-space: nowrap;
-
-}
 
 /* גורם לכותרת להישאר קבועה */
 .apartments-table thead {
@@ -135,6 +127,14 @@
 .add-button:hover {
     background-color: rgb(245, 180, 82);
 }
+/* סגנון לתאים */
+.apartments-table th, .apartments-table td {
+    /* padding: 5px; */
+    text-align: center;
+    border: 1px solid #ddd;
+    white-space: nowrap;
+width:5%;
+}
 
 /* עיצוב הטבלה */
 .apartments-table {    margin-right: 10%;
@@ -148,7 +148,7 @@
 .label{float: right;margin-right: 30%;}
 .ToRegister{margin-right: 20%; }
 .apartments-table th, .apartments-table td {
-    padding: 5px;
+    /* padding: 5px; */
     text-align: center;
     border: 1px solid #ddd;
     word-wrap: break-word; /* וידא שיכולות המילים יישברו לשורה חדשה */
