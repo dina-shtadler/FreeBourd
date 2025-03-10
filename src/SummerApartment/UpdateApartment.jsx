@@ -282,6 +282,7 @@ import { useEffect, useState } from "react";
 import swal from "sweetalert";
 
 export const UpdateApartment = () => {
+
     const [Kategory, setKategory] = useState();
     const [Kategory1, setKategory1] = useState();
     const [listKategories, setListK] = useState();
@@ -294,6 +295,7 @@ export const UpdateApartment = () => {
     const thisApartment = localStorage.getItem(`thisApartment`);
     const thisApartment1 = JSON.parse(thisApartment);
     console.log(thisApartment1.numBeds);
+    const [price, setPrice] = useState(thisApartment1.price);
 
     useEffect(() => {
         getAllKategorys()
@@ -318,9 +320,9 @@ export const UpdateApartment = () => {
 
         const Apartment = {
             _id: thisApartment1._id,
-            adress: event.target.adress.value,
+            adress: event.target.adress?.value,
             price: event.target.price.value,
-            extras: event.target.extras.value,
+            extras: event.target.extras?.value,
             kodKategory: Kategory1,
             kodPublisher: localStorage.getItem(`user`),
             city: event.target.city.value,
@@ -359,34 +361,52 @@ export const UpdateApartment = () => {
       if (words.length <= 10) {
         setInputText(value);
       }}
+      const handleChangePrice = (e) => {
+        let value = e.target.value;
+    
+        // מסירים כל דמות לא מספרית
+        value = value.replace(/[^0-9]/g, '');
+    
+        // מחלקים את המספר לשני חלקים - שלם ואחריו
+        let parts = value.match(/(\d+)(\d{3})/);
+    
+        // אם ישנם יותר מ-3 ספרות, הוסף פסיקים
+        while (parts) {
+          value = value.replace(parts[0], parts[1] + ',' + parts[2]);
+          parts = value.match(/(\d+)(\d{3})/);
+        }
+    
+        // עדכון המצב עם הערך החדש
+        setPrice(value);
+      };
     return (
         <>
-            <Typography variant="h4" gutterBottom>
+            {/* <Typography variant="h4" gutterBottom>
                 עדכון פרטי הדירה
-            </Typography>
+            </Typography> */}
 
-            <FormControl fullWidth margin="normal">
+            {/* <FormControl fullWidth margin="normal">
                 <InputLabel>בחר קטגוריה</InputLabel>
                 <Select
                     required
                     value={Kategory || ""}
                     onChange={(e) => setKategory(e.target.value)}
                     label="בחר קטגוריה"
-                >
-                    {listKategories && listKategories.map((x) => (
+                > */}
+                    {/* {listKategories && listKategories.map((x) => (
                         <MenuItem key={x._id} value={x.nameKategory}>{x.nameKategory}</MenuItem>
-                    ))}
-                </Select>
-            </FormControl>
+                    ))} */}
+                {/* </Select> */}
+            {/* </FormControl> */}
             <div className="form-wrapper">
   <div className="form-b">
     <form id="t" onSubmit={send}>
-      <h1>הוספת דירה למאגר</h1>
+      <h1>עדכון פרטי הדירה  </h1>
 
       {/* קטגוריה */}
       <div className="input-container full-width">
         <label>קטגוריה:</label>
-        <select className="input-field select-field" required onChange={(e) => setKategory(e.target.value)}>
+        <select className="input-field select-field" defaultValue={thisApartment1.kodKategory.nameKategory} required onChange={(e) => setKategory(e.target.value)}>
           <option key="none" disabled selected>בחר קטגוריה</option>
           {listKategories && listKategories.map((category) => (
             <option key={category._id} value={category.nameKategory}>
@@ -424,7 +444,8 @@ export const UpdateApartment = () => {
       <div className="row">
         <div className="input-container">
           <label>מחיר:</label>
-          <input className="input-field" type="text" name="price" defaultValue={thisApartment1.price} required />
+          <input className="input-field" type="text" name="price" 
+        onChange={handleChangePrice}  value={price} required />
         </div>
         <div className="input-container">
           <label>שטח דירה (מ"ר):</label>
@@ -465,7 +486,7 @@ export const UpdateApartment = () => {
       {/* טור מלא */}
       <div className="input-container full-width">
         <label>פרטים נוספים:</label>
-        <input className="input-field" type="text" name="describe" value={inputText} onChange={handleChange} required />
+        <input className="input-field" type="text" name="describe" value={inputText} onChange={handleChange}  />
         <p>נכנסו {inputText.trim().split(/\s+/).length} מילים</p>
       </div>
 

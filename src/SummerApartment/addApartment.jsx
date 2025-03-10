@@ -5,6 +5,8 @@ import swal from "sweetalert";
 import './addapartment.css'
 
 export const AddApartments = () => {
+  const [price, setPrice] = useState('');
+
   const [listCities, setList] = useState([]);
   const [city, setCity] = useState();
   const [Kategory, setKategory] = useState();
@@ -40,7 +42,7 @@ export const AddApartments = () => {
       formData.append("floor", Number(formElements.floor.value) || 0);
       formData.append("street", formElements.street.value);
       formData.append("numBuild", Number(formElements.numBuild.value) || 0);
-      formData.append("price", Number(formElements.price.value) || 0);
+      formData.append("price",price || 0);
       formData.append("squareMeter", Number(formElements.squareMeter.value) || 0);
       formData.append("numRooms", Number(formElements.numRooms.value) || 0);
       formData.append("porch", formElements.porch.checked);
@@ -76,7 +78,24 @@ export const AddApartments = () => {
     if (words.length <= 10) {
       setInputText(value);
     }}
-
+    const handleChangePrice = (e) => {
+        let value = e.target.value;
+    
+        // מסירים כל דמות לא מספרית
+        value = value.replace(/[^0-9]/g, '');
+    
+        // מחלקים את המספר לשני חלקים - שלם ואחריו
+        let parts = value.match(/(\d+)(\d{3})/);
+    
+        // אם ישנם יותר מ-3 ספרות, הוסף פסיקים
+        while (parts) {
+          value = value.replace(parts[0], parts[1] + ',' + parts[2]);
+          parts = value.match(/(\d+)(\d{3})/);
+        }
+    
+        // עדכון המצב עם הערך החדש
+        setPrice(value);
+      };
   return (
       <>
    <div className="form-wrapper"><div className="from-b">
@@ -118,19 +137,21 @@ export const AddApartments = () => {
         <div className="row">
         <div className="input-container">
                 <label>קומה:</label>
-                <input className="input-field" type="text" name="floor" required />
+                <input className="input-field" type="text" name="floor"  />
             </div>
            
             <div className="input-container">
                 <label>מס' בניין:</label>
-                <input className="input-field" type="text" name="numBuild" required />
+                <input className="input-field" type="text" name="numBuild"  />
             </div>
         </div>
 
         <div className="row">
             <div className="input-container">
                 <label>מחיר:</label>
-                <input className="input-field" type="text" name="price" required />
+                <input className="input-field"     
+        value={price}
+        onChange={handleChangePrice} type="text" name="price" required />
             </div>
             <div className="input-container">
                 <label>שטח דירה (מ"ר):</label>
