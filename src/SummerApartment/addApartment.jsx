@@ -98,21 +98,29 @@ export const AddApartments = () => {
 
         {/* מבנה של שני טורים */}
         <div className="row">
-            <div className="input-container">
-                <label>שכונה:</label>
-                <input className="input-field" type="text" name="neighbourhood" required />
-            </div>
-            <div className="input-container">
-                <label>קומה:</label>
-                <input className="input-field" type="text" name="floor" required />
-            </div>
-        </div>
-
-        <div className="row">
+       
+           
             <div className="input-container">
                 <label>רחוב:</label>
                 <input className="input-field" type="text" name="street" required />
             </div>
+             <div className="input-container">
+                <label>שכונה:</label>
+                <input className="input-field" type="text" name="neighbourhood" required />
+            </div>
+             <div className="input-container">
+            <label>עיר:</label>
+            <input className="input-field" type="text" name="city" required />
+        </div>
+
+        </div>
+
+        <div className="row">
+        <div className="input-container">
+                <label>קומה:</label>
+                <input className="input-field" type="text" name="floor" required />
+            </div>
+           
             <div className="input-container">
                 <label>מס' בניין:</label>
                 <input className="input-field" type="text" name="numBuild" required />
@@ -128,47 +136,47 @@ export const AddApartments = () => {
                 <label>שטח דירה (מ"ר):</label>
                 <input className="input-field" type="text" name="squareMeter" required />
             </div>
+             <div className="input-container">
+                <label>מס' חדרים:</label>
+                <input className="input-field" type="text" name="numRooms" required />
+            </div>
         </div>
 
         <div className="row">
-            <div className="input-container">
-                <label>מס' חדרים:</label>
-                <input className="input-field" type="text" name="numRooms" required />
+           <div className="input-container">
+                <label>תיווך:</label>
+                <input type="checkbox" name="realEstateAgency" />
             </div>
             <div className="input-container">
                 <label>מרפסת:</label>
                 <input type="checkbox" name="porch" />
-            </div>
-        </div>
-
-        <div className="row">
-            <div className="input-container">
+            </div> 
+             <div className="input-container">
                 <label>שטח מרפסת (מ"ר):</label>
                 <input className="input-field" type="text" name="porchSquareMeter" />
             </div>
-            <div className="input-container">
-                <label>תיווך:</label>
-                <input type="checkbox" name="realEstateAgency" />
-            </div>
+            
         </div>
 
-        <div className="input-container full-width">
-            <label>עיר:</label>
-            <input className="input-field" type="text" name="city" required />
-        </div>
+        <div className="row">
+          
+            
+       
+        <button type="submit" className="input-container btEn">שלח</button>
 
-        <div className="input-container full-width">
-            <label>פרסום עד:</label>
-            <input type="date" name="datend" required min={currentDate} max={maxDateString} />
-        </div>
+     
+       
 
         <div className="input-container full-width">
             <label>פרטים נוספים:</label>
             <input className="input-field" type="text" name="describe" value={inputText} onChange={handleChange} required />
             <p>נכנסו {inputText.trim().split(/\s+/).length} מילים</p>
         </div>
-
-        <button type="submit" className="btn">שלח</button>
+         <div className="input-container date">
+            <label>פרסום עד:</label>
+            <input type="date" name="datend" required min={currentDate} max={maxDateString} />
+        </div>
+ </div>
     </form></div>
 </div>
       </>

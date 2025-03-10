@@ -39,7 +39,7 @@ form {
 .full-width {
   width: 100%;
 }
-
+.date{width: 20%;}
 /* שדה קלט */
 .input-field {
   width: 100%;
@@ -75,21 +75,26 @@ label {
 }
 
 /* כפתור שליחה */
-.btn {
-  width: 100%;
-  padding: 12px;
-  background: #007bff;
+.btEn {
+  flex: 1;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  /* width: 20%; */
+  /* padding: 12px; */
+  background:  rgb(92, 175, 168);
   color: white;
-  border: none;
+  /* border: none; */
   border-radius: 6px;
-  font-size: 18px;
+  /* font-size: 18px; */
   cursor: pointer;
+  height: 100%;
   transition: background 0.3s ease;
-  margin-top: 15px;
+  /* margin-top: 15px; */
 }
 
-.btn:hover {
-  background: #0056b3;
+.btEn:hover {
+  background: rgb(245, 180, 82);
 }
 
 /* רספונסיביות - טלפונים (שדה אחד בשורה) */
