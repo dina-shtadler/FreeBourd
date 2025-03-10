@@ -193,43 +193,43 @@ export const ApartmentForsale = () => {
 
         <div className="filter-item">
           <label>עיר</label>
-          <input type="text" placeholder="עיר " onBlur={(e) => setcity(e.target.value)} />
+          <input type="text"  onBlur={(e) => setcity(e.target.value)} />
         </div>
         <div className="filter-item">
           <label>שכונה</label>
-          <input type="text" placeholder="שכונה " onBlur={(e) => setneighbourhood(e.target.value)} />
+          <input type="text"  onBlur={(e) => setneighbourhood(e.target.value)} />
         </div>
         <div className="filter-item">
           <label>רחוב</label>
-          <input type="text" placeholder="רחוב " onBlur={(e) => setstreet(e.target.value)} />
+          <input type="text"  onBlur={(e) => setstreet(e.target.value)} />
         </div>
         <div className="filter-item">
-          <label>(מס' חדרים (מקסימום</label>
-          <input type="Number" placeholder="(מס' חדרים (מקסימום" onBlur={(e) => setnumRooms(e.target.value)} />
+          <label>מס' חדרים </label>
+          <input type="Number" placeholder=" מקסימום" onBlur={(e) => setnumRooms(e.target.value)} />
         </div>
         <div className="filter-item">
-          <label>מס' חדרים (מינימום)</label>
-          <input type="Number" placeholder="מס' חדרים (מינימום)" onBlur={(e) => setMinRooms(e.target.value)} />
+          <label>מס' חדרים </label>
+          <input type="Number" placeholder=" מינימום" onBlur={(e) => setMinRooms(e.target.value)} />
         </div>
         <div className="filter-item">
-          <label>מ'ר לדירה (מקסימום)</label>
-          <input type="Number" placeholder="מ'ר לדירה (מקסימום)" onBlur={(e) => setsquermeter(e.target.value)} />
+          <label>גודל דירה (מ'ר)</label>
+          <input type="Number" placeholder="  מקסימום" onBlur={(e) => setsquermeter(e.target.value)} />
         </div>
         <div className="filter-item">
-          <label>מ'ר לדירה (מינימום)</label>
-          <input type="Number" placeholder="מ'ר לדירה (מינימום)" onBlur={(e) => setminsquermeter(e.target.value)} />
+        <label>גודל דירה (מ'ר)</label>
+        <input type="Number" placeholder="מינימום" onBlur={(e) => setminsquermeter(e.target.value)} />
         </div>
         <div className="filter-item">
-          <label>מחיר (מקסימום)</label>
-          <input type="Number" placeholder="מחיר (מקסימום)" onBlur={(e) => setPrice(e.target.value)} />
+          <label>מחיר </label>
+          <input type="Number" placeholder="מקסימום" onBlur={(e) => setPrice(e.target.value)} />
         </div>
         <div className="filter-item">
           <label>מחיר (מינימום)</label>
-          <input type="Number" placeholder="מחיר (מינימום)" onBlur={(e) => setminPrice(e.target.value)} />
+          <input type="Number" placeholder="מינימום" onBlur={(e) => setminPrice(e.target.value)} />
         </div>
         <div className="filter-item">
           <label>מס' קומה</label>
-          <input type="Number" placeholder=" מס' קומה" onBlur={(e) => setFloor(e.target.value)} />
+          <input type="Number"  onBlur={(e) => setFloor(e.target.value)} />
         </div>
       </div>
     </div>
