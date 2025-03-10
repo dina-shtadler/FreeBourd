@@ -169,7 +169,7 @@ export const AddApartments = () => {
 
         <div className="input-container full-width">
             <label>פרטים נוספים:</label>
-            <input className="input-field" type="text" name="describe" value={inputText} onChange={handleChange} required />
+            <input className="input-field" type="text" name="describe" value={inputText} onChange={handleChange}  />
             <p>נכנסו {inputText.trim().split(/\s+/).length} מילים</p>
         </div>
          <div className="input-container date">
