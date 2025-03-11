@@ -32,13 +32,13 @@ export const Publisher = () => {
             localStorage.setItem(`userEmail`,x.data.publisher.email)
                         localStorage.setItem(`token`,x.data.token)
 
-         swal( `🤭🤭🤭 success`);
+         swal( `🤭🤭🤭 התחברת בהצלחה`);
          Nav('/addApartments')
     //  
     }
    
         else if(x.data.message==`email has been exists already!`)
-        swal( `🤭🤭🤭 email has been exists already!`);
+        swal( `🤭🤭🤭 האמייל כבר קיים במערכת!`);
         // alert(x)
       })
       .catch(err => {

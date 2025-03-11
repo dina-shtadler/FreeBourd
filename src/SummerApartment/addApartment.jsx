@@ -49,6 +49,9 @@ export const AddApartments = () => {
       formData.append("porchSquareMeter", Number(formElements.porchSquareMeter.value) || 0);
       formData.append("realEstateAgency", formElements.realEstateAgency.checked ? "true" : "false");
       formData.append("city", formElements.city.value);
+      formData.append("secondPhone", formElements.secondPhone.value);
+      formData.append("phone", formElements.phone.value);
+      formData.append("email", formElements.email.value);
       formData.append("datend", formElements.datend.value);
       formData.append("describe", formElements.describe.value);
       formData.append("kodPublisher", localStorage.getItem("user"));
@@ -114,7 +117,24 @@ export const AddApartments = () => {
                     ))}
             </select>
         </div>
+  {/* מבנה של שני טורים */}
+  <div className="row">
+       
+           
+       <div className="input-container">
+           <label>טלפון נוסף לפירסום:</label>
+           <input className="input-field" type="number" name="secondPhone" />
+       </div>
+        <div className="input-container">
+           <label>טלפון לפירסום:</label>
+           <input className="input-field" type="number" name="phone" />
+       </div>
+        <div className="input-container">
+       <label>אמייל לפירסום:</label>
+       <input className="input-field" type="email" name="email"  />
+   </div>
 
+   </div>
         {/* מבנה של שני טורים */}
         <div className="row">
        

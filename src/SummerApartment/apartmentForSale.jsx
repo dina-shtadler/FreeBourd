@@ -285,8 +285,8 @@ export const ApartmentForsale = () => {
                                         <td>{x.porchSquareMeter}</td>
                                         <td>{x.price}</td>
                                         <td>{x.kodKategory[0]?.nameKategory}</td>
-                                        <td>{x.kodPublisher[0]?.email}</td>
-                                        <td>{x.kodPublisher[0]?.phone}</td>
+                                        <td>{x.email}</td>
+                                        <td>{x.phone} ,{x.secondPhone}</td>
                                         <td><input type='checkbox' checked={x.realEstateAgency === true || x.realEstateAgency === "true"} readOnly /></td>
                                         <td>{x.floor}</td>
                                         <td>{x.describe}</td>
@@ -338,8 +338,8 @@ export const ApartmentForsale = () => {
                                         <td>{x.porchSquareMeter}</td>
                                         <td>{x.price}</td>
                                         <td>{x.kodKategory[0]?.nameKategory}</td>
-                                        <td>{x.kodPublisher[0]?.email}</td>
-                                        <td>{x.kodPublisher[0]?.phone}</td>
+                                        <td>{x.email}</td>
+                                        <td>{x.phone} ,{x.secondPhone}</td>
                                         <td><input type='checkbox' checked={x.realEstateAgency === true || x.realEstateAgency === "true"} readOnly /></td>
                                         <td>{x.floor}</td>
                                         <td>{x.describe}</td>

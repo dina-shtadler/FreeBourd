@@ -336,6 +336,9 @@ export const UpdateApartment = () => {
             realEstateAgency: event.target.realEstateAgency.value,
             floor:event.target.floor.value,
             describe:event.target.describe.value,
+            email:event.target.email.value,
+            phone:event.target.phone.value,
+            secondPhone:event.target.secondPhone.value,
         };
 
         console.log(Apartment);
@@ -418,25 +421,49 @@ export const UpdateApartment = () => {
 
       {/* מבנה של שני טורים */}
       <div className="row">
+      <div className="input-container">
+        <label>טלפון נוסף לפירסום:</label>
+        <input className="input-field" type="text" name="secondPhone" defaultValue={thisApartment1.secondPhone}  />
+      </div>
+        <div className="input-container">
+          <label>טלפון לפירסום:</label>
+          <input className="input-field" type="text" name="phone" defaultValue={thisApartment1.phone}  />
+        </div>
+         <div className="input-container">
+          <label>כתובת מייל לפירסום:</label>
+          <input className="input-field" type="email" name="email" defaultValue={thisApartment1.email}  />
+        </div>
+       
+      </div>   <div className="row">
+      <div className="input-container">
+        <label>עיר:</label>
+        <input className="input-field" type="text" name="city" defaultValue={thisApartment1.city} required />
+      </div>
         <div className="input-container">
           <label>שכונה:</label>
           <input className="input-field" type="text" name="neighbourhood" defaultValue={thisApartment1.neighbourhood} required />
         </div>
-        <div className="input-container">
-          <label>קומה:</label>
-          <input className="input-field" type="text" name="floor" defaultValue={thisApartment1.floor} required />
+         <div className="input-container">
+          <label>רחוב:</label>
+          <input className="input-field" type="text" name="street" defaultValue={thisApartment1.street} required />
         </div>
+       
       </div>
 
       {/* מבנה של שני טורים */}
       <div className="row">
-        <div className="input-container">
-          <label>רחוב:</label>
-          <input className="input-field" type="text" name="street" defaultValue={thisApartment1.street} required />
+         <div className="input-container">
+          <label>קומה:</label>
+          <input className="input-field" type="text" name="floor" defaultValue={thisApartment1.floor}  />
         </div>
+       
         <div className="input-container">
           <label>מס' בניין:</label>
-          <input className="input-field" type="text" name="numBuild" defaultValue={thisApartment1.numBuild} required />
+          <input className="input-field" type="text" name="numBuild" defaultValue={thisApartment1.numBuild}  />
+        </div>
+        <div className="input-container">
+          <label>מס' חדרים:</label>
+          <input className="input-field" type="text" name="numRooms" defaultValue={thisApartment1.numRooms} required />
         </div>
       </div>
 
@@ -455,43 +482,37 @@ export const UpdateApartment = () => {
 
       {/* מבנה של שני טורים */}
       <div className="row">
-        <div className="input-container">
-          <label>מס' חדרים:</label>
-          <input className="input-field" type="text" name="numRooms" defaultValue={thisApartment1.numRooms} required />
+      <div className="input-container">
+          <label>שטח מרפסת (מ"ר):</label>
+          <input className="input-field" type="text" name="porchSquareMeter" defaultValue={thisApartment1.porchSquareMeter} />
         </div>
         <div className="input-container">
           <label>מרפסת:</label>
-          <input type="checkbox" name="porch" defaultChecked={thisApartment1.porch} />
+          <input type="checkbox" name="porch" defaultChecked={thisApartment1.porch === true || thisApartment1.porch === "true"} />
+        </div>
+         
+        <div className="input-container">
+          <label>תיווך:</label>
+          <input type="checkbox" name="realEstateAgency" defaultChecked={thisApartment1.realEstateAgency === true || thisApartment1.realEstateAgency === "true"} />
         </div>
       </div>
 
       {/* מבנה של שני טורים */}
       <div className="row">
-        <div className="input-container">
-          <label>שטח מרפסת (מ"ר):</label>
-          <input className="input-field" type="text" name="porchSquareMeter" defaultValue={thisApartment1.porchSquareMeter} />
-        </div>
-        <div className="input-container">
-          <label>תיווך:</label>
-          <input type="checkbox" name="realEstateAgency" defaultChecked={thisApartment1.realEstateAgency} />
-        </div>
-      </div>
+       
+      
+
+      
+      <button type="submit" className="btEn">שלח</button>
 
       {/* טור מלא */}
-      <div className="input-container full-width">
-        <label>עיר:</label>
-        <input className="input-field" type="text" name="city" defaultValue={thisApartment1.city} required />
-      </div>
-
-      {/* טור מלא */}
-      <div className="input-container full-width">
+      <div className="input-container">
         <label>פרטים נוספים:</label>
-        <input className="input-field" type="text" name="describe" value={inputText} onChange={handleChange}  />
+        <input className="input-field" type="text" name="describe" defaultValue={thisApartment1.describe} onChange={handleChange}  />
         <p>נכנסו {inputText.trim().split(/\s+/).length} מילים</p>
       </div>
 
-      <button type="submit" className="btn">שלח</button>
-    </form>
+   </div> </form>
   </div>
 </div>
 

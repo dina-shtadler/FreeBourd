@@ -34,12 +34,12 @@ export const Register = () => {
      setList(x)
      if (x.data.message=='Welcome to our application!'){
       setlogin(Publisher)
-     swal( `🤭🤭🤭 success`);
+     swal( `🤭🤭🤭 נרשמת בהצלחה!, ברוך הבא`);
      Nav('/addApartments')
 //  
 }
     else if(x.response.data.message==`Email already exists!`)
-    swal( `🤭🤭🤭 email has been exists already!`);
+    swal( `🤭🤭🤭 האמייל כבר קיים במערכת!`);
   })
   .catch(err => {
       console.log(err);
