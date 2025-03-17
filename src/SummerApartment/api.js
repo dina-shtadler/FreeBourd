@@ -28,7 +28,7 @@ export const getById = (id) => {
 };
 export const createApartment = (kodPublisher, newApartment) => {
   const token = localStorage.getItem(`token`)
-  return axios.post(`http://localhost:3001/createApartment/${kodPublisher}`, newApartment, { headers: { authorization: `${token}` } })
+  return axios.post(`https://advertismentfree.onrender.com/createApartment/${kodPublisher}`, newApartment, { headers: { authorization: `${token}` } })
 };
 export const updateApartment = (kodPublisher, Apartment) => {
   const token = localStorage.getItem(`token`)
