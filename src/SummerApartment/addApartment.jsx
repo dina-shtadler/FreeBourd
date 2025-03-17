@@ -42,7 +42,7 @@ export const AddApartments = () => {
       formData.append("floor", Number(formElements.floor.value) || 0);
       formData.append("street", formElements.street.value);
       formData.append("numBuild", Number(formElements.numBuild.value) || 0);
-      formData.append("price",price || 0);
+      formData.append("price",price || "");
       formData.append("squareMeter", Number(formElements.squareMeter.value) || 0);
       formData.append("numRooms", Number(formElements.numRooms.value) || 0);
       formData.append("porch", formElements.porch.checked);
