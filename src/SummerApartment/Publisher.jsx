@@ -6,16 +6,20 @@ import './Style.css'
 import { Login } from './Login'
 import { loginp } from './api'
 import { useEffect, useState } from "react"
+import { FaSpinner } from 'react-icons/fa'; // דוגמה לשימוש באייקון של ספינר
 
 // import { addUser1 } from "./api"
 export const Publisher = () => {
     const [login, setlogin] = useState()
  const [email, setEmail] = useState('');
+ const [loading, setLoading] = useState(false); // מצב הטעינה
+
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
     const Nav=useNavigate()
     const send = (event) => {
         event.preventDefault()
+        setLoading(true); // מכניסים את הכפתור למצב טעינה
 
         const Publisher =  {
           
@@ -115,7 +119,8 @@ const register=()=>{
         />
       </div>
       {error && <p className="error-message">{error}</p>}
-      <button type="submit" className="login-button">התחבר</button>
+     
+      <button type="submit" className="form-input input-container btEn" disabled={loading}>   {loading ? <FaSpinner className="spinner" /> : 'התחבר'}</button>
     </form>
   </div>
 

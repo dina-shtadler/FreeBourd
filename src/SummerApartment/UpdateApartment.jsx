@@ -280,6 +280,7 @@ import { Box, ButtonBase, DialogActions, DialogContent, DialogTitle, FormControl
 import { getAllCities, getAllKategorys, updateApartment } from "./api";
 import { useEffect, useState } from "react";
 import swal from "sweetalert";
+import { FaSpinner } from 'react-icons/fa'; // דוגמה לשימוש באייקון של ספינר
 
 export const UpdateApartment = () => {
 
@@ -287,6 +288,7 @@ export const UpdateApartment = () => {
     const [Kategory1, setKategory1] = useState();
     const [listKategories, setListK] = useState();
     const [image, setImage] = useState(null);
+    const [loading, setLoading] = useState(false); // מצב הטעינה
 
     const handleImageChange = (event) => {
         setImage(event.target.files[0]);
@@ -310,6 +312,7 @@ export const UpdateApartment = () => {
 
     const send = (event) => {
         event.preventDefault();
+        setLoading(true); // מכניסים את הכפתור למצב טעינה
 
         // קביעת קטגוריה
         listKategories.map((x) => {
@@ -503,8 +506,8 @@ export const UpdateApartment = () => {
       
 
       
-      <button type="submit" className="btEn">שלח</button>
-
+      <button type="submit" className="input-container btEn" disabled={loading}>   {loading ? <FaSpinner className="spinner" /> : 'שלח '}
+      </button>
       {/* טור מלא */}
       <div className="input-container">
         <label>פרטים נוספים:</label>

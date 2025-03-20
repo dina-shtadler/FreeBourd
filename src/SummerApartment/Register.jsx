@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
 import { loginp, registerP } from "./api"
 import { NavLink } from 'react-router-dom'
+import { FaSpinner } from 'react-icons/fa'; // דוגמה לשימוש באייקון של ספינר
 
 // import { addUser1 } from "./api"
 import './Style.css'
@@ -18,9 +19,11 @@ export const Register = () => {
   //  var x='0'
    const [register, setList] = useState()
    const [login, setlogin] = useState()
+   const [loading, setLoading] = useState(false); // מצב הטעינה
 
   const send = (event) => {
     event.preventDefault()
+    setLoading(true); // מכניסים את הכפתור למצב טעינה
 
     const Publisher =  {
       phone: event.target[0].value,
@@ -73,7 +76,7 @@ export const Register = () => {
  type="password" placeholder="סיסמא" name="psw" required></input>
   </div>
 
-  <button type="submit"  className="login-button" >הרשמה</button>
+      <button type="submit" className="form-input input-container btEn" disabled={loading}>   {loading ? <FaSpinner className="spinner" /> : 'הרשמה'}</button>
   
 </form >
  </div>  

@@ -5,13 +5,15 @@ import './Private.css';
 import { useEffect } from "react";
   import { getAllApartment, } from "./api";
   import swal from 'sweetalert'
- 
+  import { FaSpinner } from 'react-icons/fa'; // דוגמה לשימוש באייקון של ספינר
+
 export const Private =() =>{
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const Nav = useNavigate();
-  
+  const [loading, setLoading] = useState(false); // מצב הטעינה
+
   const [listApartment, setList] = useState();
 
   useEffect(() => {
@@ -29,6 +31,8 @@ export const Private =() =>{
 }, []);
   // פונקציה של התחברות
   const login = async () => {
+    setLoading(true); // מכניסים את הכפתור למצב טעינה
+
     loginp(email,password) 
     .then(x => {
       console.log("א",x.data);
@@ -82,7 +86,7 @@ export const Private =() =>{
         />
       </div>
       {error && <p className="error-message">{error}</p>}
-      <button type="submit" className="login-button">התחבר</button>
+      <button type="submit" className="form-input input-container btEn" disabled={loading}>   {loading ? <FaSpinner className="spinner" /> : 'התחבר'}</button>
     </form>
   </div>
 );}
