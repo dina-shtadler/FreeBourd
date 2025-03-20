@@ -48,15 +48,15 @@ export const Private =() =>{
 }
 
     else if(x.data.message==`email has been exists already!`)
-    swal( `🤭🤭🤭 האמייל כבר קיים במערכת!`);
+    swal( `🤭🤭🤭 האמייל כבר קיים במערכת! סיסמא שגויה`);
+    setLoading(false)
+
     // alert(x)
   })
   .catch(err => {
       console.log(err);
       swal(err.response.data.message)
-      if(err.response.data.message=='Email not found!')
-        Nav('/Register')
-
+   setLoading(false)
   })}
 
   return (

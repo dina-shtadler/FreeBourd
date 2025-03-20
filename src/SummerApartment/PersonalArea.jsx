@@ -13,6 +13,7 @@ import swal from 'sweetalert'
 import { FaPrint, FaShareSquare } from 'react-icons/fa';
 import { FaTrashAlt, FaPen } from 'react-icons/fa';
 import { useLocation } from 'react-router-dom';
+import { FaSpinner } from 'react-icons/fa'; // דוגמה לשימוש באייקון של ספינר
 
 export const PersonalArea =() =>{
   const location = useLocation();
@@ -31,6 +32,8 @@ export const PersonalArea =() =>{
   const [squermeter, setsquermeter] = useState();
   const [price, setPrice] = useState();
   const [floor, setFloor] = useState('');
+  const [loading, setLoading] = useState(false); // מצב הטעינה
+
   // Fetch apartments and categories
   useEffect(() => {
    
@@ -147,16 +150,20 @@ export const PersonalArea =() =>{
 
   // Delete apartment
   const Delete = (a) => {
+    setLoading(true); // מכניסים את הכפתור למצב טעינה
+
       removeApartment(a._id, localStorage.getItem('user'), a)
           .then(() => {
               alert('Apartment deleted');
               setList(prevList => prevList.filter(apartment => apartment._id !== a._id));
-
+              setLoading(false)
           })
           .catch(err => {
               console.log(err);
               alert(err.response.data)
-          });
+         setLoading(false)  });
+         
+
   };
 
   // Update apartment
@@ -317,8 +324,9 @@ export const PersonalArea =() =>{
               
 
                 <div className="expired-icons">
-                      <button onClick={() => Delete(x)}>
-                        <FaTrashAlt /> מחק
+
+                      <button onClick={() => Delete(x)} disabled={loading}>
+                      {loading ? <FaSpinner className="spinner" /> :  <FaTrashAlt > מחק</FaTrashAlt>}
                       </button>
                       <button onClick={() => update(x)}>
                         <FaPen /> עדכן
