@@ -8,16 +8,19 @@ import { getAllApartment, } from "./api";
 export const Home = () => {
       const [listApartment, setList] = useState([]);
       const [listApartment1, setList1] = useState([]);
+      const [listApartmentH, setListH] = useState([]);
 
     const Nav = useNavigate();
     useEffect(() => {
       getAllApartment()
           .then(x => { 
              const filteredApartments1 = x.data.apartmens.filter(item => item.kodKategory[0]?.nameKategory === 'להשכרה'&&  (!item.datend || new Date(item.datend).getTime() >= new Date().setHours(0, 0, 0, 0))); // אם אין datend או אם datend קטן או שווה להיום
-              const filteredApartments = x.data.apartmens.filter(item => item.kodKategory[0]?.nameKategory === 'למכירה' && (!item.datend || new Date(item.datend).getTime() >= new Date().setHours(0, 0, 0, 0))); // אם אין datend או אם datend קטן או שווה להיום
+             const filteredApartments = x.data.apartmens.filter(item => item.kodKategory[0]?.nameKategory === 'למכירה' && (!item.datend || new Date(item.datend).getTime() >= new Date().setHours(0, 0, 0, 0))); // אם אין datend או אם datend קטן או שווה להיום
+             const filteredApartmentsH = x.data.apartmens.filter(item => item.kodKategory[0]?.nameKategory === 'נופש שבתות וחגים' && (!item.datend || new Date(item.datend).getTime() >= new Date().setHours(0, 0, 0, 0))); // אם אין datend או אם datend קטן או שווה להיום
               setList(filteredApartments);
               setList1(filteredApartments1)
-              console.log("listApartment", filteredApartments1);
+              setListH(filteredApartmentsH)
+              console.log("listApartment", filteredApartmentsH);
           })
           .catch(err => {
               console.log(err);
@@ -31,6 +34,9 @@ export const Home = () => {
     };
     const apartmentForRent = () => {
         Nav('/apartmentForRent', { state: { listApartment1 } });
+    };
+    const apartmentHoliday = () => {
+        Nav('/apartmentHoliday', { state: { listApartmentH } });
     };
 
     return (
@@ -48,6 +54,7 @@ export const Home = () => {
                 <div className="right-side">
                     <button className="search-button" onClick={apartmentForsale}>לחיפוש דירה למכירה</button>
                     <button className="search-button" onClick={apartmentForRent}>לחיפוש דירה להשכרה</button>
+                    <button className="search-button" onClick={apartmentHoliday}>לחיפוש דירה לנופש שבתות וחגים</button>
                     <button className="add-button" onClick={addApartment}>התחברות והוספת דירה למאגר </button>
                 </div>
             </div>

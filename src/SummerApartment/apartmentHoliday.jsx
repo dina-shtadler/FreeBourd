@@ -7,7 +7,7 @@ import { FaPrint, FaShareSquare } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 
-export const ApartmentForsale = () => {
+export const Holiday = () => {
     const Nav = useNavigate();
     const location = useLocation();
     const { apartments } = location.state.listApartment || {}; // נוודא שהסטייט קיים
@@ -37,8 +37,8 @@ export const ApartmentForsale = () => {
         // getAllApartment()
         //     .then(x => {
                 // const filteredApartments = x.data.apartmens.filter(item => item.kodKategory[0]?.nameKategory === 'למכירה' && (!item.datend || new Date(item.datend).getTime() >= new Date().setHours(0, 0, 0, 0))); // אם אין datend או אם datend קטן או שווה להיום
-                setList(location.state.listApartment);
-                setList1(location.state.listApartment);
+                setList(location.state.listApartmentH);
+                setList1(location.state.listApartmentH);
             //     console.log("listApartment", x.data.apartmens);
             // })
             // .catch(err => {

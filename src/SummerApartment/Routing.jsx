@@ -14,6 +14,7 @@ import { ApartmentForsale } from './apartmentForSale'
 import { ApartmentForRent } from './apartmentsForRent'
 import {Private} from './Private'
 import {PersonalArea} from './PersonalArea'
+import { Holiday } from './apartmentHoliday'
 export const Routing = () => {
     return <>
 
@@ -36,6 +37,7 @@ export const Routing = () => {
              <Route path={'private'} element={<Private></Private>} ></Route>
             <Route path={'personal-area'}element={<PersonalArea></PersonalArea>} ></Route>
             <Route path={'apartmentForRent'} element={<ApartmentForRent></ApartmentForRent>}></Route>
+            <Route path={'apartmentHoliday'} element={<Holiday></Holiday>}></Route>
 
             <Route path={'Login'} element={<Login></Login>}></Route>
             </Routes>
