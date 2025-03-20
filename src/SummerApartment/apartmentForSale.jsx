@@ -263,7 +263,7 @@ export const ApartmentForsale = () => {
                                     <th>שטח 
                                       <div>מרפסת</div> (מ"ר)</th>
                                     <th>מחיר</th>
-                                    <th>קטגוריה</th>
+                                    {/* <th>קטגוריה</th> */}
                                     <th>מייל</th>
                                     <th>טלפון</th>
                                     <th>תיווך</th>
@@ -284,7 +284,7 @@ export const ApartmentForsale = () => {
                                         <td><input type='checkbox' checked={x.porch === true || x.porch === "true"} readOnly /></td>
                                         <td>{x.porchSquareMeter}</td>
                                         <td>{x.price}</td>
-                                        <td>{x.kodKategory[0]?.nameKategory}</td>
+                                        {/* <td>{x.kodKategory[0]?.nameKategory}</td> */}
                                         <td>{x.email}</td>
                                         <td>{x.phone} ,{x.secondPhone}</td>
                                         <td><input type='checkbox' checked={x.realEstateAgency === true || x.realEstateAgency === "true"} readOnly /></td>
@@ -316,7 +316,7 @@ export const ApartmentForsale = () => {
                                     <th>שטח 
                                       <div>מרפסת</div> (מ"ר)</th>
                                     <th>מחיר</th>
-                                    <th>קטגוריה</th>
+                                    {/* <th>קטגוריה</th> */}
                                     <th>מייל</th>
                                     <th>טלפון</th>
                                     <th>תיווך</th>
@@ -337,7 +337,7 @@ export const ApartmentForsale = () => {
                                         <td><input type='checkbox' checked={x.porch === true || x.porch === "true"} readOnly /></td>
                                         <td>{x.porchSquareMeter}</td>
                                         <td>{x.price}</td>
-                                        <td>{x.kodKategory[0]?.nameKategory}</td>
+                                        {/* <td>{x.kodKategory[0]?.nameKategory}</td> */}
                                         <td>{x.email}</td>
                                         <td>{x.phone} ,{x.secondPhone}</td>
                                         <td><input type='checkbox' checked={x.realEstateAgency === true || x.realEstateAgency === "true"} readOnly /></td>

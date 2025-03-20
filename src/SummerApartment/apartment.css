@@ -79,6 +79,7 @@
     top: 0;
     background-color: white;
     z-index: 100;
+
 }
 
 
@@ -131,7 +132,7 @@
 .apartments-table th, .apartments-table td {
     /* padding: 5px; */
     text-align: center;
-    border: 1px solid #ddd;
+    border:-3px solid #ddd;
     /* white-space: nowrap; */
 width:6%;
 }
@@ -293,7 +294,8 @@ margin-top: 4.3%;
     font-weight: bold;
     margin-bottom: 5px;
   }
-  
+  td{font-size: small;}
+  th{font-size: smaller;}
   .filter-item input {
     padding: 8px;
     font-size: 10px;
