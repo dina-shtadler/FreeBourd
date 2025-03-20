@@ -3,7 +3,7 @@
 /* /* קונטיינר עוטף שממרכז את הטופס */
 .form-wrapper {
     position: absolute; 
-    top: 80%;
+    top: 50%;
     right: -40%;
     transform: translate(-50%, -50%);
     width: 90%;

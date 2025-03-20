@@ -184,10 +184,6 @@ export const AddApartments = () => {
             <label>עיר:</label>
             <input className="input-field" type="text" name="city" required />
         </div>
-
-        </div>
-
-        <div className="row">
         <div className="input-container">
                 <label>קומה:</label>
                 <input className="input-field" type="text" name="floor"  />
@@ -198,6 +194,8 @@ export const AddApartments = () => {
                 <input className="input-field" type="text" name="numBuild"  />
             </div>
         </div>
+
+       
 
         <div className="row">
             <div className="input-container">
@@ -214,9 +212,7 @@ export const AddApartments = () => {
                 <label>מס' חדרים:</label>
                 <input className="input-field" type="text" name="numRooms" required />
             </div>
-        </div>
-
-        <div className="row">
+       
            <div className="input-container">
                 <label>תיווך:</label>
                 <input type="checkbox" name="realEstateAgency" />
@@ -230,13 +226,14 @@ export const AddApartments = () => {
                 <input className="input-field" type="text" name="porchSquareMeter" />
             </div>
             
-        </div>
+            </div>
 
-        <div className="row">
           
             
-       
-        <button type="submit" className="input-container btEn" disabled={loading}>   {loading ? <FaSpinner className="spinner" /> : 'שלח '}
+            <div className="row">
+        
+      
+  <button type="submit" className="input-container btEn" disabled={loading}>   {loading ? <FaSpinner className="spinner" /> : 'שלח '}
        </button>
 
      
@@ -250,8 +247,9 @@ export const AddApartments = () => {
          <div className="input-container date">
             <label>פרסום עד:</label>
             <input type="date" name="datend" required min={currentDate} max={maxDateString} />
-        </div>
- </div>
+             </div>
+             </div>
+
     </form></div>
 </div>
       </>
