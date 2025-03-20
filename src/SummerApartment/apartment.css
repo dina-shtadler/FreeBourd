@@ -294,7 +294,12 @@ margin-top: 4.3%;
     font-weight: bold;
     margin-bottom: 5px;
   }
-  td{font-size: small;}
+  td{font-size: small;
+    /* font-size: calc(10px + 1vw); גודל טקסט משתנה באופן דינמי לפי רוחב המסך */
+    white-space: nowrap; /* מונע מעבר שורה */
+    overflow: hidden;    /* מונע גלילה פנימית */
+    text-overflow: ellipsis; /* מסיים בתמונה של שלוש נקודות כשאין מקום */
+    word-wrap: break-word; /* אפשרות לקטוע את המילים אם הם ארוכות מדי */}
   th{font-size: smaller;}
   .filter-item input {
     padding: 8px;
