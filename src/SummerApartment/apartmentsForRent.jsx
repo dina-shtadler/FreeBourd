@@ -208,13 +208,13 @@ console.log(location)
                     <td>${apartment.numBuild}</td>
                     <td>${apartment.numRooms}</td>
                     <td>${apartment.squareMeter}</td>
-                    <td><input type='checkbox'  checked=${apartment.porch === true || apartment.porch === "true"}readOnly /></td>
+                    <td>${apartment.porch==="true"?`<input type='checkbox'   checked=Boolean(${apartment.porch})  readOnly />`:`<input type='checkbox'/>`}</td>
                     <td>${apartment.porchSquareMeter}</td>
                     <td>${apartment.price}</td>
                     <td>${apartment.kodKategory[0]?.nameKategory}</td>
-                    <td>${apartment.kodPublisher[0]?.email}</td>
-                    <td>${apartment.kodPublisher[0]?.phone}</td>
-                    <td><input type='checkbox'  checked=${apartment.realEstateAgency === true || apartment.realEstateAgency === "true"} readOnly /></td>
+                    <td>${apartment.email}</td>
+                    <td>${apartment.phone}</td>
+                    <td> ${apartment.realEstateAgency==="true"?`<input type='checkbox' checked=true readOnly></input>`:`<input type='checkbox'/>`}
                 </tr>
             `);
         });
