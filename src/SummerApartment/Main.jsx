@@ -16,6 +16,5 @@ export const Main = () => {
 {/* טוענת את כל הצהרות הניתובים */}
 <Routing  ></Routing>
 </HashRouter>
-        {/* <Apartments></Apartments> */}
     </>
 }

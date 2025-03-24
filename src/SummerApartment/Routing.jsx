@@ -5,7 +5,7 @@ import { AddApartments } from './addApartment'
 import { Apartments } from "./apartments"
 import { Home } from "./home"
 import { Publisher } from "./Publisher"
-import { Login } from "./Login"
+// import { Login } from "./Login"
 import { Register } from './Register'
 import { RegisterC } from './RegisterC'
 // import { Client } from './Client'
@@ -39,7 +39,7 @@ export const Routing = () => {
             <Route path={'apartmentForRent'} element={<ApartmentForRent></ApartmentForRent>}></Route>
             <Route path={'apartmentHoliday'} element={<Holiday></Holiday>}></Route>
 
-            <Route path={'Login'} element={<Login></Login>}></Route>
+            {/* <Route path={'Login'} element={<Login></Login>}></Route> */}
             </Routes>
           
    

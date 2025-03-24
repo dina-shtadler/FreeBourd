@@ -27,6 +27,8 @@ body {
  
 }
   .left-side {
+    width: 50%;
+    
     flex: 1; /* תופס את כל הרוחב */
    margin-left: -500px; /* display: flex; */
     justify-content: flex-start; /* ממקם את התמונה בצד שמאל */
