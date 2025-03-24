@@ -6,6 +6,7 @@ import swal from 'sweetalert';
 import { FaPrint, FaShareSquare } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
+import { Helmet } from 'react-helmet'; // ייבוא של React Helmet
 
 export const Holiday = () => {
     const Nav = useNavigate();
@@ -187,6 +188,12 @@ export const Holiday = () => {
       };
     return (
         <>
+           <Helmet>
+                <meta name="description" content=" רשימת דירות נופש שבתות וחגים באתר סרסור= המתווך, שבו ניתן למצוא ולפרסם דירות למכירה ולהשכרה לחגים שבתות ונופש מיעד בעיקר לציבור החרדי השימוש באתר הוא חינמי...." />
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
+                <meta charset="UTF-8" />
+                <title>נופש שבתות וחגים-סרסור/המתווך</title>
+            </Helmet>
      <button className="personal-area-button" onClick={personalArea}>אזור אישי למפרסמים</button>
             <div className="filters-container">
       <div className="filters">                <div>:סנן לפי</div>

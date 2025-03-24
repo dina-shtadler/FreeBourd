@@ -6,6 +6,7 @@ import { useEffect } from "react";
   import { getAllApartment, } from "./api";
   import swal from 'sweetalert'
   import { FaSpinner } from 'react-icons/fa'; // דוגמה לשימוש באייקון של ספינר
+  import { Helmet } from 'react-helmet'; // ייבוא של React Helmet
 
 export const Private =() =>{
   const [email, setEmail] = useState('');
@@ -60,7 +61,14 @@ export const Private =() =>{
   })}
 
   return (
+    
     <div className="login-container">
+         <Helmet>
+                <meta name="description" content=" , שבו ניתן לחפש ולפרסם דירות למכירה ולהשכרה מיעד בעיקר לציבור החרדי השימוש באתר הוא חינמי...." />
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
+                <meta charset="UTF-8" />
+                <title>התחברות לאיזור אישי-סרסור/המתווך</title>
+            </Helmet>
     <h2 className="login-title">התחברות</h2>
     <form onSubmit={login} className="login-form">
       <div className="form-group">

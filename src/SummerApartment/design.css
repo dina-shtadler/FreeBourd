@@ -12,12 +12,17 @@ body {
     height: 100vh;
   }
   .building-image {
-    height: 150%;
-    width: 100%;
-    margin-left: 25rem;
-    margin-top: -12rem;
+    width: 80%;  /* תופס את כל הרוחב */
+    height: 115%; /* תופס את כל גובה המסך */
     background-repeat: no-repeat;
-    background-image: url('../../public/picture/בניין.jpg')  ;
+    /* object-fit: contain; שומר על יחס הגובה-רוחב של התמונה */
+    /* object-position: left center; ממקם את התמונה בצד שמאל ובמרכז הגובה */
+
+    background-size: cover; /* שומר על יחס הגובה-רוחב של התמונה */
+    /* background-position: left center; ממקם את התמונה בצד שמאל ובמרכז הגובה */
+    margin-left: 30rem;
+    margin-top: -8rem;
+    background-image: url('../../public/picture/לוגו.png')  ;
     
  
 }

@@ -7,6 +7,7 @@ import { Login } from './Login'
 import { loginp } from './api'
 import { useEffect, useState } from "react"
 import { FaSpinner } from 'react-icons/fa'; // דוגמה לשימוש באייקון של ספינר
+import { Helmet } from 'react-helmet'; // ייבוא של React Helmet
 
 // import { addUser1 } from "./api"
 export const Publisher = () => {
@@ -89,6 +90,12 @@ const register=()=>{
 
 
     return <>
+       <Helmet>
+                <meta name="description" content=" דף הבית של האתר, שבו ניתן לחפש ולפרסם דירות למכירה ולהשכרה מיעד בעיקר לציבור החרדי השימוש באתר הוא חינמי...." />
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
+                <meta charset="UTF-8" />
+                <title>התחברות להוספת דירה-סרסור/המתווך</title>
+            </Helmet>
       <h2>התחברות למפרסמים</h2> 
 
 

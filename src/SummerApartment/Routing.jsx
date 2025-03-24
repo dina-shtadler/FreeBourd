@@ -8,7 +8,7 @@ import { Publisher } from "./Publisher"
 import { Login } from "./Login"
 import { Register } from './Register'
 import { RegisterC } from './RegisterC'
-import { Client } from './Client'
+// import { Client } from './Client'
 import { UpdateApartment } from './UpdateApartment'
 import { ApartmentForsale } from './apartmentForSale'
 import { ApartmentForRent } from './apartmentsForRent'
@@ -26,7 +26,7 @@ export const Routing = () => {
 
             <Route path={'Home'} element={<Home></Home>}></Route>
             <Route path={'Publisher'} element={<Publisher></Publisher>}></Route>
-            <Route path={'Client'} element={<Client></Client>}></Route>
+            {/* <Route path={'Client'} element={<Client></Client>}></Route> */}
             <Route path={'Register'} element={<Register></Register>}></Route>
             <Route path={'RegisterC'} element={<RegisterC></RegisterC>}></Route>
 

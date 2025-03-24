@@ -45,7 +45,7 @@ export const Home = () => {
                 <meta name="description" content=" דף הבית של האתר, שבו ניתן לחפש ולפרסם דירות למכירה ולהשכרה מיעד בעיקר לציבור החרדי השימוש באתר הוא חינמי...." />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <meta charset="UTF-8" />
-                <title>דף הבית - אתר חיפוש דירות</title>
+                <title>דף הבית-סרסור/המתווך</title>
             </Helmet>
             <div className="home-container">
                 <div className="left-side">

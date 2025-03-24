@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux'
 import { loginp, registerP } from "./api"
 import { NavLink } from 'react-router-dom'
 import { FaSpinner } from 'react-icons/fa'; // דוגמה לשימוש באייקון של ספינר
+import { Helmet } from 'react-helmet'; // ייבוא של React Helmet
 
 // import { addUser1 } from "./api"
 import './Style.css'
@@ -53,6 +54,12 @@ export const Register = () => {
 }
 
     return <>
+       <Helmet>
+                <meta name="description" content=" דף הרשמה למפרסמים של האתר סרסור= המתווך, שבו ניתן לחפש ולפרסם דירות למכירה ולהשכרה מיעד בעיקר לציבור החרדי השימוש באתר הוא חינמי...." />
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
+                <meta charset="UTF-8" />
+                <title>הרשמה למפרסמים-סרסור/המתווך</title>
+            </Helmet>
                  <div className="login-container">
 
       <h2 className="login-title">הרשמה לפירסום דירות</h2>

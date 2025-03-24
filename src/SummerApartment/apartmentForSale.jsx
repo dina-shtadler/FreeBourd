@@ -6,6 +6,7 @@ import swal from 'sweetalert';
 import { FaPrint, FaShareSquare } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
+import { Helmet } from 'react-helmet'; // ייבוא של React Helmet
 
 export const ApartmentForsale = () => {
     const Nav = useNavigate();
@@ -188,6 +189,12 @@ export const ApartmentForsale = () => {
       };
     return (
         <>
+           <Helmet>
+                <meta name="description" content=" רשימת דירות למכירה באתר המתווך= סרסור, שבו ניתן לחפש ולפרסם דירות למכירה ולהשכרה מיעד בעיקר לציבור החרדי השימוש באתר הוא חינמי...." />
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
+                <meta charset="UTF-8" />
+                <title>דירות למכירה-סרסור/המתווך</title>
+            </Helmet>
      <button className="personal-area-button" onClick={personalArea}>אזור אישי למפרסמים</button>
             <div className="filters-container">
       <div className="filters">                <div>:סנן לפי</div>

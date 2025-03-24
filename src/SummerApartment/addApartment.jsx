@@ -6,6 +6,7 @@ import './addapartment.css'
 import { useNavigate } from 'react-router-dom';
 import { getAllApartment, } from "./api";
 import { FaSpinner } from 'react-icons/fa'; // דוגמה לשימוש באייקון של ספינר
+import { Helmet } from 'react-helmet'; // ייבוא של React Helmet
 
 
 export const AddApartments = () => {
@@ -134,6 +135,12 @@ export const AddApartments = () => {
       };
   return (
       <>
+         <Helmet>
+                <meta name="description" content=" דף הוספת דירה למאגר, להוסיף דירה למכירה ולהשכרה ונופש וחגים מיועד בעיקר לציבור החרדי השימוש באתר הוא חינמי...." />
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
+                <meta charset="UTF-8" />
+                <title>הוספת דירה למאגר-סרסור/המתווך</title>
+            </Helmet>
    <div className="form-wrapper"><div className="from-b">
     <form id="t" onSubmit={send}>
         <h1>הוספת דירה למאגר</h1>

@@ -14,6 +14,7 @@ import { FaPrint, FaShareSquare } from 'react-icons/fa';
 import { FaTrashAlt, FaPen } from 'react-icons/fa';
 import { useLocation } from 'react-router-dom';
 import { FaSpinner } from 'react-icons/fa'; // דוגמה לשימוש באייקון של ספינר
+import { Helmet } from 'react-helmet'; // ייבוא של React Helmet
 
 export const PersonalArea =() =>{
   const location = useLocation();
@@ -238,6 +239,12 @@ export const PersonalArea =() =>{
   };
   return (
       <>
+         <Helmet>
+                <meta name="description" content=" אזור אישי של האתר סרסור=המתווך, שבו ניתן לערוך ולמחוק או להעריך את זמן הפירסומת של הפרסומות של המשתמש...." />
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
+                <meta charset="UTF-8" />
+                <title>דף הבית-סרסור/המתווך</title>
+            </Helmet>
       <h1>הדירות שלי</h1>
       <div className="apartments-wrapper">
       <button onClick={handlePrintAll} className='ToRegister'>הדפס את הכל</button>

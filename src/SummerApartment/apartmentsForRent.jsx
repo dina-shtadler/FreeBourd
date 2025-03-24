@@ -15,6 +15,8 @@ import swal from 'sweetalert'
 import { FaPrint, FaShareSquare } from 'react-icons/fa';
 import { FaTrashAlt, FaPen } from 'react-icons/fa';
 import { useLocation } from 'react-router-dom';
+import { Helmet } from 'react-helmet'; // ייבוא של React Helmet
+
 
 export const ApartmentForRent = () => {
     // pdfMake.vfs = pdfFonts.pdfMake.vfs; // שייך את הפונט המובנה
@@ -269,6 +271,12 @@ console.log(location)
     };
     return (
         <>
+           <Helmet>
+                <meta name="description" content=" רשימת הדירות להשכרה של האתר סרסור= המתווך, שבו ניתן למצוא ולפרסם דירות להשכרה מיעד בעיקר לציבור החרדי השימוש באתר הוא חינמי...." />
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
+                <meta charset="UTF-8" />
+                <title>דירות להשכרה-סרסור/המתווך</title>
+            </Helmet>
         <button className="personal-area-button" onClick={personalArea}>אזור אישי למפרסמים</button>
             <div className="filters-container">
       <div className="filters">                <div>:סנן לפי</div>
