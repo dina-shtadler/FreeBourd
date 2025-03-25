@@ -47,6 +47,7 @@ export const Home = () => {
                 <meta charset="UTF-8" />
                 <title>דף הבית-סרסור/המתווך</title>
             </Helmet>
+            
             <div className="home-container">
                 <div className="left-side">
                     <div className="building-image" />

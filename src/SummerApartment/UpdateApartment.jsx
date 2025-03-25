@@ -4,6 +4,7 @@ import { getAllCities, getAllKategorys, updateApartment } from "./api";
 import { useEffect, useState } from "react";
 import swal from "sweetalert";
 import { FaSpinner } from 'react-icons/fa'; // דוגמה לשימוש באייקון של ספינר
+import { Helmet } from 'react-helmet'; // ייבוא של React Helmet
 
 export const UpdateApartment = () => {
 
@@ -110,6 +111,12 @@ export const UpdateApartment = () => {
       };
     return (
         <>
+           <Helmet>
+                <meta name="description" content=" דף עדכון דירה של האתר סרסור-המתווך, שבו ניתן לחפש ולפרסם דירות למכירה ולהשכרה מיעד בעיקר לציבור החרדי השימוש באתר הוא חינמי...." />
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
+                <meta charset="UTF-8" />
+                <title>עדכון פרטי דירה-סרסור/המתווך</title>
+            </Helmet>
             {/* <Typography variant="h4" gutterBottom>
                 עדכון פרטי הדירה
             </Typography> */}
@@ -172,12 +179,7 @@ export const UpdateApartment = () => {
          <div className="input-container">
           <label>רחוב:</label>
           <input className="input-field" type="text" name="street" defaultValue={thisApartment1.street} required />
-        </div>
-       
       </div>
-
-      {/* מבנה של שני טורים */}
-      <div className="row">
          <div className="input-container">
           <label>קומה:</label>
           <input className="input-field" type="text" name="floor" defaultValue={thisApartment1.floor}  />
@@ -187,14 +189,15 @@ export const UpdateApartment = () => {
           <label>מס' בניין:</label>
           <input className="input-field" type="text" name="numBuild" defaultValue={thisApartment1.numBuild}  />
         </div>
+        </div>
+        {/* מבנה של שני טורים */}
+      <div className="row">
         <div className="input-container">
           <label>מס' חדרים:</label>
           <input className="input-field" type="text" name="numRooms" defaultValue={thisApartment1.numRooms} required />
         </div>
-      </div>
 
-      {/* מבנה של שני טורים */}
-      <div className="row">
+     
         <div className="input-container">
           <label>מחיר:</label>
           <input className="input-field" type="text" name="price" 
@@ -204,10 +207,7 @@ export const UpdateApartment = () => {
           <label>שטח דירה (מ"ר):</label>
           <input className="input-field" type="text" name="squareMeter" defaultValue={thisApartment1.squareMeter} required />
         </div>
-      </div>
-
-      {/* מבנה של שני טורים */}
-      <div className="row">
+     
       <div className="input-container">
           <label>שטח מרפסת (מ"ר):</label>
           <input className="input-field" type="text" name="porchSquareMeter" defaultValue={thisApartment1.porchSquareMeter} />
