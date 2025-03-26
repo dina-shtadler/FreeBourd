@@ -4,9 +4,9 @@
 .form-wrapper {
     position: absolute; 
     top: 50%;
-    right: -40%;
+    right: 10%;
     transform: translate(-50%, -50%);
-    width: 90%;
+    width: 40%;
 } 
 
 .from-b{background-color: white;}

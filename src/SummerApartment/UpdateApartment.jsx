@@ -142,7 +142,7 @@ export const UpdateApartment = () => {
       {/* קטגוריה */}
       <div className="input-container full-width">
         <label>קטגוריה:</label>
-        <select className="input-field select-field" defaultValue={thisApartment1.kodKategory.nameKategory} required onChange={(e) => setKategory(e.target.value)}>
+        <select className="input-field select-field" defaultValue={thisApartment1.kodKategory.nameKategory}  onChange={(e) => setKategory(e.target.value)}required>
           <option key="none" disabled selected>בחר קטגוריה</option>
           {listKategories && listKategories.map((category) => (
             <option key={category._id} value={category.nameKategory}>
@@ -191,11 +191,7 @@ export const UpdateApartment = () => {
         </div>
         </div>
         {/* מבנה של שני טורים */}
-      <div className="row">
-        <div className="input-container">
-          <label>מס' חדרים:</label>
-          <input className="input-field" type="text" name="numRooms" defaultValue={thisApartment1.numRooms} required />
-        </div>
+        <div className="row">
 
      
         <div className="input-container">
@@ -203,11 +199,7 @@ export const UpdateApartment = () => {
           <input className="input-field" type="text" name="price" 
         onChange={handleChangePrice}  value={price} required />
         </div>
-        <div className="input-container">
-          <label>שטח דירה (מ"ר):</label>
-          <input className="input-field" type="text" name="squareMeter" defaultValue={thisApartment1.squareMeter} required />
-        </div>
-     
+       
       <div className="input-container">
           <label>שטח מרפסת (מ"ר):</label>
           <input className="input-field" type="text" name="porchSquareMeter" defaultValue={thisApartment1.porchSquareMeter} />
@@ -222,7 +214,16 @@ export const UpdateApartment = () => {
           <input type="checkbox" name="realEstateAgency" defaultChecked={thisApartment1.realEstateAgency === true || thisApartment1.realEstateAgency === "true"} />
         </div>
       </div>
-
+      <div className="row">
+        <div className="input-container">
+          <label>מס' חדרים:</label>
+          <input className="input-field" type="text" name="numRooms" defaultValue={thisApartment1.numRooms} required />
+        </div>
+        <div className="input-container">
+          <label>שטח דירה (מ"ר):</label>
+          <input className="input-field" type="text" name="squareMeter" defaultValue={thisApartment1.squareMeter} required />
+        </div>
+     </div>
       {/* מבנה של שני טורים */}
       <div className="row">
        

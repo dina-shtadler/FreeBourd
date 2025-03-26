@@ -298,7 +298,7 @@ console.log(location)
           <input type="Number" placeholder=" מקסימום" onBlur={(e) => setnumRooms(e.target.value)} />
         </div>
         <div className="filter-item">
-          <label>מס' חדרים </label>
+          {/* <label>מס' חדרים </label> */}
           <input type="Number" placeholder=" מינימום" onBlur={(e) => setMinRooms(e.target.value)} />
         </div>
         <div className="filter-item">
@@ -306,7 +306,7 @@ console.log(location)
           <input type="Number" placeholder="  מקסימום" onBlur={(e) => setsquermeter(e.target.value)} />
         </div>
         <div className="filter-item">
-        <label>גודל דירה (מ'ר)</label>
+        {/* <label>גודל דירה (מ'ר)</label> */}
         <input type="Number" placeholder="מינימום" onBlur={(e) => setminsquermeter(e.target.value)} />
         </div>
         <div className="filter-item">
@@ -314,7 +314,7 @@ console.log(location)
           <input type="Number" placeholder="מקסימום" onBlur={(e) => setPrice(e.target.value)} />
         </div>
         <div className="filter-item">
-          <label>מחיר (מינימום)</label>
+          {/* <label>מחיר (מינימום)</label> */}
           <input type="Number" placeholder="מינימום" onBlur={(e) => setminPrice(e.target.value)} />
         </div>
         <div className="filter-item">

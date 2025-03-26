@@ -240,7 +240,7 @@ export const Holiday = () => {
         </div>
       </div>
     </div>
-         <div>  <h1 className='label'>תצוגת דירות למכירה</h1><div class="toggle-container">
+         <div>  <h1 className='label'>תצוגת דירות לנופש שבתות וחגים</h1><div class="toggle-container">
   <label class="toggle">
     <input type="checkbox"           onChange={handleToggle} // משתמשים ב-onChange כדי לעדכן את ה-state
  class="toggle-checkbox" id="toggleSwitch"/>

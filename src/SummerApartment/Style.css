@@ -2,7 +2,6 @@ body {
   /* background-color: #e3f2fd; */
   background-color: #e0f2f1;
   /* background-color: #faf3e0; */
-  /* background-color: #f4f4f4; */
 
   /* background-color: #141515ce; אפור בהיר */
   font-family: 'Arial', sans-serif; /* גופן מקצועי */
@@ -10,10 +9,12 @@ body {
   padding: 0;
 }
 .nav {
+  white-space: nowrap; /* מונע מעבר שורה */
+margin-left: -2rem;
     /* text-align: center; */
     height: 5rem;
     /* float: inline-end; */
-    width: 99vw;
+    width: 100vw;
   /* font-size: large; */
     writing-mode: vertical-rl; 
     /* background-color:rgb(43, 8, 8) ; */
@@ -22,9 +23,11 @@ body {
 
 .link {
     color:rgb(92, 175, 168);
-    font-size: 1.7rem;
+    font-size: 1.8rem;
     /* background-color:rgb(43, 8, 8) ; */
-    margin: 3rem;
+    margin: 1rem; 
+       /* margin-left: 5rem; */
+
     text-decoration: none;
 }
 .link1{

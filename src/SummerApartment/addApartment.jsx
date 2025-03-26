@@ -211,14 +211,7 @@ export const AddApartments = () => {
         value={price}
         onChange={handleChangePrice} type="text" name="price" required />
             </div>
-            <div className="input-container">
-                <label>שטח דירה (מ"ר):</label>
-                <input className="input-field" type="text" name="squareMeter" required />
-            </div>
-             <div className="input-container">
-                <label>מס' חדרים:</label>
-                <input className="input-field" type="text" name="numRooms" required />
-            </div>
+           
        
            <div className="input-container">
                 <label>תיווך:</label>
@@ -234,9 +227,20 @@ export const AddApartments = () => {
             </div>
             
             </div>
-
+            <div className="row">
           
-            
+            <div className="input-container">
+                <label>שטח דירה (מ"ר):</label>
+                <input className="input-field" type="text" name="squareMeter" required />
+            </div>
+             <div className="input-container">
+                <label>מס' חדרים:</label>
+                <input className="input-field" type="text" name="numRooms" required />
+            </div>
+            <div className="input-container date">
+            <label>פרסום עד:</label>
+            <input type="date" name="datend" required min={currentDate} max={maxDateString} />
+             </div></div>
             <div className="row">
         
       
@@ -251,10 +255,7 @@ export const AddApartments = () => {
             <input className="input-field" type="text" name="describe" value={inputText} onChange={handleChange}  />
             <p>נכנסו {inputText.trim().split(/\s+/).length} מילים</p>
         </div>
-         <div className="input-container date">
-            <label>פרסום עד:</label>
-            <input type="date" name="datend" required min={currentDate} max={maxDateString} />
-             </div>
+       
              </div>
 
     </form></div>
