@@ -1,4 +1,4 @@
-{"babel":{"plugins":["@babel/plugin-proposal-private-property-in-object"]},"homepage":"https://dina-shtadler.github.io/","scripts": {
+{"babel":{"plugins":["@babel/plugin-proposal-private-property-in-object"]},"homepage":"https://sarsoor.org/","scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "predeploy": "npm run build",
