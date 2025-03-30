@@ -162,15 +162,15 @@ export const AddApartments = () => {
        
            
        <div className="input-container">
-           <label>טלפון נוסף לפירסום:</label>
+           <label>:טלפון נוסף לפירסום</label>
            <input className="input-field" type="number" name="secondPhone" />
        </div>
         <div className="input-container">
-           <label>טלפון לפירסום:</label>
+           <label>:טלפון לפירסום</label>
            <input className="input-field" type="number" name="phone" />
        </div>
         <div className="input-container">
-       <label>אמייל לפירסום:</label>
+       <label>:אמייל לפירסום</label>
        <input className="input-field" type="email" name="email"  />
    </div>
 
@@ -180,24 +180,24 @@ export const AddApartments = () => {
        
            
             <div className="input-container">
-                <label>רחוב:</label>
+                <label>:רחוב</label>
                 <input className="input-field" type="text" name="street" required />
             </div>
              <div className="input-container">
-                <label>שכונה:</label>
+                <label>:שכונה</label>
                 <input className="input-field" type="text" name="neighbourhood" required />
             </div>
              <div className="input-container">
-            <label>עיר:</label>
+            <label>:עיר</label>
             <input className="input-field" type="text" name="city" required />
         </div>
         <div className="input-container">
-                <label>קומה:</label>
+                <label>:קומה</label>
                 <input className="input-field" type="text" name="floor"  />
             </div>
            
             <div className="input-container">
-                <label>מס' בניין:</label>
+                <label>:מס' בניין</label>
                 <input className="input-field" type="text" name="numBuild"  />
             </div>
         </div>
@@ -206,7 +206,7 @@ export const AddApartments = () => {
 
         <div className="row">
             <div className="input-container">
-                <label>מחיר:</label>
+                <label>:מחיר</label>
                 <input className="input-field"     
         value={price}
         onChange={handleChangePrice} type="text" name="price" required />
@@ -214,15 +214,15 @@ export const AddApartments = () => {
            
        
            <div className="input-container">
-                <label>תיווך:</label>
+                <label>:תיווך</label>
                 <input type="checkbox" name="realEstateAgency" />
             </div>
             <div className="input-container">
-                <label>מרפסת:</label>
+                <label>:מרפסת</label>
                 <input type="checkbox" name="porch" />
             </div> 
              <div className="input-container">
-                <label>שטח מרפסת (מ"ר):</label>
+                <label>:שטח מרפסת (מ"ר)</label>
                 <input className="input-field" type="text" name="porchSquareMeter" />
             </div>
             
@@ -230,15 +230,15 @@ export const AddApartments = () => {
             <div className="row">
           
             <div className="input-container">
-                <label>שטח דירה (מ"ר):</label>
+                <label>:שטח דירה (מ"ר)</label>
                 <input className="input-field" type="text" name="squareMeter" required />
             </div>
              <div className="input-container">
-                <label>מס' חדרים:</label>
+                <label>:מס' חדרים</label>
                 <input className="input-field" type="text" name="numRooms" required />
             </div>
             <div className="input-container date">
-            <label>פרסום עד:</label>
+            <label>:פרסום עד</label>
             <input type="date" name="datend" required min={currentDate} max={maxDateString} />
              </div></div>
             <div className="row">
@@ -251,7 +251,7 @@ export const AddApartments = () => {
        
 
         <div className="input-container full-width">
-            <label>פרטים נוספים:</label>
+            <label>:פרטים נוספים</label>
             <input className="input-field" type="text" name="describe" value={inputText} onChange={handleChange}  />
             <p>נכנסו {inputText.trim().split(/\s+/).length} מילים</p>
         </div>
