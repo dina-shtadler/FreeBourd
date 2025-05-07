@@ -14,7 +14,7 @@ const OptionMessage = () => {
 
   const options = [
     { label: "פרסום דירה", link: "/publish" },
-    { label: "צפייה בדירות", link: "/#/apartmentForRent" },
+    { label: "צפייה בדירות", link: "/apartmentForRent" },
     { label: "צור קשר", link: "/contact" },
   ];
 
