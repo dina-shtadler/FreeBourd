@@ -76,6 +76,7 @@ export const Addkategory = (kodPublisher, newKategory) => {
 export const getAllKategorys = () => {
   return axios.get(`https://advertismentfree.onrender.com/getAllKategorys`);
 };
+
 /*
 router.get('/getByIdAndnumDays/:id/:numDays',apartmentController.getById) 
 */ 

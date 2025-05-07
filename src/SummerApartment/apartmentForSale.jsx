@@ -356,7 +356,8 @@ export const ApartmentForsale = () => {
                                                 <FaShareSquare /> <FaPrint />
                                             </button>
                                         </td>
-                                    </tr>
+                                     
+                 </tr>
                                 ))}
                             </tbody>
                         </table>                
