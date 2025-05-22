@@ -1,41 +1,35 @@
 body {
   /* background-color: #e3f2fd; */
-  background-color: #e0f2f1;
+  /* background-color: #e0f2f1; */
   /* background-color: #faf3e0; */
 
   /* background-color: #141515ce; אפור בהיר */
-  font-family: 'Arial', sans-serif; /* גופן מקצועי */
+  /* font-family: 'Arial', sans-serif; גופן מקצועי */
   margin: 0;
   padding: 0;
 }
-.nav {
-  white-space: nowrap; /* מונע מעבר שורה */
+/* .nav {
+  white-space: nowrap;
 margin-left: -2rem;
-    /* text-align: center; */
     height: 5rem;
-    /* float: inline-end; */
     width: 100vw;
-  /* font-size: large; */
     writing-mode: vertical-rl; 
-    /* background-color:rgb(43, 8, 8) ; */
-    /* justify-content: last baseline; */
-}
+   
+} */
 
-.link {
+/* .link {
     color:rgb(92, 175, 168);
     font-size: 1.8rem;
-    /* background-color:rgb(43, 8, 8) ; */
     margin: 1rem; 
-       /* margin-left: 5rem; */
 
     text-decoration: none;
-}
+} */
 .link1{
   float: left;
 }
-.link:hover {
+/* .link:hover {
     color: rgb(245, 180, 82);
-}
+} */
 .p{
     float: right;
     margin-right:50%;

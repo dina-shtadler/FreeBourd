@@ -1,5 +1,5 @@
 // import React from 'react';
-// import './App.css';
+ import './App.css';
 // import ChatBot from "react-chatbotify";
 // import MyChatbot from './SummerApartment/chatBot'
 
@@ -35,6 +35,8 @@ import MyChatbot from './SummerApartment/chatBot';
 import { ChatBotProvider } from "react-chatbotify";
 import MyChatLogic from "./SummerApartment/chatBot";
 import OptionMessage from './SummerApartment/optionMassage';
+import { Wireframe } from './SummerApartment/screens/Wireframe';
+import { AllApartments } from './SummerApartment/screens/allApartments';
 
 const config = {
   flow: {
@@ -80,7 +82,10 @@ const config = {
 
 function App() {
   return (
-    <div className="App">
+    <div >
+   
+   {/* <Wireframe></Wireframe> */}
+   {/* <AllApartments></AllApartments> */}
       <Main></Main>
            <div>
 

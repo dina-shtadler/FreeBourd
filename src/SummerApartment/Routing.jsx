@@ -15,13 +15,14 @@ import { ApartmentForRent } from './apartmentsForRent'
 import {Private} from './Private'
 import {PersonalArea} from './PersonalArea'
 import { Holiday } from './apartmentHoliday'
+import { AllApartments } from './screens/allApartments'
 export const Routing = () => {
     return <>
 
         <Routes>
             {/* הצהרות הניתובים */}
            
-            <Route path={'/'} element={<Home></Home>}></Route>
+            <Route path={'/'} element={<AllApartments></AllApartments>}></Route>
 
 
             <Route path={'Home'} element={<Home></Home>}></Route>

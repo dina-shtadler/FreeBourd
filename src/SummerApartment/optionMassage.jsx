@@ -1,34 +1,69 @@
-import React from "react";
+import React, { useState } from "react";
 import { useMessages } from "react-chatbotify";
-import "./OptionMessage.css"; // נוסיף קובץ CSS
+import "./OptionMessage.css";
 
 const OptionMessage = () => {
   const { injectMessage } = useMessages();
+  const [showSubOptions, setShowSubOptions] = useState(false);
 
-  const handleClick = (text, link) => {
+  const handleLinkClick = (text, link) => {
     injectMessage("רגע, מיד נעביר אותך לעמוד המבוקש...");
     setTimeout(() => {
       window.location.href = link;
-    }, 2000); // מעביר אחרי 2 שניות
+    }, 2000);
   };
 
-  const options = [
+  const handleSubOptionClick = (label) => {
+    injectMessage(`בחרת: ${label}`);
+  };
+
+  const mainOptions = [
     { label: "פרסום דירה", link: "/publish" },
     { label: "צפייה בדירות", link: "/apartmentForRent" },
-    { label: "צור קשר", link: "/contact" },
+    { label: "צור קשר", isDetails: true },
+    { label: "בחר איזור", isSubOption: true },
+  ];
+
+  const subOptions = [
+    "צפון הארץ",
+    "מרכז הארץ",
+    "דרום הארץ",
   ];
 
   return (
     <div className="options-container">
-    <p>בחר אחת מהאפשרויות:</p>
-    <div className="buttons-wrapper">
-      {options.map((opt, index) => (
-        <button key={index} onClick={() => handleClick(opt.label, opt.link)} className="option-button">
-          {opt.label}
-        </button>
-      ))}
+      <p>בחר אחת מהאפשרויות:</p>
+      <div className="buttons-wrapper">
+        {mainOptions.map((opt, index) =>
+          opt.isSubOption ? (
+            <button key={index} className="option-button" onClick={() => setShowSubOptions(true)}>
+              {opt.label}
+            </button>
+          ) 
+        //   :opt.isDetails?(
+        //   <div onClick={() => setShowSubOptions(true)}>ניתן לייצור קשר בכתובת:freeboardapartment@gmail.com</div>
+        //   ) 
+          :(
+            <button key={index} className="option-button" onClick={() => handleLinkClick(opt.label, opt.link)}>
+              {opt.label}
+            </button>
+          )
+        )}
+      </div>
+
+      {showSubOptions && (
+        <div className="sub-options">
+          <p>בחר איזור:</p>
+          <div className="buttons-wrapper">
+            {subOptions.map((sub, idx) => (
+              <button key={idx} className="option-button" onClick={() => handleSubOptionClick(sub)}>
+                {sub}
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
-  </div>
   );
 };
 
