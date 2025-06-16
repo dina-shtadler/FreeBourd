@@ -12,12 +12,12 @@ import { Helmet } from 'react-helmet'; // ייבוא של React Helmet
 export const AddApartments = () => {
   const [price, setPrice] = useState('');
   const [loading, setLoading] = useState(false); // מצב הטעינה
+const [images, setImages] = useState([]);
 
   const [city, setCity] = useState();
   const [Kategory, setKategory] = useState();
   const [Kategory1, setKategory1] = useState();
   const [listKategories, setListK] = useState([]);
-  const [image, setImage] = useState({});
   const [listApartment, setList] = useState();
 
   const currentDate = new Date().toISOString().split('T')[0]; // התאריך היום
@@ -26,9 +26,7 @@ export const AddApartments = () => {
   const maxDateString = maxDate.toISOString().split('T')[0]; // התאריך אחרי 30 יום
   const Nav = useNavigate();
 
-  const handleImageChange = (event) => {
-      setImage(event.target.files[0]);
-  };
+ 
   useEffect(() => {
       getAllKategorys()
           .then((response) => {
@@ -60,7 +58,7 @@ export const AddApartments = () => {
 
       const formData = new FormData();
       const formElements = event.target.elements;
-
+      {/* //Sukcaporch,elevator,view,reconditioned,warehouse,park,airConditioning, */}
       formData.append("neighbourhood", formElements.neighbourhood.value);
       formData.append("floor", Number(formElements.floor.value) || 0);
       formData.append("street", formElements.street.value);
@@ -69,6 +67,13 @@ export const AddApartments = () => {
       formData.append("squareMeter", Number(formElements.squareMeter.value) || 0);
       formData.append("numRooms", Number(formElements.numRooms.value) || 0);
       formData.append("porch", formElements.porch.checked);
+      formData.append("airConditioning", formElements.porch.checked);
+      formData.append("park", formElements.porch.checked);
+      formData.append("warehouse", formElements.porch.checked);
+      formData.append("reconditioned", formElements.porch.checked);
+      formData.append("view", formElements.porch.checked);
+      formData.append("elevator", formElements.porch.checked);
+      formData.append("Sukcaporch", formElements.porch.checked);
       formData.append("porchSquareMeter", Number(formElements.porchSquareMeter.value) || 0);
       formData.append("realEstateAgency", formElements.realEstateAgency.checked ? "true" : "false");
       formData.append("city", formElements.city.value);
@@ -78,7 +83,9 @@ export const AddApartments = () => {
       formData.append("datend", formElements.datend.value);
       formData.append("describe", formElements.describe.value);
       formData.append("kodPublisher", localStorage.getItem("user"));
-
+ images.forEach((img) => {
+    formData.append('images', img);
+  });
       // חיפוש קטגוריה נבחרת
       const selectedCategory = listKategories.find((x) => x.nameKategory === Kategory);
       if (selectedCategory) {
@@ -143,8 +150,34 @@ export const AddApartments = () => {
             </Helmet>
    <div className="form-wrapper"><div className="from-b">
     <form id="t" onSubmit={send}>
-        <h1>הוספת דירה למאגר</h1>
+        <h1>הוספת דירה למאגר</h1> <div>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
         <div className="input-container full-width">
             <label>קטגוריה:</label>
             <select className="input-field select-field" required onChange={(e) => setKategory(e.target.value)}>
@@ -241,7 +274,45 @@ export const AddApartments = () => {
             <label>:פרסום עד</label>
             <input type="date" name="datend" required min={currentDate} max={maxDateString} />
              </div></div>
-            <div className="row">
+     <div className="row">
+        {/* //Sukcaporch,elevator,view,reconditioned,warehouse,park,airConditioning, */}
+     <div className="input-container">
+                <label>:מרפסת סוכה</label>
+                <input type="checkbox" name="Sukcaporch" />
+            </div> 
+            <div className="input-container">
+                <label>:מעלית</label>
+                <input type="checkbox" name="elevator" />
+            </div> 
+            <div className="input-container">
+                <label>:נוף</label>
+                <input type="checkbox" name="view" />
+            </div> 
+            <div className="input-container">
+                <label>:משופצת</label>
+                <input type="checkbox" name="reconditioned" />
+            </div> 
+            <div className="input-container">
+                <label>:מחסן</label>
+                <input type="checkbox" name="warehouse" />
+            </div>
+            <div className="input-container">
+                <label>:חניה</label>
+                <input type="checkbox" name="park" />
+            </div> 
+            <div className="input-container">
+                <label>:מיזוג אוויר</label>
+                <input type="checkbox" name="airConditioning" />
+            </div>  
+</div>
+<input
+  type="file"
+  name="images"   
+  multiple
+  accept="image/*"
+  onChange={(e) => setImages([...e.target.files])}
+/>
+             <div className="row">
         
       
   <button type="submit" className="input-container btEn" disabled={loading}>   {loading ? <FaSpinner className="spinner" /> : 'שלח '}

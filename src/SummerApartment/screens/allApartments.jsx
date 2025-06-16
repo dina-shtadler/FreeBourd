@@ -1,25 +1,40 @@
 import './allApartment.css'
 import { FaPrint, FaShareSquare } from 'react-icons/fa';
 import { useEffect, useState } from "react";
+import React, { useContext } from 'react';
+import { GlobalDataContext } from '../../App';
 
 import { getAllApartment, getAllKategorys, removeApartment, getAllByKodKategory } from "../api";
 import EmailIcon from '../icons/Email';
 import OpenCloseIcon from '../icons/openClose';
 import ApartmentRow from './ApartmentRow';
 import LookFor from '../icons/lookFor';
+import { useLocation } from 'react-router-dom';
+
 export const AllApartments = () => {
     const [isOpen, setIsOpen] = useState(false);
 
     const [listApartment, setList] = useState();
+    const location = useLocation();
+  const { forSale, forRent, forVacation } = useContext(GlobalDataContext);
+
     useEffect(() => {
-        getAllApartment()
-            .then(x => {
-                setList(x.data.apartmens);
-                console.log("listApartment",x.data);
-            })
-            .catch(err => {
-                console.log(err);
-            });
+        // getAllApartment()
+        //     .then(x => {
+          const nameList=location.state
+          if(nameList=="למכירה")
+                setList(forSale);
+              else if(nameList=="להשכרה")
+                                setList(forRent);
+               else if(nameList=="נופש שבתות וחגים")
+                  setList(forVacation);
+
+                console.log(forVacation)
+
+            // })
+            // .catch(err => {
+            //     console.log(err);
+            // });
     }, []);
 
     return(<>

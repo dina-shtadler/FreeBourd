@@ -32,3 +32,326 @@
         backdrop-filter: blur(5px);
         /* Note: backdrop-filter has minimal browser support */
         }
+        .reconditioned{/* Frame 1261158238 */
+
+            box-sizing: border-box;
+            
+            /* Auto layout */
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 0px 8px;
+            
+            width: 84.4px;
+            height: 28px;
+            
+            background: #FFFFFF;
+            border: 0.777778px solid #313131;
+            border-radius: 100px;
+            
+            /* Inside auto layout */
+            flex: none;
+            order: 2;
+            flex-grow: 0;
+            }
+            .floor1{
+/* Group 41733 */
+                    box-sizing: border-box;
+
+width: 55.67px;
+height: 28px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 6;
+flex-grow: 0;
+  background: #FFFFFF;
+                    border: 0.777778px solid #313131;
+                    border-radius: 100px;
+                    
+                }
+                .Sukcaporch{/* Frame 1261158238 */
+
+                    box-sizing: border-box;
+                    
+                    width: 109.33px;
+                    height: 28px;
+                    
+                    background: #FFFFFF;
+                    border: 0.777778px solid #313131;
+                    border-radius: 100px;
+                    
+                    /* Inside auto layout */
+                    flex: none;
+                    order: 5;
+                    flex-grow: 0;
+                    }
+                    .elevator{/* Frame 1261158238 */
+
+                        box-sizing: border-box;
+                        
+                        /* Auto layout */
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: flex-end;
+                        align-items: center;
+                        padding: 0px 8px;
+                        
+                        width: 74.78px;
+                        height: 28px;
+                        
+                        background: #FFFFFF;
+                        border: 0.777778px solid #313131;
+                        border-radius: 100px;
+                        
+                        /* Inside auto layout */
+                        flex: none;
+                        order: 4;
+                        flex-grow: 0;
+                        }
+                        .view{/* Frame 1261158238 */
+
+                            box-sizing: border-box;
+                            
+                            /* Auto layout */
+                            display: flex;
+                            flex-direction: row;
+                            justify-content: flex-end;
+                            align-items: center;
+                            padding: 0px 8px;
+                            
+                            width: 58.4px;
+                            height: 28px;
+                            
+                            background: #FFFFFF;
+                            border: 0.777778px solid #313131;
+                            border-radius: 100px;
+                            
+                            /* Inside auto layout */
+                            flex: none;
+                            order: 3;
+                            flex-grow: 0;
+                            }
+                            .warehouse{/* Frame 1261158238 */
+
+                                box-sizing: border-box;
+                                
+                                /* Auto layout */
+                                display: flex;
+                                flex-direction: row;
+                                justify-content: flex-end;
+                                align-items: center;
+                                padding: 0px 8px;
+                                
+                                width: 73.4px;
+                                height: 28px;
+                                
+                                background: #FFFFFF;
+                                border: 0.777778px solid #313131;
+                                border-radius: 100px;
+                                
+                                /* Inside auto layout */
+                                flex: none;
+                                order: 1;
+                                flex-grow: 0;
+                                }
+                                .park{/* Frame 1261158238 */
+
+                                    box-sizing: border-box;
+                                    
+                                    /* Auto layout */
+                                    display: flex;
+                                    flex-direction: row;
+                                    justify-content: flex-end;
+                                    align-items: center;
+                                    padding: 0px 8px;
+                                    
+                                    width: 66.4px;
+                                    height: 28px;
+                                    
+                                    background: #FFFFFF;
+                                    border: 0.777778px solid #313131;
+                                    border-radius: 100px;
+                                    
+                                    /* Inside auto layout */
+                                    flex: none;
+                                    order: 0;
+                                    flex-grow: 0;
+                                    }
+                                    .airConditioning{/* Frame 1261158403 */
+
+                                        box-sizing: border-box;
+                                        
+                                        /* Auto layout */
+                                        display: flex;
+                                        flex-direction: row;
+                                        justify-content: flex-end;
+                                        align-items: center;
+                                        padding: 0px 8px;
+                                        
+                                        position: absolute;
+                                        width: 94px;
+                                        height: 28px;
+                                        left: 1368px;
+                                        top: 1221px;
+                                        
+                                        background: #FFFFFF;
+                                        border: 0.777778px solid #313131;
+                                        border-radius: 100px;
+                                        }
+                                        .allFeatures{/* Frame 1261158405 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 11px;
+
+width: 588.38px;
+height: 28px;
+left: 869px;
+top: 1183px;
+
+}
+.picture{/* image */
+
+/* position: absolute; */
+width: 322px;
+height: 211px;
+left: 461px;
+top: 923px;
+
+/* background: url(image.png); */
+border-radius: 8px;
+
+
+/* image */
+
+/* position: absolute; */
+width: 322px;
+height: 211px;
+left: 799px;
+top: 923px;
+
+/* background: url(image.png); */
+border-radius: 8px;
+
+
+/* image */
+
+/* position: absolute; */
+width: 322px;
+height: 211px;
+left: 1137px;
+top: 923px;
+
+/* background: url(image.png); */
+border-radius: 8px;
+}
+.contact{/* Rectangle 19345 */
+float: left;
+width: 338px;
+height: 285px;
+left: 463px;
+top: 1183px;
+
+background: #FFFFFF;
+/* Shadow/Level2 */
+box-shadow: 0px 4px 12px rgba(6, 77, 173, 0.15);
+border-radius: 8px;
+}
+.contacTitle{
+    /* תוקף רישיון רכב */
+width: 120px;
+height: 24px;
+left: 638px;
+top: 1204px;
+
+/* Body/Bold */
+font-family: 'Rubik';
+font-style: normal;
+font-weight: 700;
+font-size: 16px;
+line-height: 24px;
+/* identical to box height, or 150% */
+text-align: right;
+
+color: #313131;
+
+backdrop-filter: blur(5px);
+/* Note: backdrop-filter has minimal browser support */
+
+}
+.contacTitle2{/* Frame 1261158332 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: flex-end;
+align-items: center;
+padding: 0px;
+gap: 13px;
+
+width: 215.3px;
+height: 18px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+}
+.contacTitle3{/* Frame 1261158327 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: flex-end;
+padding: 0px;
+gap: 12px;
+
+width: 209.49px;
+height: 18px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+}
+.contacTitle4{/* Frame 1261158331 */
+
+/* Auto layout */
+/* display: flex; */
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 13px;
+
+width: 199.49px;
+height: 18px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+}
+.contact1{/* Frame 1261158402 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-end;
+padding: 0px;
+gap: 12px;
+
+width: 215.3px;
+height: 78px;
+left: 543px;
+top: 1252px;
+
+}

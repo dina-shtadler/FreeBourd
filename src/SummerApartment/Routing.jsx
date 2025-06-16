@@ -22,7 +22,7 @@ export const Routing = () => {
         <Routes>
             {/* הצהרות הניתובים */}
            
-            <Route path={'/'} element={<AllApartments></AllApartments>}></Route>
+            <Route path={'/'} element={<Home></Home>}></Route>
 
 
             <Route path={'Home'} element={<Home></Home>}></Route>
@@ -39,6 +39,7 @@ export const Routing = () => {
             <Route path={'personal-area'}element={<PersonalArea></PersonalArea>} ></Route>
             <Route path={'apartmentForRent'} element={<ApartmentForRent></ApartmentForRent>}></Route>
             <Route path={'apartmentHoliday'} element={<Holiday></Holiday>}></Route>
+            <Route path={'allApartments'} element={<AllApartments></AllApartments>}></Route>
 
             {/* <Route path={'Login'} element={<Login></Login>}></Route> */}
             </Routes>

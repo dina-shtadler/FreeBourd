@@ -6,34 +6,34 @@ import { useEffect, useState } from "react";
 import { getAllApartment, } from "./api";
 
 export const Nav = () => {
-    const [listApartment, setList] = useState([]);
-    const [listApartment1, setList1] = useState([]);
-    const [listApartmentH, setList2] = useState([]);
+    // const [listApartment, setList] = useState([]);
+    // const [listApartment1, setList1] = useState([]);
+    // const [listApartmentH, setList2] = useState([]);
 
   useEffect(() => {
-    getAllApartment()
-        .then(x => { 
-           const filteredApartments1 = x.data.apartmens.filter(item => item.kodKategory[0]?.nameKategory === 'להשכרה'&&  (!item.datend || new Date(item.datend).getTime() >= new Date().setHours(0, 0, 0, 0))); // אם אין datend או אם datend קטן או שווה להיום
-           const filteredApartments = x.data.apartmens.filter(item => item.kodKategory[0]?.nameKategory === 'למכירה' && (!item.datend || new Date(item.datend).getTime() >= new Date().setHours(0, 0, 0, 0))); // אם אין datend או אם datend קטן או שווה להיום
-           const filteredApartments2 =  x.data.apartmens.filter(item => item.kodKategory[0]?.nameKategory === 'נופש שבתות וחגים' && (!item.datend || new Date(item.datend).getTime() >= new Date().setHours(0, 0, 0, 0))); // אם אין datend או אם datend קטן או שווה להיום
-            setList(filteredApartments);
-            setList1(filteredApartments1)
-            setList2(filteredApartments2)
-            console.log("listApartment", filteredApartments1);
-        })
-        .catch(err => {
-            console.log(err);
-        });
+    // getAllApartment()
+    //     .then(x => { 
+    //        const filteredApartments1 = x.data.apartmens.filter(item => item.kodKategory[0]?.nameKategory === 'להשכרה'&&  (!item.datend || new Date(item.datend).getTime() >= new Date().setHours(0, 0, 0, 0))); // אם אין datend או אם datend קטן או שווה להיום
+    //        const filteredApartments = x.data.apartmens.filter(item => item.kodKategory[0]?.nameKategory === 'למכירה' && (!item.datend || new Date(item.datend).getTime() >= new Date().setHours(0, 0, 0, 0))); // אם אין datend או אם datend קטן או שווה להיום
+    //        const filteredApartments2 =  x.data.apartmens.filter(item => item.kodKategory[0]?.nameKategory === 'נופש שבתות וחגים' && (!item.datend || new Date(item.datend).getTime() >= new Date().setHours(0, 0, 0, 0))); // אם אין datend או אם datend קטן או שווה להיום
+    //         setList(filteredApartments);
+    //         setList1(filteredApartments1)
+    //         setList2(filteredApartments2)
+    //         console.log("listApartment", filteredApartments1);
+    //     })
+    //     .catch(err => {
+    //         console.log(err);
+    //     });
 }, []);
     return <>
   
         {/* <div className={'nav'}> */}
         <div className={'allink'}>
 
-            {/* <NavLink to='Home' className={'link'} >עמוד-הבית</NavLink> */}
-            <NavLink to='apartmentForSale' className={'link'}  state={{ listApartment}}>דירות למכירה</NavLink>
-            <NavLink to='apartmentForRent' className={'link'}  state={{ listApartment1 }}> דירות להשכרה</NavLink>
-            <NavLink to='apartmentHoliday' className={'link'}  state={{ listApartmentH}}> דירות לנופש</NavLink>
+            <NavLink to='Home' className={'link'} >עמוד-הבית</NavLink>
+            <NavLink to='AllApartments' className={'link'}  state="למכירה">דירות למכירה</NavLink>
+            <NavLink to='allApartments' className={'link'}  state="להשכרה"> דירות להשכרה</NavLink>
+            <NavLink to='allApartments' className={'link'}  state="נופש שבתות וחגים"> דירות לנופש</NavLink>
             {/* <NavLink to='Apartments' className={'link'}>כל הדירות במאגר</NavLink> */}
       {/* </div> */}
       {/* <svg width="81" height="21" viewBox="0 0 81 21" fill="none" xmlns="http://www.w3.org/2000/svg">

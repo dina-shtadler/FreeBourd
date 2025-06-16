@@ -2,6 +2,8 @@
  import './App.css';
 // import ChatBot from "react-chatbotify";
 // import MyChatbot from './SummerApartment/chatBot'
+import { createContext } from 'react';
+
 
 // // import { Main } from './TanachPrject/Main';
 // // import { Main } from './searchInTanach/Main';
@@ -37,6 +39,8 @@ import MyChatLogic from "./SummerApartment/chatBot";
 import OptionMessage from './SummerApartment/optionMassage';
 import { Wireframe } from './SummerApartment/screens/Wireframe';
 import { AllApartments } from './SummerApartment/screens/allApartments';
+import { getAllApartment, } from "../src/SummerApartment/api";
+import  { useEffect, useState } from 'react';
 
 const config = {
   flow: {
@@ -81,7 +85,34 @@ const config = {
 };
 
 function App() {
+ const [all, setAll] = useState([]);
+  const [forSale, setForSale] = useState([]);
+  const [forRent, setForRent] = useState([]);
+  const [forVacation, setForVacation] = useState([]);
+  const [name, setName] = useState(null);
+
+
+    useEffect(() => {
+      getAllApartment()
+          .then(x => { 
+             const filteredApartments3 = x.data.apartmens
+             const filteredApartments1 = x.data.apartmens.filter( (item:any)=> item.kodKategory[0]?.nameKategory === 'להשכרה'&&  (!item.datend || new Date(item.datend).getTime() >= new Date().setHours(0, 0, 0, 0))); // אם אין datend או אם datend קטן או שווה להיום
+           const filteredApartments = x.data.apartmens.filter((item:any) => item.kodKategory[0]?.nameKategory === 'למכירה' && (!item.datend || new Date(item.datend).getTime() >= new Date().setHours(0, 0, 0, 0))); // אם אין datend או אם datend קטן או שווה להיום
+           const filteredApartments2 =  x.data.apartmens.filter((item:any) => item.kodKategory[0]?.nameKategory === 'נופש שבתות וחגים' && (!item.datend || new Date(item.datend).getTime() >= new Date().setHours(0, 0, 0, 0))); // אם אין datend או אם datend קטן או שווה להיום
+           
+           setAll(filteredApartments3);
+             setForSale(filteredApartments)
+             setForRent(filteredApartments1)
+             setForVacation(filteredApartments2)
+              console.log("listApartment", filteredApartments);
+          })
+          .catch(err => {
+              console.log(err);
+          });
+  }, []);
   return (
+        <GlobalDataContext.Provider value={{all,forSale,forRent,forVacation,name}}>
+
     <div >
    
    {/* <Wireframe></Wireframe> */}
@@ -98,7 +129,17 @@ function App() {
   />
 </ChatBotProvider>
     </div></div>
+        </GlobalDataContext.Provider>
+
   );
 }
 
 export default App;
+export  const GlobalDataContext = createContext({
+  all:[],
+  forSale:[],
+  forRent: [],
+  forVacation: [],
+  name: null,
+  // setName: () => {},
+});

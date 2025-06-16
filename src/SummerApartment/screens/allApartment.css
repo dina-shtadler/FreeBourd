@@ -531,6 +531,27 @@ flex-grow: 0;
         flex-grow: 0;
         }
         .lookFor{/* Frame 1261158397 */
+/* חיפוש */
+
+width: 42px;
+height: 24px;
+
+/* Body/Bold */
+font-family: 'Rubik';
+font-style: normal;
+font-weight: 700;
+font-size: 16px;
+line-height: 24px;
+/* identical to box height, or 150% */
+text-align: right;
+
+color: #FFFFFF;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
 
             /* Auto layout */
             display: flex;

@@ -3,40 +3,47 @@ import { useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet'; // ייבוא של React Helmet
 import "./design.css";
 import { useEffect, useState } from "react";
-import { getAllApartment, } from "./api";
+// import { getAllApartment, } from "./api";
+// import { GlobalDataContext } from '../App';
+// import  { useContext } from 'react';
 
 export const Home = () => {
-      const [listApartment, setList] = useState([]);
-      const [listApartment1, setList1] = useState([]);
-      const [listApartmentH, setListH] = useState([]);
+        //   const globalData = useContext(GlobalDataContext);
+ 
+    //   const [listApartment, setList] = useState([]);
+    //   const [listApartment1, setList1] = useState([]);
+    //   const [listApartmentH, setListH] = useState([]);
 
     const Nav = useNavigate();
     useEffect(() => {
-      getAllApartment()
-          .then(x => { 
-             const filteredApartments1 = x.data.apartmens.filter(item => item.kodKategory[0]?.nameKategory === 'להשכרה'&&  (!item.datend || new Date(item.datend).getTime() >= new Date().setHours(0, 0, 0, 0))); // אם אין datend או אם datend קטן או שווה להיום
-             const filteredApartments = x.data.apartmens.filter(item => item.kodKategory[0]?.nameKategory === 'למכירה' && (!item.datend || new Date(item.datend).getTime() >= new Date().setHours(0, 0, 0, 0))); // אם אין datend או אם datend קטן או שווה להיום
-             const filteredApartmentsH = x.data.apartmens.filter(item => item.kodKategory[0]?.nameKategory === 'נופש שבתות וחגים' && (!item.datend || new Date(item.datend).getTime() >= new Date().setHours(0, 0, 0, 0))); // אם אין datend או אם datend קטן או שווה להיום
-              setList(filteredApartments);
-              setList1(filteredApartments1)
-              setListH(filteredApartmentsH)
-              console.log("listApartment", filteredApartmentsH);
-          })
-          .catch(err => {
-              console.log(err);
-          });
+    //   getAllApartment()
+    //       .then(x => { 
+    //          const filteredApartments1 = globalData.filter(item => item.kodKategory[0]?.nameKategory === 'להשכרה'&&  (!item.datend || new Date(item.datend).getTime() >= new Date().setHours(0, 0, 0, 0))); // אם אין datend או אם datend קטן או שווה להיום
+    //          const filteredApartments = globalData.filter(item => item.kodKategory[0]?.nameKategory === 'למכירה' && (!item.datend || new Date(item.datend).getTime() >= new Date().setHours(0, 0, 0, 0))); // אם אין datend או אם datend קטן או שווה להיום
+    //          const filteredApartmentsH = globalData.filter(item => item.kodKategory[0]?.nameKategory === 'נופש שבתות וחגים' && (!item.datend || new Date(item.datend).getTime() >= new Date().setHours(0, 0, 0, 0))); // אם אין datend או אם datend קטן או שווה להיום
+    //           setList(filteredApartments);
+    //           setList1(filteredApartments1)
+    //           setListH(filteredApartmentsH)
+    //           console.log("listApartment", filteredApartments);
+    //       })
+    //       .catch(err => {
+    //           console.log(err);
+    //       });
   }, []);
     const addApartment = () => {
         Nav('/Publisher');
     };
     const apartmentForsale = () => {
-        Nav('/apartmentForSale', { state: { listApartment } });
+                    //  const filteredApartments = "למכירה"
+        Nav('/allApartments', { state: "למכירה" });
     };
     const apartmentForRent = () => {
-        Nav('/apartmentForRent', { state: { listApartment1 } });
+                    //  const filteredApartments = "להשכרה"
+        Nav('/allApartments', { state: "להשכרה" });
     };
     const apartmentHoliday = () => {
-        Nav('/apartmentHoliday', { state: { listApartmentH } });
+                    //  const filteredApartments = "נופש שבתות וחגים"
+        Nav('/allApartments', { state:  "נופש שבתות וחגים"});
     };
 
     return (
