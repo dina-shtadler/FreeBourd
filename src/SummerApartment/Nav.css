@@ -27,3 +27,7 @@
         
         
         }
+        .link.active {
+  font-weight: bold;
+  color: blue;
+}

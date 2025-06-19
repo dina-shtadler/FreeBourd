@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { useEffect, useState } from "react";
 import { getAllApartment, } from "./api";
+import { useLocation } from 'react-router-dom';
 
 export const Nav = () => {
     // const [listApartment, setList] = useState([]);
@@ -25,15 +26,21 @@ export const Nav = () => {
     //         console.log(err);
     //     });
 }, []);
+  const location = useLocation();
+
+  const getClass = (desiredState) => ({ isActive }) => {
+    return isActive && location.state === desiredState ? 'link active' : 'link';
+  };
+
     return <>
   
         {/* <div className={'nav'}> */}
         <div className={'allink'}>
 
             <NavLink to='Home' className={'link'} >עמוד-הבית</NavLink>
-            <NavLink to='AllApartments' className={'link'}  state="למכירה">דירות למכירה</NavLink>
-            <NavLink to='allApartments' className={'link'}  state="להשכרה"> דירות להשכרה</NavLink>
-            <NavLink to='allApartments' className={'link'}  state="נופש שבתות וחגים"> דירות לנופש</NavLink>
+            <NavLink to='AllApartments'  state="למכירה" className={getClass("למכירה")}>דירות למכירה</NavLink>
+            <NavLink to='allApartments' className={getClass("להשכרה")}  state="להשכרה"> דירות להשכרה</NavLink>
+            <NavLink to='allApartments' className={getClass("נופש שבתות וחגים")}  state="נופש שבתות וחגים"> דירות לנופש</NavLink>
             {/* <NavLink to='Apartments' className={'link'}>כל הדירות במאגר</NavLink> */}
       {/* </div> */}
       {/* <svg width="81" height="21" viewBox="0 0 81 21" fill="none" xmlns="http://www.w3.org/2000/svg">

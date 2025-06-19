@@ -17,6 +17,9 @@ export const AllApartments = () => {
     const [listApartment, setList] = useState();
     const location = useLocation();
   const { forSale, forRent, forVacation } = useContext(GlobalDataContext);
+ const [currentState, setCurrentState] = useState(location.state);
+
+ 
 
     useEffect(() => {
         // getAllApartment()
@@ -35,7 +38,7 @@ export const AllApartments = () => {
             // .catch(err => {
             //     console.log(err);
             // });
-    }, []);
+    }, [location.state]);
 
     return(<>
   
